@@ -1,0 +1,55 @@
+.reg-venta-main-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 98%;
+}
+.reg-venta-upper-bodyf{
+    display: flex;
+    margin: 30px;
+    flex-wrap: wrap;
+}
+.reg-venta-lower-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formulario-registro-venta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #afaaaa;
+    gap: 20px;
+    width: 100%;
+}
+.titulo-formulario-rv{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+}
+.entrada-datos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 17px;
+    margin: 0 10px 0 10px;
+    width: 300px;
+}
+input{
+    padding: 5px;
+}
+.btn-registrarV{
+    margin-bottom: 20px;
+}
+button{
+    padding: 10px;
+    border-radius:10px;
+}

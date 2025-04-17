@@ -1,0 +1,55 @@
+.subtitul {
+    display: grid;
+    justify-content: center;
+    padding: 10px 10px;
+    border: solid 1px black;
+    background-color: #706f6f;
+    color: white;
+}
+
+
+.circulo {
+    width: 150px;
+    /* Ancho del círculo */
+    height: 150px;
+    /* Alto del círculo */
+    background-color: #706f6f;
+    /* Color de fondo */
+    border-radius: 50%;
+    /* Hace que el div sea un círculo */
+}
+
+.modulo-informacion {
+
+    border: solid 1px black;
+
+}
+
+.perfil {
+    display: grid;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.informacion {
+    display: grid;
+    justify-content: center;
+    font-size: 20px;
+    padding: 15px;
+
+}
+
+.dat {
+    display: grid;
+    border: solid 1px black;
+    ;
+    padding: 5px;
+    justify-content: center;
+}
+/* Stylos para todos */
+table {
+    border-collapse: collapse;
+    margin: 10px 0 10px 0;
+    width: 100%;
+    
+}

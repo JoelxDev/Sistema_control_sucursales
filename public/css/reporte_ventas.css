@@ -1,0 +1,74 @@
+/* .cuerpo-reporteV{
+    display: flex;
+    justify-content: center;
+} */
+#principal_contentRV {
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    margin: 10px;
+}
+
+.content-reporteV {
+    display: grid;
+    justify-content: center;
+    background-color: #afaaaa;
+}
+
+.encabezado-botones {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+}
+
+.titulo-reporteV {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.Cantidad-V,
+.Total-V,
+.Ususarios-R,
+.Fecha-RV {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+.datos-reporteV {
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 0 10px;
+}
+
+.campo-bot_bus {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.lista-ventas {
+    display: grid;
+    justify-content: center;
+    overflow-x: auto;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+tr,
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+}
+
+button,
+.buscar_ventas {
+    padding: 10px;
+    border-radius: 10px;
+}

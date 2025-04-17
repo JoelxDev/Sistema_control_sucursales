@@ -1,0 +1,39 @@
+
+.principal-contentBVP{
+    overflow: auto;
+}
+.tabla-VProductos{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+
+}
+.titulo-VProductos{
+    border: 1px solid black;
+    padding: 10px;
+}
+.cuerpo-inferior{
+    overflow: auto;
+    background-color:#afaaaa ;
+
+
+}
+.cuerpo-VProductos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: auto;
+    margin: 10px;
+}
+.cuerpo-superior{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 30px;
+}
+.btn_añadirP{
+    padding: 10px;
+    border-radius: 10px;
+}

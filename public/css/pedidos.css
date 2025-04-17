@@ -1,0 +1,41 @@
+.Pe-main-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Pe-upper-body{
+    margin: 2%;
+}
+.Pe-lower-body{
+    display: flex;
+    width: 97%;
+}
+.cuad-pedidos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #afaaaa;
+    width: 100%;
+}
+.titulo-cuad-pedidos{
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+.infor-pedidos{
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+.infor-tbl-pedidos{
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+}
+button{
+    padding: 10px;
+    border-radius: 10px;
+}

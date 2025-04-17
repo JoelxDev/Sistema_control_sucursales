@@ -1,0 +1,69 @@
+.invetario-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.inventario-main-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+}
+
+.inventario-upper-body{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 50px;
+    width: 100%;
+}
+
+.inventario-lower-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.producto_invetario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    flex-direction: column;
+    width: 150px;
+    gap: 10px;
+    background-color: #afaaaa;
+}
+.datos-producto{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: 90%;
+    margin-bottom: 20px;
+}
+.nom_producto{
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    width: 100%;
+}
+.cantidad_producto{
+    text-align: start;
+    border: 1px solid black;
+    padding: 5px;
+    width: 100%;
+}
+.precio_unitario{
+    text-align: start;
+    border: 1px solid black;
+    padding: 5px;
+    width: 100%;
+}
+
+button, input{
+    padding: 10px;
+    border-radius: 10px;
+}

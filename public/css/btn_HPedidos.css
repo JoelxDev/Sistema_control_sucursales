@@ -1,0 +1,40 @@
+.HPed-main-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.HPed-upper-body{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+}
+
+.HPed-lower-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 98%;
+}
+
+.historial-pedidos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color:#afaaaa; 
+    width: 100%;
+}
+.titulo-HistPedidos{
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.tabla-HPedidos{
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+}

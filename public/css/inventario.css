@@ -1,0 +1,51 @@
+.informacion-inventario{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px 0 20px;
+}
+.titulo-inventario{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #afaaaa;
+    border: 1px solid black;
+    padding: 10px;
+}
+.cont-inventario{
+    margin: 10px;
+}
+.cont-superior{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+.cont-inferior{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cont-enviar{
+    display: flex;
+    flex-direction: column;
+    background-color:#706f6f;
+}
+.nomb-producto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid black;
+    padding: 2px 15px 2px 15px;
+}
+.cantidad-inventario{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid black;
+    margin: 10px;
+}
+button{
+    margin: 25px;
+    border-radius: 10px;
+    padding: 10px;
+}

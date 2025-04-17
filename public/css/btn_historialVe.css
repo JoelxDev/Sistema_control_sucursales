@@ -1,0 +1,62 @@
+/* Contenedor principal */
+.principal-HV {
+    display: flex;
+    overflow: auto;
+    max-width: 100%;
+    padding: 20px;
+}
+
+/* Contenedor interno */
+.cont-historialVe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Encabezado con búsqueda y filtro */
+.encabezado-HV {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin: 20px;
+    width: 100%;
+}
+
+.buscar_Dt_HV {
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+}
+
+select {
+    width: 100%;
+    max-width: 200px;
+    padding: 5px;
+}
+
+/* Contenedor de la tabla */
+.cuerpo-HVentas {
+    background-color: #afaaaa;
+    width: 100%; /* Ajuste para evitar cortes */
+}
+
+/* Tablas responsivas */
+.tabla-container {
+    overflow-x: auto; /* Permite desplazamiento horizontal si la tabla es más ancha */
+}
+
+
+
+/* Estilo del título */
+.titulo-hist {
+    padding: 10px 30px;
+    border: 1px solid black;
+    background-color: #ddd;
+    font-size: 18px;
+    font-weight: bold;
+}

@@ -1,0 +1,50 @@
+.reg-vent-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 98%;
+}
+.reg-vent-upper-body{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+    width: 100%;
+}
+.reg-vent-lower-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.tabla-list-ventas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: auto;
+    background-color: #afaaaa;
+}
+
+.titulo-ventas-registradas{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+}
+
+.tabla-ventas-registradas{
+    display: flex;
+    width: 100%;
+}

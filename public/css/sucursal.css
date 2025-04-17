@@ -1,0 +1,48 @@
+.modulos-sucursales{
+    display: flex;
+    justify-content: center;
+}
+
+#cont-sucursal {
+    display: grid;
+    background-color: #afaaaa;
+    margin: 20px;
+}
+
+.titulo-S {
+    border: 1px solid black;
+    padding: 10px 30px 10px 30px;
+}
+
+.ubicacion-S, .ciudad-S, .estado-S {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.datos-sucursal{
+    display: grid;
+    margin: 10px;
+    gap: 10px;
+}
+
+.botones-S{
+    display: flex;
+    justify-content: space-evenly;
+}
+.modificar-btn, .eliminar-btn {
+    border: 1px solid black;
+    padding: 7px;
+    
+}
+
+.boton-sucursal{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin-top: 50px;
+}
+.anadir-sucursal{
+    padding: 10px;
+    border-radius: 20px ;
+}
