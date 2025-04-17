@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de ventas</title>
+    <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
+
+    <link rel="stylesheet" href="../../../../public/css/btn_historialVe.css">
+</head>
+
+<body>
+    <!-- Interfaz Para pantallas pequeñas -->
+    
+    <div class="encabezado-mvl">
+        <div class="cl-titulo">
+            <h3 class="titulo-mvl">ADMINISTRADOR</h3>
+        </div>
+        <div class="img-menu">
+            <img src="../../../../public/img/file.png" alt="">
+
+        </div>
+        
+    </div>
+    
+    <div class="mini-content"> 
+        <div class="mini-encabezado">
+            <div class="menu-a">
+                <a href="../informacion/informacion.html"><h3>Informacion</h3></a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../sucursales/sucursales.html"><h3>Sucursales</h3></a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../usuarios/usuarios.html"><h3>Usuarios</h3></a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../reporte_ventas/reporte_ventas.html"><h3>Reporte Ventas</h3></a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../inventario/inventario.html"><h3>Inventario</h3></a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../pedidos/pedidos.html"><h3>Pedidos</h3></a>
+            </div>
+            <div class="mini-menu-b"><h3>Salir</h3></div>
+        </div>
+    </div>
+    <!-- Interfaz para pantallas grandes -->
+    <div class="content">
+        <div class="encabezado">
+            <div class="titulo"><h3>ADMINISTRADOR</h3></div>
+            <div class="menu-a">
+                <a href="../informacion/informacion.html"><h3>Informacion</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="../sucursales/sucursales.html"><h3>Sucursales</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="../usuarios/usuarios.html"><h3>Usuarios</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="../reporte_ventas/reporte_ventas.html"><h3>Reporte Ventas</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="../inventario/inventario.html"><h3>Inventario</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="../pedidos/pedidos.html"><h3>Pedidos</h3></a>
+            </div>
+            <div class="menu-b"><h3>Salir</h3></div>
+        </div>
+        <!-- Desde aqui se puede modificar para otros modulos -->
+        <!-- Contenido principal -->
+        <div class="principal-HV">
+            <div class="cont-historialVe">
+                <div class="encabezado-HV">
+                    <div class="buscar-HV">
+                        <input type="text" class="buscar_Dt_HV" id="buscar_Dt_HV"
+                            placeholder="Buscar por fecha, vendedor, producto, tipo de venta o pago">
+                    </div>
+                    <div>
+                        <label for="ordenarHV">Ordenar por:</label><br>
+                        <select name="ordenarHV" id="ordenarHV">
+                            <option value="fecha">Fecha</option>
+                            <option value="mas_vendidos">Más Vendidos</option>
+                            <option value="menos_vendidos">Menos Vendidos</option>
+                            <option value="venta_mixta">Venta Mixta</option>
+                            <option value="venta_producto">Venta Por Producto</option>
+                            <option value="pago_efectivo">Pago Efectivo</option>
+                            <option value="pago_digital">Pago Digital</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="cuerpo-HVentas">
+                    <div>
+                        <div class="titulo-hist">
+                            <h3>Historial de Ventas</h3>
+                        </div>
+                    </div>
+                    <div class="tabla-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID Venta</th>
+                                    <th>Vendedor</th>
+                                    <th>Tipo de Venta</th>
+                                    <th>Producto</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                    <th>Tipo de Pago</th>
+                                    <th>Fecha y Hora Registrada</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>Nathan T.</td>
+                                    <td>Por Producto</td>
+                                    <td>Pan Integral</td>
+                                    <td>S/.2.00</td>
+                                    <td>1</td>
+                                    <td>S/.2.00</td>
+                                    <td>Efectivo</td>
+                                    <td>01-01-01 10:00:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

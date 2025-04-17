@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
+    <link rel="stylesheet" href="../../../../public/css/registrarVentasUE.css">
+
+    <title>Registrar Venta</title>
+</head>
+
+<body>
+    <!-- Interfaz Para pantallas pequeñas -->
+    <div class="encabezado-mvl">
+        <div class="cl-titulo">
+            <h3 class="titulo-mvl">ADMINISTRADOR</h3>
+        </div>
+        <div class="img-menu">
+            <img src="../../../../public/img/file.png" alt="">
+
+        </div>
+
+    </div>
+    <div class="mini-content">
+        <div class="mini-encabezado">
+            <div class="menu-a">
+                <a href="../informacionUE/informacionUE.html">
+                    <h3>Informacion</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../registrarVentaUE/registrarVentaUE.html">
+                    <h3>Registrar Venta</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../inventarioUE/inventarioUE.html">
+                    <h3>Inventario</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../pedidosUE/pedidosUE.html">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
+            <div class="mini-menu-b">
+                <h3>Salir</h3>
+            </div>
+        </div>
+    </div>
+    <!-- Interfaz para pantallas grandes -->
+    <div class="content">
+        <div class="encabezado">
+            <div class="titulo">
+                <h3>Joel</h3>
+            </div>
+            <div class="menu-a">
+                <a href="../informacionUE/informacionUE.html">
+                    <h3>Informacion</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="../registrarVentaUE/registrarVentaUE.html">
+                    <h3>Registrar Venta</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="../inventarioUE/inventarioUE.html">
+                    <h3>Inventario</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="../pedidosUE/pedidosUE.html">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
+
+            <div class="menu-b">
+                <h3>Salir</h3>
+            </div>
+        </div>
+        <!-- Desde aqui se puede modificar para otros modulos -->
+        <div class="reg-venta-body">
+            <div class="reg-venta-main-body">
+                <div class="reg-venta-upper-bodyf">
+                    <div class="btn_ventas-registradas">
+                        <button onclick="btn_ventasRegistradasUE()">Ventas registradas</button>
+                    </div>
+                </div>
+                <div class="reg-venta-lower-body">
+                    <div class="formulario-registro-venta">
+                        <div class="titulo-formulario-rv">
+                            <h3>Formulario de ventas</h3>
+                        </div>
+                        <div class="entrada-datos">
+                            <div>
+                                <label for="tipo_venta">Tipo de venta</label>
+                                <select name="" id="tipo_venta">
+                                    <option value="">Normal</option>
+                                    <option value="">Mixta</option>
+                                    <option value="">Multiple</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="nom_producto">Nombre del Producto</label><br>
+                                <select name="" id="nom_producto" >
+                                    <!-- Sera un despegable que mostrara los productos a seleccionar -->
+                                    <option value="">Pan de arina</option>
+                                    <option value="">Torta</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="">Cantidad</label><br>
+                                <input type="text" placeholder="cantidad">
+                            </div>
+
+                            <div>
+                                <label for="">Precio unitario</label><br>
+                                <div class="precio_unitario"> 
+                                    <p>precio del producto</p>
+                                </div>
+                                
+                            </div>
+
+                            <div>
+                                <label for="">Total</label><br>
+                                <input type="text" placeholder="Total">
+                            </div>
+
+                            <div>
+                                <label for="metod_pago">Metodo de pago</label><br>
+                                <select name="" id="metod_pago" >
+                                    <!-- Sera un despegable que mostrara los productos a seleccionar -->
+                                    <option value="">Digital</option>
+                                    <option value="">Efectivo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="btn-registrarV">
+                            <button>Registrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/public/js/main.js"></script>
+</body>
+
+</html>
