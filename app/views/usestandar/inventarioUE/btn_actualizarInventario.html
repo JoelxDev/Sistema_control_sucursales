@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
-    <link rel="stylesheet" href="../../../../public/css/btn_actualizarInventario.css">
+    <link rel="stylesheet" href="/public/css/globalStyle.css">
+    <link rel="stylesheet" href="/public/css/btn_actualizarInventario.css">
 
     <title>Actualizar Inventario</title>
 </head>
@@ -17,7 +17,7 @@
             <h3 class="titulo-mvl">ADMINISTRADOR</h3>
         </div>
         <div class="img-menu">
-            <img src="../../../../public/img/file.png" alt="">
+            <img src="/public/img/file.png" alt="">
 
         </div>
 
@@ -96,19 +96,25 @@
                             mas no agregarlos manualmente -->
                             <!-- Prueba de componente PRODUCTO -->
                             <div class="producto_actu" >
-                                <div class="titulo_act_prod">
+                                <div class="nomb_act_prod">
                                     <h3>Pan de trigo</h3>
                                 </div>
-                                <div class="cant_act_prod">
-                                    <!-- Cantidad actual del producto -->
+                                <div class="datos_act_prod">
+                                    <div class="cant_act_prod">
+                                        <!-- Cantidad actual del producto -->
+                                        <h4>Cantidad actual: 0</h4>
+                                    </div>
+                                    <div class="cant_a_actualizar">
+                                        <label for=""><h4>Cantidad a actualizar</h4></label> 
+                                        <input type="number" placeholder="Cantidad a actualizar" required>
+                                    </div>
+                                    <div class="cant_act_prod">
+                                        <!-- Cantidad total del producto CA + ACTU  -->
+                                        <!-- La suma debe realizarce en tiempo real -->
+                                        <h4>Cantidad total: 56</h4>
+                                    </div>
+                                    <button>Actualizar</button>
                                 </div>
-                                <div class="cant_a_actualizar">
-                                    <label for="">Ingresa cantidad a actualizar</label>
-                                    <input type="text" placeholder="Cantidad a actualizar">
-                                </div>
-                            </div>
-                            <div class="btn_actualizar">
-                                <button>Actualizar</button>
                             </div>
                         </div>
                     </div>

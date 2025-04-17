@@ -1,0 +1,83 @@
+.Act_Invetario-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.Act_Inventario-main-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+}
+.Act_Inventario-upper-body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 20px;
+}
+.Act_Inventario-lower-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.actualizar-inventario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #afaaaa;;
+}
+.titulo-actualizarInv{
+    display: flex;
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.conten-actualizarInv{
+    display: flex;
+    margin: 30px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    width: 100%;
+
+}
+.producto_actu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 500px;
+    border: 1px solid black;
+}
+.nomb_act_prod{
+    border: 1px solid black;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+.datos_act_prod{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5px;
+    gap: 10px;
+}
+.cant_act_prod, .cant_a_actualizar{
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+input, button{
+    padding: 10px;
+    border-radius: 10px;
+}
