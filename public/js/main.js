@@ -36,3 +36,7 @@ function btn_ventasRegistradasUE(){
 function btn_actualizarInventarioUE(){
     window.location.href='btn_actualizarInventario.html';
 }
+
+function btn_listaPedidos(){
+    window.location.href='btn_listaPedidos.html';
+}
