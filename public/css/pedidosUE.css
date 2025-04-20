@@ -1,0 +1,51 @@
+.PED-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.PED-main-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 98%;
+}
+.PED-uppder-body{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 30px;
+}
+
+
+.PED-lower-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.regis-pedidos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #afaaaa;;
+}
+.titul-regist-ped{
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+.form-regist-ped{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+button, input{
+    padding: 10px;
+    border-radius: 10px;
+}
