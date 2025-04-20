@@ -24,22 +24,22 @@
     <div class="mini-content"> 
         <div class="mini-encabezado">
             <div class="menu-a">
-                <a href="../informacion/informacion.html"><h3>Informacion</h3></a>
+                <a href="../informacion/informacion.php"><h3>Informacion</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../sucursales/sucursales.html"><h3>Sucursales</h3></a>
+                <a href="../sucursales/sucursales.php"><h3>Sucursales</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../usuarios/usuarios.html"><h3>Usuarios</h3></a>
+                <a href="../usuarios/usuarios.php"><h3>Usuarios</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../reporte_ventas/reporte_ventas.html"><h3>Reporte Ventas</h3></a>
+                <a href="../reporte_ventas/reporte_ventas.php"><h3>Reporte Ventas</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../inventario/inventario.html"><h3>Inventario</h3></a>
+                <a href="../inventario/inventario.php"><h3>Inventario</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../pedidos/pedidos.html"><h3>Pedidos</h3></a>
+                <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
             </div>
             <div class="mini-menu-b"><h3>Salir</h3></div>
         </div>
@@ -49,22 +49,22 @@
         <div class="encabezado">
             <div class="titulo"><h3>ADMINISTRADOR</h3></div>
             <div class="menu-a">
-                <a href="../informacion/informacion.html"><h3>Informacion</h3></a>
+                <a href="../informacion/informacion.php"><h3>Informacion</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../sucursales/sucursales.html"><h3>Sucursales</h3></a>
+                <a href="../sucursales/sucursales.php"><h3>Sucursales</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../usuarios/usuarios.html"><h3>Usuarios</h3></a>
+                <a href="../usuarios/usuarios.php"><h3>Usuarios</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../reporte_ventas/reporte_ventas.html"><h3>Reporte Ventas</h3></a>
+                <a href="../reporte_ventas/reporte_ventas.php"><h3>Reporte Ventas</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../inventario/inventario.html"><h3>Inventario</h3></a>
+                <a href="../inventario/inventario.php"><h3>Inventario</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../pedidos/pedidos.html"><h3>Pedidos</h3></a>
+                <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
             </div>
             <div class="menu-b"><h3>Salir</h3></div>
         </div>
