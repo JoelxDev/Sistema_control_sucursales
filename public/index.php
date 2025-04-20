@@ -18,12 +18,12 @@
                 <form action="">
                     <div class="creden-login">
                         <div class="username-cred">
-                            <input type="text" name="username" placeholder="Nombre de usuario" required>
+                            <input type="text" name="txtusername" placeholder="Nombre de usuario" required>
                         </div>
                         <div class="contrasenia-cred">
-                            <input type="text" name="contrasenia" placeholder="Contraseña" required>
+                            <input type="text" name="txtcontrasenia" placeholder="Contraseña" required>
                         </div>
-                    </div>X|
+                    </div>
                 </form>
             </div>
             <div class="boton-login">
