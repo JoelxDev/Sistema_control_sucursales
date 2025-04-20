@@ -32,11 +32,11 @@ function btn_HPedidos(){
 function btn_ventasRegistradasUE(){
     window.location.href='btn_ventasRegistradasUE.html';
 }
-
+// Actualizar Inventario del usuario estandar
 function btn_actualizarInventarioUE(){
     window.location.href='btn_actualizarInventario.html';
 }
-
-function btn_listaPedidos(){
-    window.location.href='btn_listaPedidos.html';
+// Lisat de pedidos del usuario estandar
+function btn_listaPedidosUE(){
+    window.location.href='btn_listaPedidosUE.html';
 }
