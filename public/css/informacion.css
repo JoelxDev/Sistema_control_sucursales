@@ -32,8 +32,10 @@
 }
 
 .informacion {
-    display: grid;
+    display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     font-size: 20px;
     padding: 15px;
 
@@ -42,9 +44,14 @@
 .dat {
     display: grid;
     border: solid 1px black;
-    ;
     padding: 5px;
     justify-content: center;
+    max-width: 300px;
+    text-align: center;
+    width: 100%;
+}
+.dat b {
+    margin: 10px;
 }
 /* Stylos para todos */
 table {

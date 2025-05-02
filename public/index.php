@@ -15,19 +15,11 @@
                 <h3>Iniciar Sesion</h3>
             </div>
             <div class="content-login">
-                <form action="">
-                    <div class="creden-login">
-                        <div class="username-cred">
-                            <input type="text" name="txtusername" placeholder="Nombre de usuario" required>
-                        </div>
-                        <div class="contrasenia-cred">
-                            <input type="text" name="txtcontrasenia" placeholder="Contraseña" required>
-                        </div>
-                    </div>
+                <form action="../app/models/login.php" method="post">
+                        <input type="text" name="txtusername" placeholder="Nombre de usuario" required>
+                        <input type="password" name="txtcontrasenia" placeholder="Contraseña" required>
+                    <button type="submit">Iniciar</button>
                 </form>
-            </div>
-            <div class="boton-login">
-                <button>Iniciar</button>
             </div>
         </div>
     </div>

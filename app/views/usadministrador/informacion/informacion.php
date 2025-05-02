@@ -1,3 +1,17 @@
+<?php
+session_start();
+// require_once '../../../models/login.php';
+require_once __DIR__ . '/../../../models/informacionUsuarios.php';
+require_once  __DIR__ .  '/../../../../config/config.php';
+
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: ' . BASE_URL . 'public/index.php'); // Redirige al archivo de inicio de sesión
+    exit;
+}
+
+$usuario = informacionUsuario::obtenerPorId($_SESSION['id_usuario']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,11 +94,21 @@
                     <div  class="circulo"></div>
                 </div>
                 <div class="informacion">
-                    <div class="dat">ID usuario: <br></div>
-                    <div class="dat">Nombre de usuario: <br></div>
-                    <div class="dat">Nombre: <br></div>
-                    <div class="dat">Apellido: <br></div>
-                    <div class="dat">Telefono: <br> </div>
+                    <div class="dat">ID usuario: 
+                        <b><?=htmlspecialchars($usuario['id_usuario']) ?></b>
+                    </div>
+                    <div class="dat">Nombre de usuario: 
+                        <b><?=htmlspecialchars($usuario['username']) ?></b>
+                    </div>
+                    <div class="dat">Nombre: 
+                       <b> <?=htmlspecialchars($usuario['nombre_p']) ?></b>
+                    </div>
+                    <div class="dat">Apellido: 
+                        <b><?=htmlspecialchars($usuario['apellido_p']) ?></b>
+                    </div>
+                    <div class="dat">Telefono: 
+                        <b><?=htmlspecialchars($usuario['telefono_p']) ?></b>
+                    </div>
                 </div>
             </div>
         </div>
