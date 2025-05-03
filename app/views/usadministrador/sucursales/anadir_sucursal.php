@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once __DIR__ . '/../../../../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,13 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fomulario Sucural</title>
     <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
-
     <link rel="stylesheet" href="../../../../public/css/anadir_sucursal.css">
 </head>
 
 <body>
     <!-- Interfaz Para pantallas pequeñas -->
-    
+
     <div class="encabezado-mvl">
         <div class="cl-titulo">
             <h3 class="titulo-mvl">ADMINISTRADOR</h3>
@@ -21,64 +24,109 @@
             <img src="../../../../public/img/file.png" alt="">
 
         </div>
-        
+
     </div>
-    
-    <div class="mini-content"> 
+
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="menu-a">
-                <a href="../informacion/informacion.php"><h3>Informacion</h3></a>
+                <a href="../informacion/informacion.php">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../sucursales/sucursales.php"><h3>Sucursales</h3></a>
+                <a href="../sucursales/sucursales.php">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../usuarios/usuarios.php"><h3>Usuarios</h3></a>
+                <a href="../usuarios/usuarios.php">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../reporte_ventas/reporte_ventas.php"><h3>Reporte Ventas</h3></a>
+                <a href="../reporte_ventas/reporte_ventas.php">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../inventario/inventario.php"><h3>Inventario</h3></a>
+                <a href="../inventario/inventario.php">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
+                <a href="../pedidos/pedidos.php">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
-            <div class="mini-menu-b"><h3>Salir</h3></div>
+            <div class="mini-menu-b">
+                <h3>Salir</h3>
+            </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
     <div class="content">
         <div class="encabezado">
-            <div class="titulo"><h3>ADMINISTRADOR</h3></div>
-            <div class="menu-a">
-                <a href="../informacion/informacion.php"><h3>Informacion</h3></a>
+            <div class="titulo">
+                <h3>ADMINISTRADOR</h3>
             </div>
             <div class="menu-a">
-                <a href="../sucursales/sucursales.php"><h3>Sucursales</h3></a>
+                <a href="../informacion/informacion.php">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../usuarios/usuarios.php"><h3>Usuarios</h3></a>
+                <a href="../sucursales/sucursales.php">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../reporte_ventas/reporte_ventas.php"><h3>Reporte Ventas</h3></a>
+                <a href="../usuarios/usuarios.php">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../inventario/inventario.php"><h3>Inventario</h3></a>
+                <a href="../reporte_ventas/reporte_ventas.php">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
+                <a href="../inventario/inventario.php">
+                    <h3>Inventario</h3>
+                </a>
             </div>
-            <div class="menu-b"><h3>Salir</h3></div>
+            <div class="menu-a">
+                <a href="../pedidos/pedidos.php">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
+            <div class="menu-b">
+                <h3>Salir</h3>
+            </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
         <div class="cuerpo-formulario-AS">
+            <div class="messaje">
+            <?php if (isset($_SESSION['error'])): ?>
+                        <p style="color: red; text-align:center"><?= $_SESSION['error'] ?></p>
+                        <?php unset($_SESSION['error']); ?>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['success'])): ?>
+                        <p style="color: green;"><?= $_SESSION['success'] ?></p>
+                        <?php unset($_SESSION['success']); ?>
+                    <?php endif; ?>
+
+            </div>
             <div class="formulario-anadir-s">
+                
                 <div class="titulo-anadir-s">
                     <h3>Datos sobre la sucursal</h3>
                 </div>
                 <div class="cuerpo-anadir-s">
-                    <form class="cuerpo-formulario" action="" method="post">
+                    
+                    <form class="cuerpo-formulario"
+                        action="<?= BASE_URL ?>app/controllers/us_administrador/sucursales/crearSucursal.php" method="post">
                         <div>
                             <label for="txtnombre_s">Nombre</label><br>
                             <input type="text" name="txtnombre_s" placeholder="Nombre" required>

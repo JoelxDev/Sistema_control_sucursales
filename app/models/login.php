@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contrasenia = $_POST['txtcontrasenia'];
 
     $db = Database::conectarDB();
-    $stmt = $db->prepare("SELECT * FROM usuarios WHERE username = :txtusername");
+    $stmt = $db->prepare("SELECT * FROM usuarios 
+    WHERE username = :txtusername");
     $stmt->bindParam(':txtusername', $usuario);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -19,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && $contrasenia === $user['contrasenia']) {
         // Configurar la sesión
         $_SESSION['id_usuario'] = $user['id_usuario']; // Asegúrate de que 'id_usuario' sea el nombre correcto de la columna
-        $_SESSION['rol'] = $user['rol']; // Si usas roles, guarda el rol del usuario
+        $_SESSION['tipo_usuario'] = $user['tipo_usuario']; // Si usas roles, guarda el rol del usuario
 
         // Redirigir al archivo informacion.php
         header('Location: ' . BASE_URL . 'app/views/usadministrador/informacion/informacion.php');

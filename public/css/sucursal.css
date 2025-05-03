@@ -1,10 +1,14 @@
 .modulos-sucursales{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 #cont-sucursal {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #afaaaa;
     margin: 20px;
 }
