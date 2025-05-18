@@ -57,15 +57,16 @@
 }
 
 
-tr,
+
+/* tr,
 td {
     border: 1px solid black;
     text-align: center;
-}
+} */
 
-td {
+/* td {
     padding: 10px;
-}
+} */
 
 button,
 .buscar_ventas {

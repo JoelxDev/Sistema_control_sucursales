@@ -109,67 +109,40 @@
                         <table>
                             <!-- Las tablas deben crearse automaticamente al registrarse una venta por los vendedores -->
                             <!-- Este es solo un ejemplo del codigo para las tablas -->
-                            <tbody id="tabla_ventas">
+                            <thead id="tabla_ventas">
                                 <tr>
-                                    <td colspan="2">
-                                        Nombre del producto
-                                    </td>
-                                    <td>
+                                    <th >
+                                      Nombre del producto
+                                    </th>
+                                    <th>
                                         Nombre del Vendedor
-                                    </td>
-                                    <td >
-                                        Sucursal: ??
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>S/????????</td>
-                                    <td>Cantidad:???</td>
-                                    <td>Fecha:</td>
-                                    <td>Tipo de venta</td>
+                                    </th>
+                                    <th >
+                                        Sucursal
+                                    </th>
+                                    <th>Total Venta</th>
+                                    <th>Cantidad</th>
+                                    <th>Tipo de venta</th>
+                                    <th>Tipo de pago</th>
+                                    <th>Fecha y Hora</th>
                                 </tr>
                                 <!-- Ejemplo -->
+                            </thead>
+                            <tbody>
                                 <tr>
-                                    <td colspan="2">
-                                        Nombre del producto
-                                    </td>
-                                    <td>
-                                        Nombre del Vendedor
-                                    </td>
-                                    <td >
-                                        Sucursal: ??
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>S/????????</td>
-                                    <td>Cantidad:???</td>
-                                    <td>Fecha:</td>
-                                    <td>Tipo de venta</td>
+                                    <td>Pan</td>
+                                    <td>Juan</td>
+                                    <td>N1</td>
+                                    <td>10.00</td>
+                                    <td>1</td>
+                                    <td>Mixta</td>
+                                    <td>Efectivo</td>
+                                    <td>12/12/2025 05:05:00</td>
                                 </tr>
                             </tbody>
                                 
                             <!-- Ejemplo -->
-                            <tbody>
-                                <tr>
-                                    <td colspan="2">
-                                        Nombre del producto
-                                    </td>
-                                    <td>
-                                        Nombre del Vendedor
-                                    </td>
-                                    <td >
-                                        Sucursal: ??
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>S/????????</td>
-                                    <td>Cantidad:???</td>
-                                    <td>Fecha:</td>
-                                    <td>Tipo de venta</td>
-                                </tr>
-                            </tbody>
+                            
                         </table>
                     </div>
                 </div>
