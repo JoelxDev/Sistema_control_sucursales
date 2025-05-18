@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once __DIR__ . '/../../../../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,38 +75,47 @@
             <div class="menu-b"><h3>Salir</h3></div>
         </div>
     <!-- Desde aqui se puede modificar para otros modulos -->
+    <?php if (isset($_SESSION['error'])): ?>
+                        <p style="color: red; text-align:center"><?= $_SESSION['error'] ?></p>
+                        <?php unset($_SESSION['error']); ?>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['success'])): ?>
+                        <p style="color: green;"><?= $_SESSION['success'] ?></p>
+                        <?php unset($_SESSION['success']); ?>
+                    <?php endif; ?>
     <div class="formulario_usuario">
         <div class="cuerpo-form">
             <div class="titulo-form"> 
                 <h3>Datos sobre el usuario</h3>
             </div>
             <div class="from-us">
-                <form action="" method="post">
+                <form action="<?= BASE_URL ?>app/controllers/us_administrador/usuarios/crearUsuario.php" method="POST">
                     <div>
                         <label for="txtnombre">Nombre</label><br>
-                        <input type="text" name="txtname" placeholder="Nombre" required>
+                        <input type="text" name="txtnombre_p" placeholder="Nombre" required>
                     </div>
                     <div>
                         <label for="">Apellido</label><br>
-                        <input type="text" name="txtapellido" placeholder="Apellido" required>
+                        <input type="text" name="txtapellido_p" placeholder="Apellido" required>
                     </div>
                     <div>
                         <label for="">DNI</label><br>
-                            <input type="text" name="txtdni" placeholder="DNI" required>
+                            <input type="number" name="txtdni_p" placeholder="DNI" required>
                     </div>
                     <div>
                         <label for="">Telefono</label><br>
-                            <input type="text" name="txttelefono" placeholder="Telefono" required>
+                            <input type="number" name="txttelefono_p" placeholder="Telefono" required>
                     </div>
                     <div>
                         <label for="">Correo electronico</label><br>
-                            <input type="text" name="txtcorreo" placeholder="Correo Electronico">
+                            <input type="text" name="txtcorreo_p" placeholder="Correo Electronico">
                     </div>
                     <div>
-                        <label for="txtroll">Roll</label><br>
-                        <select name="txtroll" id="txtroll" required>
-                            <option value="">Administrador</option>
-                            <option value="">Personal</option>
+                        <label for="txtroll_p">Roll</label><br>
+                        <select name="txtroll_p" id="txtroll_p" required>
+                            <option value="administrador">Administrador</option>
+                            <option value="vendedor">Personal</option>
                         </select>
                     </div>
                     <div>
