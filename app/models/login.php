@@ -17,14 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && $contrasenia === $user['contrasenia']) {
+    if ($user && password_verify ($contrasenia, $user['contrasenia'])) {
         // Configurar la sesión
         $_SESSION['id_usuario'] = $user['id_usuario']; // Asegúrate de que 'id_usuario' sea el nombre correcto de la columna
         $_SESSION['tipo_usuario'] = $user['tipo_usuario']; // Si usas roles, guarda el rol del usuario
 
-        // Redirigir al archivo informacion.php
+        // Redirigir según el tipo de usuario
+    if ($user['tipo_usuario'] === 'administrador') {
         header('Location: ' . BASE_URL . 'app/views/usadministrador/informacion/informacion.php');
-        exit;
+    } else {
+        header('Location: ' . BASE_URL . 'app/views/usestandar/informacionUE/informacionUE.html');
+    }
+    exit;
     } else {
         echo "USUARIO O CONTRASEÑA INCORRECTOS";
     }
