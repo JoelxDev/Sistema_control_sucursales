@@ -81,16 +81,11 @@
             <div class="inventario">
                 <div class="informacion-inventario">
                     <div class="titulo-inventario">
-                        <h3>Actualizar Inventario</h3>
+                        <h3>Inventario de la Sucursal</h3>
                     </div>
                     <div class="cont-inventario">
                         <div class="cont-superior">
                             <div>
-                                <label for="tipo_actualizacion">Tipo de actualizacion</label>
-                                    <select name="tipo_actualizacion" id="tipo_actualizacion">
-                                    <!-- Las sucursales deben aparecer automaticamente -->
-                                    <option value="">En general</option>
-                                </select>
                             </div>
                         </div>
                         <div class="cont-inferior">

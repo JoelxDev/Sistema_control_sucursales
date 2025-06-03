@@ -1,3 +1,9 @@
+<?php
+session_start(); // Asegúrate de iniciar la sesión si no está iniciada
+require_once __DIR__ . '/../../../models/us_administrador/reporte-ventas/modelReVentas.php';
+$ventas = Ventas::obtenerVentas();
+$esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +18,7 @@
 
 <body>
     <!-- Interfaz Para pantallas pequeñas -->
-    
+
     <div class="encabezado-mvl">
         <div class="cl-titulo">
             <h3 class="titulo-mvl">ADMINISTRADOR</h3>
@@ -21,55 +27,85 @@
             <img src="../../../../public/img/file.png" alt="">
 
         </div>
-        
+
     </div>
-    
-    <div class="mini-content"> 
+
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="menu-a">
-                <a href="../informacion/informacion.php"><h3>Informacion</h3></a>
+                <a href="../informacion/informacion.php">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../sucursales/sucursales.php"><h3>Sucursales</h3></a>
+                <a href="../sucursales/sucursales.php">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../usuarios/usuarios.php"><h3>Usuarios</h3></a>
+                <a href="../usuarios/usuarios.php">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../reporte_ventas/reporte_ventas.php"><h3>Reporte Ventas</h3></a>
+                <a href="../reporte_ventas/reporte_ventas.php">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../inventario/inventario.php"><h3>Inventario</h3></a>
+                <a href="../inventario/inventario.php">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
+                <a href="../pedidos/pedidos.php">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
-            <div class="mini-menu-b"><h3>Salir</h3></div>
+            <div class="mini-menu-b">
+                <h3>Salir</h3>
+            </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
     <div class="content">
         <div class="encabezado">
-            <div class="titulo"><h3>ADMINISTRADOR</h3></div>
-            <div class="menu-a">
-                <a href="../informacion/informacion.php"><h3>Informacion</h3></a>
+            <div class="titulo">
+                <h3>ADMINISTRADOR</h3>
             </div>
             <div class="menu-a">
-                <a href="../sucursales/sucursales.php"><h3>Sucursales</h3></a>
+                <a href="../informacion/informacion.php">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../usuarios/usuarios.php"><h3>Usuarios</h3></a>
+                <a href="../sucursales/sucursales.php">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../reporte_ventas/reporte_ventas.php"><h3>Reporte Ventas</h3></a>
+                <a href="../usuarios/usuarios.php">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../inventario/inventario.php"><h3>Inventario</h3></a>
+                <a href="../reporte_ventas/reporte_ventas.php">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
+                <a href="../inventario/inventario.php">
+                    <h3>Inventario</h3>
+                </a>
             </div>
-            <div class="menu-b"><h3>Salir</h3></div>
+            <div class="menu-a">
+                <a href="../pedidos/pedidos.php">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
+            <div class="menu-b">
+                <h3>Salir</h3>
+            </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
         <!-- Contenido principal -->
@@ -103,7 +139,9 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ID Venta</th>
+                                    <?php if ($esAdmin): ?>
+                                        <th>ID Venta</th>
+                                    <?php endif; ?>
                                     <th>Vendedor</th>
                                     <th>Tipo de Venta</th>
                                     <th>Producto</th>
@@ -115,17 +153,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>001</td>
-                                    <td>Nathan T.</td>
-                                    <td>Por Producto</td>
-                                    <td>Pan Integral</td>
-                                    <td>S/.2.00</td>
-                                    <td>1</td>
-                                    <td>S/.2.00</td>
-                                    <td>Efectivo</td>
-                                    <td>01-01-01 10:00:00</td>
-                                </tr>
+                                <?php foreach ($ventas as $venta): ?>
+                                    <tr>
+                                        <?php if ($esAdmin): ?>
+                                            <td><?= htmlspecialchars($venta['id_venta'] ?? '') ?></td>
+                                        <?php endif; ?>
+                                        <td><?= htmlspecialchars(($venta['nombre_vendedor'] ?? '') . ' ' . ($venta['apellido_vendedor'] ?? '')) ?></td>
+                                        <td><?= htmlspecialchars($venta['tipo_venta'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($venta['nombre_producto'] ?? '') ?></td>
+                                        <td>S/.<?= number_format($venta['precio_unitario'] ?? 0, 2) ?></td>
+                                        <td><?= htmlspecialchars($venta['cantidad'] ?? '') ?></td>
+                                        <td>S/.<?= number_format($venta['total_venta'] ?? 0, 2) ?></td>
+                                        <td><?= htmlspecialchars($venta['tipo_pago'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($venta['fecha_venta'] ?? '') ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
