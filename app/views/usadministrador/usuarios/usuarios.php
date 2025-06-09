@@ -141,8 +141,8 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                                 <tr>
                                     <td><?= htmlspecialchars($usuario['nombre_p']) ?></td>
                                     <td><?= htmlspecialchars($usuario['apellido_p']) ?></td>
-                                    <td><?= htmlspecialchars($usuario['telefono_p']) ?></td>
                                     <td><?= htmlspecialchars($usuario['roll_p']) ?></td>
+                                    <td><?= htmlspecialchars($usuario['telefono_p']) ?></td>
                                     <td class="bott">
                                         <form method="POST"
                                             action="<?= BASE_URL ?>app/views/usadministrador/usuarios/btn_EditUsuario.php">
