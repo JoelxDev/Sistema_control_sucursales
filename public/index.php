@@ -18,6 +18,7 @@
                 <form action="../app/models/login.php" method="post">
                         <input type="text" name="txtusername" placeholder="Nombre de usuario" required>
                         <input type="password" name="txtcontrasenia" placeholder="Contraseña" required>
+                        <input type="text" name="txtsucursal" placeholder="Sucursal" >
                     <button type="submit">Iniciar</button>
                 </form>
             </div>
