@@ -64,7 +64,7 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                 </a>
             </div>
             <div class="mini-menu-b">
-                <h3>Salir</h3>
+                <a href="../../../../logout.php"><h3>Salir</h3></a>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                 </a>
             </div>
             <div class="menu-b">
-                <h3>Salir</h3>
+                <a href="../../../logout.php"><h3>Salir</h3></a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->

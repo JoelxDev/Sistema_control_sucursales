@@ -1,3 +1,18 @@
+<?php
+session_start();
+require_once __DIR__ . '/../../../models/us_administrador/informacion/informacionUsuarios.php';
+
+$id_usuario = $_SESSION['id_usuario'] ?? null;
+if (!$id_usuario) {
+    // Si no hay sesión, redirige al login
+    header('Location: ' . BASE_URL . 'app/views/login.php');
+    exit;
+}
+
+$usuario = informacionUsuario::obtenerPorId($id_usuario);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +39,7 @@
     <div class="mini-content"> 
         <div class="mini-encabezado">
             <div class="menu-a">
-                <a href="../informacionUE/informacionUE.html"><h3>Informacion</h3></a>
+                <a href="../informacionUE/informacionUE.php"><h3>Informacion</h3></a>
             </div>
             <div class="mini-menu-a">
                 <a href="../registrarVentaUE/registrarVentaUE.html"><h3>Registrar Venta</h3></a>
@@ -35,7 +50,9 @@
             <div class="mini-menu-a">
                 <a href="../pedidosUE/pedidosUE.html"><h3>Pedidos</h3></a>
             </div>
-            <div class="mini-menu-b"><h3>Salir</h3></div>
+            <div class="mini-menu-b">
+                <a href="../../../../logout.php"><h3>Salir</h3></a>
+            </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
@@ -43,7 +60,7 @@
         <div class="encabezado">
             <div class="titulo"><h3>Joel</h3></div>
             <div class="menu-a">
-                <a href="../informacionUE/informacionUE.html"><h3>Informacion</h3></a>
+                <a href="../informacionUE/informacionUE.php"><h3>Informacion</h3></a>
             </div>
             <div class="menu-a">
                 <a href="../registrarVentaUE/registrarVentaUE.html"><h3>Registrar Venta</h3></a>
@@ -55,7 +72,9 @@
                 <a href="../pedidosUE/pedidosUE.html"><h3>Pedidos</h3></a>
             </div>
 
-            <div class="menu-b"><h3>Salir</h3></div>
+            <div class="menu-b">
+                <a href="../../../logout.php"><h3>Salir</h3></a>
+            </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
         <div class="cuerpo">
@@ -67,11 +86,21 @@
                     <div  class="circulo"></div>
                 </div>
                 <div class="informacion">
-                    <div class="dat">ID usuario: <br></div>
-                    <div class="dat">Nombre de usuario: <br></div>
-                    <div class="dat">Nombre: <br></div>
-                    <div class="dat">Apellido: <br></div>
-                    <div class="dat">Telefono: <br> </div>
+                    <div class="dat">ID usuario: 
+                        <b><?=htmlspecialchars($usuario['id_usuario']) ?></b>
+                    </div>
+                    <div class="dat">Nombre de usuario: 
+                        <b><?=htmlspecialchars($usuario['username']) ?></b>
+                    </div>
+                    <div class="dat">Nombre: 
+                       <b> <?=htmlspecialchars($usuario['nombre_p']) ?></b>
+                    </div>
+                    <div class="dat">Apellido: 
+                        <b><?=htmlspecialchars($usuario['apellido_p']) ?></b>
+                    </div>
+                    <div class="dat">Telefono: 
+                        <b><?=htmlspecialchars($usuario['telefono_p']) ?></b>
+                    </div>
                 </div>
             </div>
         </div>

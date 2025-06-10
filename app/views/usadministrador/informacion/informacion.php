@@ -1,15 +1,16 @@
 <?php
 session_start();
-// require_once '../../../models/login.php';
-require_once __DIR__ . '/../../../models//us_administrador/informacion/informacionUsuarios.php';
-require_once  __DIR__ .  '/../../../../config/config.php';
+require_once __DIR__ . '/../../../../config/config.php';
+require_once __DIR__ . '/../../../models/us_administrador/informacion/informacionUsuarios.php';
 
-if (!isset($_SESSION['id_usuario'])) {
-    header('Location: ' . BASE_URL . 'public/index.php'); // Redirige al archivo de inicio de sesión
+$id_usuario = $_SESSION['id_usuario'] ?? null;
+if (!$id_usuario) {
+    // Si no hay sesión, redirige al login
+    header('Location: ' . BASE_URL . 'app/views/login.php');
     exit;
 }
 
-$usuario = informacionUsuario::obtenerPorId($_SESSION['id_usuario']);
+$usuario = informacionUsuario::obtenerPorId($id_usuario);
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +33,6 @@ $usuario = informacionUsuario::obtenerPorId($_SESSION['id_usuario']);
         </div>
         <div class="img-menu">
             <img src="../../../../public/img/file.png" alt="">
-
         </div>
         
     </div>
@@ -57,7 +57,9 @@ $usuario = informacionUsuario::obtenerPorId($_SESSION['id_usuario']);
             <div class="mini-menu-a">
                 <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
             </div>
-            <div class="mini-menu-b"><h3>Salir</h3></div>
+            <div class="mini-menu-b">
+                <a href="../../../../logout.php"><h3>Salir</h3></a>
+            </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
@@ -82,7 +84,9 @@ $usuario = informacionUsuario::obtenerPorId($_SESSION['id_usuario']);
             <div class="menu-a">
                 <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
             </div>
-            <div class="menu-b"><h3>Salir</h3></div>
+            <div class="menu-b">
+                <a href="../../../logout.php"><h3>Salir</h3></a>
+            </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
         <div class="cuerpo">
@@ -94,21 +98,25 @@ $usuario = informacionUsuario::obtenerPorId($_SESSION['id_usuario']);
                     <div  class="circulo"></div>
                 </div>
                 <div class="informacion">
-                    <div class="dat">ID usuario: 
-                        <b><?=htmlspecialchars($usuario['id_usuario']) ?></b>
-                    </div>
-                    <div class="dat">Nombre de usuario: 
-                        <b><?=htmlspecialchars($usuario['username']) ?></b>
-                    </div>
-                    <div class="dat">Nombre: 
-                       <b> <?=htmlspecialchars($usuario['nombre_p']) ?></b>
-                    </div>
-                    <div class="dat">Apellido: 
-                        <b><?=htmlspecialchars($usuario['apellido_p']) ?></b>
-                    </div>
-                    <div class="dat">Telefono: 
-                        <b><?=htmlspecialchars($usuario['telefono_p']) ?></b>
-                    </div>
+                    <?php if ($usuario): ?>
+                        <div class="dat">ID usuario: 
+                            <b><?=htmlspecialchars($usuario['id_usuario']) ?></b>
+                        </div>
+                        <div class="dat">Nombre de usuario: 
+                            <b><?=htmlspecialchars($usuario['username']) ?></b>
+                        </div>
+                        <div class="dat">Nombre: 
+                        <b> <?=htmlspecialchars($usuario['nombre_p']) ?></b>
+                        </div>
+                        <div class="dat">Apellido: 
+                            <b><?=htmlspecialchars($usuario['apellido_p']) ?></b>
+                        </div>
+                        <div class="dat">Telefono: 
+                            <b><?=htmlspecialchars($usuario['telefono_p']) ?></b>
+                        </div>
+                    <?php else: ?>
+                        <p style="color: red;">Usuario no encontrado.</p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

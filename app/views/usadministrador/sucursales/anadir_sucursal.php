@@ -60,7 +60,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                 </a>
             </div>
             <div class="mini-menu-b">
-                <h3>Salir</h3>
+                <a href="../../../../logout.php"><h3>Salir</h3></a>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                 </a>
             </div>
             <div class="menu-b">
-                <h3>Salir</h3>
+                <a href="../../../logout.php"><h3>Salir</h3></a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->

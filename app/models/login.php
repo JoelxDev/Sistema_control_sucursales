@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header('Location: ' . BASE_URL . 'app/views/usadministrador/informacion/informacion.php');
                 break;
             case 'estandar':
-                header('Location: ' . BASE_URL . 'app/views/usestandar/informacionUE/informacionUE.html');
+                header('Location: ' . BASE_URL . 'app/views/usestandar/informacionUE/informacionUE.php');
                 break;
             default:
                 header('Location: ' . BASE_URL . 'public/index.php');

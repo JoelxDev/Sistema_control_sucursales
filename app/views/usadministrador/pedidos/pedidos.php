@@ -41,7 +41,9 @@
             <div class="mini-menu-a">
                 <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
             </div>
-            <div class="mini-menu-b"><h3>Salir</h3></div>
+            <div class="mini-menu-b">
+                <a href="../../../../logout.php"><h3>Salir</h3></a>
+            </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
@@ -66,7 +68,9 @@
             <div class="menu-a">
                 <a href="../pedidos/pedidos.php"><h3>Pedidos</h3></a>
             </div>
-            <div class="menu-b"><h3>Salir</h3></div>
+            <div class="menu-b">
+                <a href="../../../logout.php"><h3>Salir</h3></a>
+            </div>
         </div>
     </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
