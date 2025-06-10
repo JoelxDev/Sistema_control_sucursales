@@ -29,17 +29,17 @@
                 </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../registrarVentaUE/registrarVentaUE.html">
+                <a href="../registrarVentaUE/registrarVentaUE.php">
                     <h3>Registrar Venta</h3>
                 </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../inventarioUE/inventarioUE.html">
+                <a href="../inventarioUE/inventarioUE.php">
                     <h3>Inventario</h3>
                 </a>
             </div>
             <div class="mini-menu-a">
-                <a href="../pedidosUE/pedidosUE.html">
+                <a href="../pedidosUE/pedidosUE.php">
                     <h3>Pedidos</h3>
                 </a>
             </div>
@@ -60,17 +60,17 @@
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../registrarVentaUE/registrarVentaUE.html">
+                <a href="../registrarVentaUE/registrarVentaUE.php">
                     <h3>Registrar Venta</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../inventarioUE/inventarioUE.html">
+                <a href="../inventarioUE/inventarioUE.php">
                     <h3>Inventario</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../pedidosUE/pedidosUE.html">
+                <a href="../pedidosUE/pedidosUE.php">
                     <h3>Pedidos</h3>
                 </a>
             </div>
