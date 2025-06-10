@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 if (!$id_usuario) {
     // Si no hay sesión, redirige al login
-    header('Location: ' . BASE_URL . 'app/views/login.php');
+    header('Location: ' . BASE_URL . 'public/');
     exit;
 }
 

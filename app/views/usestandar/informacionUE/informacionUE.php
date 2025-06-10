@@ -1,11 +1,13 @@
 <?php
 session_start();
+require_once __DIR__ . '/../../../../config/config.php';
+
 require_once __DIR__ . '/../../../models/us_administrador/informacion/informacionUsuarios.php';
 
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 if (!$id_usuario) {
     // Si no hay sesión, redirige al login
-    header('Location: ' . BASE_URL . 'app/views/login.php');
+    header('Location: ' . BASE_URL . 'public/');
     exit;
 }
 
