@@ -109,7 +109,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                         </div>
                         <div>
                             <label for="txtprecio_pr">Precio Unitario</label><br>
-                            <input type="number" name="txtprecio_pr" id="txtprecio_pr" placeholder="Precio Unitario" required>
+                            <input type="number" step="any" name="txtprecio_pr" id="txtprecio_pr" placeholder="Precio Unitario" required>
                         </div>
                         <div>
                             <label for="txtunidades_pr">Unidades</label><br>

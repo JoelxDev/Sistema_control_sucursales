@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . '/../../../models/us_estandar/registrarVentasUE/modelRegistrarVentasUE.php';
+require_once __DIR__ . '/../../../../config/config.php';
+$productos = Producto::obtenerTodos();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,41 +103,45 @@
                             <h3>Formulario de ventas</h3>
                         </div>
                         <div class="entrada-datos">
-                            <form action="../../../controllers/usestandar/registrarVentaUE.php" method="post">
+                            <form action="<?= BASE_URL ?>app/controllers/us_estandar/registrarVentaUE/registrarVentaUE.php" method="post">
                                 <div>
                                     <label for="tipo_venta">Tipo de venta</label>
-                                    <select name="tipo_venta" id="tipo_venta" required>
-                                        <option value="Normal">Normal</option>
+                                    <select name="txttipo_venta" id="tipo_venta" required>
+                                        <option value="Unico">Unico</option>
                                         <option value="Mixta">Mixta</option>
-                                        <option value="Multiple">Multiple</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="nom_producto">Nombre del Producto</label><br>
-                                    <select name="nom_producto" id="nom_producto" required>
-                                        <!-- Aquí deberías cargar los productos desde la base de datos -->
-                                        <option value="1">Pan de harina</option>
-                                        <option value="2">Torta</option>
+                                    <select name="txtnom_producto" id="nom_producto" required onchange="mostrarPrecio()">
+                                        <option value="">Seleccione un producto</option>
+                                        <?php foreach ($productos as $producto): ?>
+                                            <option value="<?= htmlspecialchars($producto['id_producto']) ?>"
+                                                data-precio="<?= htmlspecialchars($producto['precio_unitario_pr']) ?>">
+                                                <?= htmlspecialchars($producto['nombre_pr']) ?>
+                                                <?= htmlspecialchars($producto['precio_unitario_pr']) ?>
+                                            </option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div>
                                     <label for="cantidad">Cantidad</label><br>
-                                    <input type="number" name="cantidad" id="cantidad" min="1" required>
+                                    <input type="number" name="txtcantidad" id="cantidad" min="1"  required>
                                 </div>
                                 <div>
                                     <label for="precio_unitario">Precio unitario</label><br>
-                                    <input type="number" name="precio_unitario" id="precio_unitario" step="0.01"
+                                    <input type="number" name="txtprecio_unitario" id="precio_unitario" step="0.01"
                                         required>
                                 </div>
                                 <div>
                                     <label for="total">Total</label><br>
-                                    <input type="number" name="total" id="total" step="0.01" required>
+                                    <input type="number" step="any" name="txttotal" id="total" step="0.01" required>
                                 </div>
                                 <div>
                                     <label for="metod_pago">Metodo de pago</label><br>
-                                    <select name="metod_pago" id="metod_pago" required>
-                                        <option value="Digital">Digital</option>
+                                    <select name="txtmetodo_pago" id="metodo_pago" required>
                                         <option value="Efectivo">Efectivo</option>
+                                        <option value="Digital">Digital</option>
                                     </select>
                                 </div>
                                 <div class="btn-registrarV">
@@ -144,6 +153,22 @@
                 </div>
             </div>
         </div>
+        <script>
+function mostrarPrecio() {
+    const select = document.getElementById('nom_producto');
+    const precio = select.options[select.selectedIndex].getAttribute('data-precio');
+    document.getElementById('precio_unitario').value = precio ? precio : '';
+    calcularTotal();
+}
+document.getElementById('cantidad').addEventListener('input', calcularTotal);
+document.getElementById('nom_producto').addEventListener('change', calcularTotal);
+
+function calcularTotal() {
+    const precio = parseFloat(document.getElementById('precio_unitario').value) || 0;
+    const cantidad = parseInt(document.getElementById('cantidad').value) || 0;
+    document.getElementById('total').value = (precio * cantidad).toFixed(2);
+}
+</script>
         <script src="/public/js/main.js"></script>
 </body>
 
