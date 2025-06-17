@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/reporte-ventas/modelReVentas.php';
 $ventas = Ventas::obtenerVentas();
@@ -35,8 +35,8 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte Ventas</title>
-    <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
-    <link rel="stylesheet" href="../../../../public/css/reporte_ventas.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/reporte_ventas.css">
 </head>
 
 <body>
@@ -93,41 +93,27 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
     <!-- Interfaz para pantallas grandes -->
     <div class="content">
         <div class="encabezado">
-            <div class="titulo">
-                <h3>ADMINISTRADOR</h3>
+            <div class="titulo"><h3>ADMINISTRADOR</h3></div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/informacion"><h3>Informacion</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../informacion/informacion.php">
-                    <h3>Informacion</h3>
-                </a>
+                <a href="<?= BASE_URL ?>admin/sucursales"><h3>Sucursales</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../sucursales/sucursales.php">
-                    <h3>Sucursales</h3>
-                </a>
+                <a href="<?= BASE_URL ?>admin/usuarios"><h3>Usuarios</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../usuarios/usuarios.php">
-                    <h3>Usuarios</h3>
-                </a>
+                <a href="<?= BASE_URL ?>admin/reporte_ventas"><h3>Reporte Ventas</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../reporte_ventas/reporte_ventas.php">
-                    <h3>Reporte Ventas</h3>
-                </a>
+                <a href="<?= BASE_URL ?>admin/inventario"><h3>Inventario</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../inventario/inventario.php">
-                    <h3>Inventario</h3>
-                </a>
-            </div>
-            <div class="menu-a">
-                <a href="../pedidos/pedidos.php">
-                    <h3>Pedidos</h3>
-                </a>
+                <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
             </div>
             <div class="menu-b">
-                <a href="../../../logout.php"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout.php"><h3>Salir</h3></a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
@@ -216,7 +202,8 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
         </div>
     </div>
     </div>
-    <script src="../../../../public/js/main.js"></script>
+        <script src="<?= BASE_URL ?>js/main.js"></script>
+
 </body>
 
 </html>

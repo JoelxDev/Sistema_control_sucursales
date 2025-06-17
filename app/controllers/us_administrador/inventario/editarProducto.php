@@ -1,11 +1,11 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../models/us_administrador/inventario/modelInventario.php';
 require_once __DIR__ . '/../../../../config/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id_producto'])) {
     // Mostrar formulario de edición
-    $producto = Producto::obtenerPorId($_GET['id_producto']);
+    $producto = Producto::obtenerProductoPorId($_GET['id_producto']);
     if (!$producto) {
         $_SESSION['mensaje'] = "Producto no encontrado.";
         header('Location: ' . BASE_URL . 'app/views/usadministrador/inventario/btn_VProductos.php');
@@ -20,15 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['txtnombre_pr'];
     $descripcion = $_POST['txtdescripcion_pr'];
     $precio = $_POST['txtprecio_pr'];
-    $unidades = $_POST['txtunidades_pr'];
+    // $unidades = $_POST['txtunidades_pr'];
     $categoria = $_POST['txtcategoria_pr'];
 
-    if (Producto::actualizar($id, $nombre, $descripcion, $precio, $unidades, $categoria)) {
+    if (Producto::actualizar($id, $nombre, $descripcion, $precio, $categoria)) {
         $_SESSION['mensaje'] = "Producto actualizado correctamente.";
     } else {
         $_SESSION['mensaje'] = "Error al actualizar el producto.";
     }
-    header('Location: ' . BASE_URL . 'app/views/usadministrador/inventario/btn_VProductos.php');
+    header('Location: ' . BASE_URL . 'admin/inventario/Productos');
     exit;
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/inventario/modelInventario.php';
 $productos = Producto::obtenerTodos();
@@ -11,8 +11,8 @@ $productos = Producto::obtenerTodos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Productos</title>
-    <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
-    <link rel="stylesheet" href="../../../../public/css/btn_VProductos.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
+    <link rel="stylesheet" href="<?=BASE_URL?>css/btn_VProductos.css">
 
 </head>
 
@@ -68,44 +68,30 @@ $productos = Producto::obtenerTodos();
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
-    <div class="encabezado">
-        <div class="titulo">
-            <h3>ADMINISTRADOR</h3>
+   <div class="encabezado">
+            <div class="titulo"><h3>ADMINISTRADOR</h3></div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/informacion"><h3>Informacion</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/sucursales"><h3>Sucursales</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/usuarios"><h3>Usuarios</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/reporte_ventas"><h3>Reporte Ventas</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/inventario"><h3>Inventario</h3></a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
+            </div>
+            <div class="menu-b">
+                <a href="<?= BASE_URL ?>logout.php"><h3>Salir</h3></a>
+            </div>
         </div>
-        <div class="menu-a">
-            <a href="../informacion/informacion.php">
-                <h3>Informacion</h3>
-            </a>
-        </div>
-        <div class="menu-a">
-            <a href="../sucursales/sucursales.php">
-                <h3>Sucursales</h3>
-            </a>
-        </div>
-        <div class="menu-a">
-            <a href="../usuarios/usuarios.php">
-                <h3>Usuarios</h3>
-            </a>
-        </div>
-        <div class="menu-a">
-            <a href="../reporte_ventas/reporte_ventas.php">
-                <h3>Reporte Ventas</h3>
-            </a>
-        </div>
-        <div class="menu-a">
-            <a href="../inventario/inventario.php">
-                <h3>Inventario</h3>
-            </a>
-        </div>
-        <div class="menu-a">
-            <a href="../pedidos/pedidos.php">
-                <h3>Pedidos</h3>
-            </a>
-        </div>
-        <div class="menu-b">
-                <a href="../../../logout.php"><h3>Salir</h3></a>
-        </div>
-    </div>
     <!-- Desde aqui se puede modificar para otros modulos -->
     <div class="cuerpo-VProductos" id="cuerpo_VProductos">
         <div class="principal-contentBVP">
@@ -142,14 +128,16 @@ $productos = Producto::obtenerTodos();
                                         <td>S/. <?= htmlspecialchars($producto['precio_unitario_pr']) ?></td>
                                         <td>
                                             <!-- Botón Editar -->
-                                            <form action="../../../controllers/us_administrador/inventario/editarProducto.php"
+                                            <!-- <form action="../../../controllers/us_administrador/inventario/editarProducto.php"
                                                 method="get" style="display:inline;">
                                                 <input type="hidden" name="id_producto"
                                                     value="<?= htmlspecialchars($producto['id_producto']) ?>">
                                                 <button type="submit">Editar</button>
-                                            </form>
+                                            </form> -->
+                                            <a href="<?= BASE_URL ?>admin/inventario/EditarProducto?id=<?= $producto['id_producto'] ?>" >Editar</a>
+                                            
                                             <!-- Botón Eliminar -->
-                                            <form action="../../../controllers/us_administrador/inventario/eliminarProducto.php"
+                                            <form action="<?= BASE_URL ?>admin/inventario/EliminarProducto"
                                                 method="post" style="display:inline;"
                                                 onsubmit="return confirm('¿Seguro que deseas eliminar este producto?');">
                                                 <input type="hidden" name="id_producto"
@@ -170,7 +158,8 @@ $productos = Producto::obtenerTodos();
             </div>
         </div>
     </div>
-    <script src="../../../../public/js/main.js"></script>
+        <script src="<?= BASE_URL ?>js/main.js"></script>
+
 </body>
 
 </html>

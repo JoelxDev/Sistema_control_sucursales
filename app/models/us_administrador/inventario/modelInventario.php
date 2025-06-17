@@ -51,7 +51,7 @@ class Producto
             return false;
         }
     }
-    public static function obtenerPorId($id_producto)
+    public static function obtenerProductoPorId($id_producto)
     {
         try {
             $db = Database::conectarDB();
@@ -65,15 +65,15 @@ class Producto
         }
     }
 
-    public static function actualizar($id_producto, $nombre, $descripcion, $precio, $unidades, $categoria)
+    public static function actualizar($id_producto, $nombre, $descripcion, $precio, $categoria)
     {
         try {
             $db = Database::conectarDB();
-            $stmt = $db->prepare("UPDATE productos SET nombre_pr = :nombre, descripcion_pr = :descripcion, precio_unitario_pr = :precio, stock = :unidades, categoria = :categoria WHERE id_producto = :id");
+            $stmt = $db->prepare("UPDATE productos SET nombre_pr = :nombre, descripcion_pr = :descripcion, precio_unitario_pr = :precio, categoria = :categoria WHERE id_producto = :id");
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':precio', $precio);
-            $stmt->bindParam(':unidades', $unidades);
+            // $stmt->bindParam(':unidades', $unidades);
             $stmt->bindParam(':categoria', $categoria);
             $stmt->bindParam(':id', $id_producto, PDO::PARAM_INT);
             return $stmt->execute();

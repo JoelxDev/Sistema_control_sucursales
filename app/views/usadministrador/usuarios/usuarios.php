@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
 
@@ -13,9 +13,8 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
-    <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
-
-    <link rel="stylesheet" href="../../../../public/css/usuarios.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/usuarios.css">
 </head>
 
 <body>
@@ -64,7 +63,9 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                 </a>
             </div>
             <div class="mini-menu-b">
-                <a href="../../../../logout.php"><h3>Salir</h3></a>
+                <a href="../../../../logout.php">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -75,37 +76,39 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                 <h3>ADMINISTRADOR</h3>
             </div>
             <div class="menu-a">
-                <a href="../informacion/informacion.php">
+                <a href="<?= BASE_URL ?>admin/informacion">
                     <h3>Informacion</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../sucursales/sucursales.php">
+                <a href="<?= BASE_URL ?>admin/sucursales">
                     <h3>Sucursales</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../usuarios/usuarios.php">
+                <a href="<?= BASE_URL ?>admin/usuarios">
                     <h3>Usuarios</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../reporte_ventas/reporte_ventas.php">
+                <a href="<?= BASE_URL ?>admin/reporte_ventas">
                     <h3>Reporte Ventas</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../inventario/inventario.php">
+                <a href="<?= BASE_URL ?>admin/inventario">
                     <h3>Inventario</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="../pedidos/pedidos.php">
+                <a href="<?= BASE_URL ?>admin/pedidos">
                     <h3>Pedidos</h3>
                 </a>
             </div>
             <div class="menu-b">
-                <a href="../../../logout.php"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout.php">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
@@ -144,26 +147,33 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                                     <td><?= htmlspecialchars($usuario['roll_p']) ?></td>
                                     <td><?= htmlspecialchars($usuario['telefono_p']) ?></td>
                                     <td class="bott">
-                                        <form method="POST"
+                                        <!-- <form method="POST"
                                             action="<?= BASE_URL ?>app/views/usadministrador/usuarios/btn_EditUsuario.php">
                                             <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
                                             <button type="submit">Editar</button>
-                                        </form>
+                                        </form> -->
+                                        <a
+                                            href="<?= BASE_URL ?>admin/usuarios/btn_edit_us?id=<?= $usuario['id_personal'] ?>">
+                                            <button type="button">Editar</button>
+                                        </a>
                                     </td>
                                     <td class="bott">
                                         <form method="POST"
-                                            action="<?= BASE_URL ?>app/controllers/us_administrador/usuarios/eliminarUsuario.php"
+                                            action="<?= BASE_URL ?>admin/usuarios/eliminar"
                                             onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
                                             <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
                                             <button type="submit">Eliminar</button>
                                         </form>
                                     </td>
                                     <td class="bott">
-                                        <form method="POST"
+                                        <!-- <form method="POST"
                                             action="<?= BASE_URL ?>app/views/usadministrador/usuarios/btn_MInf.php">
                                             <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
                                             <button type="submit">M.Inf</button>
-                                        </form>
+                                        </form> -->
+                                        <a href="<?= BASE_URL ?>admin/usuarios/MasInformacion?id=<?= $usuario['id_personal'] ?>">
+                                            <button type="button">M.Inf</button>
+                                        </a>
                                     </td>
                                 <tr>
                                 <?php endforeach; ?>
@@ -175,7 +185,7 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
             </div>
         </div>
     </div>
-    <script src="../../../../public/js/main.js"></script>
+    <script src="<?= BASE_URL ?>js/main.js"></script>
 
 </body>
 

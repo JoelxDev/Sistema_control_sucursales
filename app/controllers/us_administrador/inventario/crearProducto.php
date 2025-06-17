@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../models/us_administrador/inventario/modelInventario.php';
 require_once __DIR__ . '/../../../../config/config.php';
 
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $_SESSION['error'] = "Error al crear el producto.";
     }
-    header('Location: ' . BASE_URL . 'app/views/usadministrador/inventario/btn_AProducto.php');
+    header('Location: ' . BASE_URL . 'admin/inventario/Producto');
     exit;
 }
 ?>

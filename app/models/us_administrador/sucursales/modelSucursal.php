@@ -36,5 +36,12 @@ class Sucursal {
         $stmt->bindParam(':ciudad_s', $ciudad_s);
         return $stmt->execute();
     }
+    public static function obtenerPorId($id_sucursal) {
+    $db = Database::conectarDB();
+    $stmt = $db->prepare("SELECT * FROM sucursal WHERE id_sucursal = :id_sucursal");
+    $stmt->bindParam(':id_sucursal', $id_sucursal, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['error'] = "Error al editar el usuario.";
     }
 
-    header('Location: ' . BASE_URL . 'app/views/usadministrador/usuarios/usuarios.php');
+    header('Location: ' . BASE_URL . 'admin/usuarios');
     exit;
 }
 ?>

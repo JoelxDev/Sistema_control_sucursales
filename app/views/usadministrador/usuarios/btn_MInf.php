@@ -1,16 +1,16 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
 
-if (!isset($_POST['id_personal'])) {
-    die("Error: No se proporcionó el ID del usuario.");
-}
+// if (!isset($_POST['id_personal'])) {
+//     die("Error: No se proporcionó el ID del usuario.");
+// }
 
-$usuario = Usuarios::obtenerUsuarioPorId($_POST['id_personal']);
-if (!$usuario) {
-    die("Error: Usuario no encontrado.");
-}
+// $usuario = Usuarios::obtenerUsuarioPorId($_POST['id_personal']);
+// if (!$usuario) {
+//     die("Error: Usuario no encontrado.");
+// }
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +22,16 @@ if (!$usuario) {
 </head>
 <body>
     <h1>Información del Usuario</h1>
-    <p><strong>Nombre:</strong> <?= htmlspecialchars($usuario['nombre_p']) ?></p>
-    <p><strong>Apellido:</strong> <?= htmlspecialchars($usuario['apellido_p']) ?></p>
-    <p><strong>Teléfono:</strong> <?= htmlspecialchars($usuario['telefono_p']) ?></p>
-    <p><strong>Rol:</strong> <?= htmlspecialchars($usuario['roll_p']) ?></p>
+    <ul>
+        <li><strong>ID:</strong> <?= htmlspecialchars($usuario['id_personal']) ?></li>
+        <li><strong>Nombre:</strong> <?= htmlspecialchars($usuario['nombre_p']) ?></li>
+        <li><strong>Apellido:</strong> <?= htmlspecialchars($usuario['apellido_p']) ?></li>
+        <li><strong>DNI:</strong> <?= htmlspecialchars($usuario['dni_p']) ?></li>
+        <li><strong>Teléfono:</strong> <?= htmlspecialchars($usuario['telefono_p']) ?></li>
+        <li><strong>Correo electrónico:</strong> <?= htmlspecialchars($usuario['correo_elec']) ?></li>
+        <li><strong>Rol:</strong> <?= htmlspecialchars($usuario['roll_p']) ?></li>
+        <li><strong>Username</strong> <?= htmlspecialchars($usuario['username']) ?></li>
+        <!-- Agrega aquí más campos si tu tabla tiene más datos -->
+    </ul>
 </body>
 </html>

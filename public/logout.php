@@ -15,5 +15,5 @@ if (isset($_SESSION['id_usuario']) && isset($_SESSION['id_sucursal'])) {
 
 session_unset();      // Limpia todas las variables de sesión
 session_destroy();    // Destruye la sesión actual
-header('Location: ../public/'); // Redirige al login
+header('Location: '. '/'); // Redirige al login
 exit;

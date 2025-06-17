@@ -1,7 +1,7 @@
 <?php
 // filepath: c:\xampp\htdocs\WebSistemC_P\app\controllers\us_admistrador\craerSucursal.php
 
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/sucursales/modelSucursal.php';
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['error'] = "Error al crear la sucursal. Inténtalo nuevamente.";
     }
     // Redirigir al formulario
-    header('Location: ' . BASE_URL . 'app/views/usadministrador/sucursales/anadir_sucursal.php');
+    header('Location: ' . BASE_URL . 'admin/sucursales/crear');
     exit;
 }
 ?>

@@ -1,42 +1,44 @@
 // Sucursales
-function A_sucursal(){
-    window.location.href='../sucursales/anadir_sucursal.php';
-    // El 'href' no es una funcion, es una propiedad de objeto 'location' y este de la funcion 'window'
+function A_sucursal() {
+    window.location.href = '/admin/sucursales/crear';
 }
+
 // Usuarios
 function C_usuarios() {
-    window.location.href='../usuarios/btn_crear_us.php';
+    window.location.href = '/admin/usuarios/btn_crear_us';
 }
 
 // Reporte de Ventas
 function H_ventas() {
-    window.location.href='../reporte_ventas/btn_historialVe.php';
+    window.location.href = '/admin/reporte_ventas/HistorialVentas';
 }
 
-// Inventarios, productos
+// Inventario - Ver productos
 function btn_VProductos() {
-    window.location.href='../inventario/btn_VProductos.php';
+    window.location.href = '/admin/inventario/Productos';
 }
 
-// Inventario, añadir productos
-function btn_AProducto(){
-    window.location.href='../inventario/btn_AProducto.php';
-} 
-// Boton para ver el historial de pedidos 
-function btn_HPedidos(){
-    window.location.href='../pedidos/btn_HPedidos.php';
+// Inventario - Añadir productos
+function btn_AProducto() {
+    window.location.href = '/admin/inventario/AnadirProducto';
 }
 
-// Ventas registradas del usuario estandar
+// Pedidos - Historial
+function btn_HPedidos() {
+    window.location.href = '/admin/pedidos/HistorialPedidos';
+}
 
-function btn_ventasRegistradasUE(){
-    window.location.href='btn_ventasRegistradasUE.php';
+// Usuario Estándar - Ventas registradas
+function btn_ventasRegistradasUE() {
+    window.location.href = '/usuario/ventas_registradas';
 }
-// Actualizar Inventario del usuario estandar
-function btn_actualizarInventarioUE(){
-    window.location.href='btn_actualizarInventario.php';
+
+// Usuario Estándar - Actualizar inventario
+function btn_actualizarInventarioUE() {
+    window.location.href = '/usuario/actualizar_inventario';
 }
-// Lisat de pedidos del usuario estandar
-function btn_listaPedidosUE(){
-    window.location.href='btn_listaPedidosUE.php';
+
+// Usuario Estándar - Lista de pedidos
+function btn_listaPedidosUE() {
+    window.location.href = '/usuario/lista_pedidos';
 }

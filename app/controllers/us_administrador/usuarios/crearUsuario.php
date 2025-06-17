@@ -1,16 +1,13 @@
 <?php
 // filepath: c:\xampp\htdocs\WebSistemC_P\app\controllers\us_admistrador\craerSucursal.php
-
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
-
 // Validar sesión y rol
 if (!isset($_SESSION['id_usuario']) || $_SESSION['tipo_usuario'] !== 'administrador') {
     header('Location: ' . BASE_URL . 'public/index.php');
     exit;
 }
-
 // Procesar formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar datos del formulario
@@ -23,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($nombre_p) || empty($apellido_p) || empty($dni_p) || empty($telefono_p) ||  empty($roll_p)) {
         $_SESSION['error'] = "Todos los campos son obligatorios.";
-        header('Location: ' . BASE_URL . 'app/views/usadministrador/usuarios/btn_crear_us.php');
+        header('Location: ' . BASE_URL . 'admin/usuarios/btn_crear_us');
         exit;
     }
 
@@ -34,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['error'] = "Error al crear el usuario. Inténtalo nuevamente.";
     }
     // Redirigir al formulario
-    header('Location: ' . BASE_URL . 'app/views/usadministrador/usuarios/btn_crear_us.php');
+    header('Location: ' . BASE_URL . 'admin/usuarios/btn_crear_us');
     exit;
 }
 ?>

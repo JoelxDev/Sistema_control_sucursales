@@ -1,17 +1,17 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 
-if (!isset($_POST['id_personal'])) {
-    die("Error: No se proporcionó el ID del usuario.");
-}
+// if (!isset($_POST['id_personal'])) {
+//     die("Error: No se proporcionó el ID del usuario.");
+// }
 
-// Obtener los datos del usuario desde la base de datos
-require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
-$usuario = Usuarios::obtenerUsuarioPorId($_POST['id_personal']);
-if (!$usuario) {
-    die("Error: Usuario no encontrado.");
-}
+// // Obtener los datos del usuario desde la base de datos
+// require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
+// $usuario = Usuarios::obtenerUsuarioPorId($_POST['id_personal']);
+// if (!$usuario) {
+//     die("Error: Usuario no encontrado.");
+// }
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ if (!$usuario) {
 </head>
 <body>
     <h1>Editar Usuario</h1>
-    <form method="POST" action="<?= BASE_URL ?>app/controllers/us_administrador/usuarios/editarUsuario.php"
+    <form method="POST" action="<?= BASE_URL ?>admin/usuarios/btn_edit_us?id=<?= htmlspecialchars($usuario['id_personal']) ?>"
     onsubmit="return confirm('¿Estás seguro de que deseas editar este usuario?');">
         <input type="hidden" name="id_personal" value="<?= htmlspecialchars($usuario['id_personal']) ?>">
         <label for="nombre_p">Nombre:</label>
@@ -35,7 +35,7 @@ if (!$usuario) {
         <label for="roll_p">Rol:</label>
         <select id="roll_p" name="roll_p" required>
             <option value="administrador" <?= $usuario['roll_p'] === 'administrador' ? 'selected' : '' ?>>Administrador</option>
-            <option value="usuario" <?= $usuario['roll_p'] === 'usuario' ? 'selected' : '' ?>>Usuario</option>
+            <option value="vendedor" <?= $usuario['roll_p'] === 'vendedor' ? 'selected' : '' ?>>Vendedor</option>
         </select><br>
         <button type="submit">Guardar Cambios</button>
     </form>
