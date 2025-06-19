@@ -35,7 +35,7 @@ class RegistrarVentasUE {
     }
 }
 
-class Producto {
+class ProductosVenta {
     public static function obtenerTodos() {
         try {
             $db = Database::conectarDB();

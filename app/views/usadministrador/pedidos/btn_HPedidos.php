@@ -74,7 +74,7 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
                 <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
             </div>
             <div class="menu-b">
-                <a href="<?= BASE_URL ?>logout.php"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
             </div>
         </div>
     </div>

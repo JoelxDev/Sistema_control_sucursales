@@ -106,7 +106,7 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                 </a>
             </div>
             <div class="menu-b">
-                <a href="<?= BASE_URL ?>logout.php">
+                <a href="<?= BASE_URL ?>logout">
                     <h3>Salir</h3>
                 </a>
             </div>

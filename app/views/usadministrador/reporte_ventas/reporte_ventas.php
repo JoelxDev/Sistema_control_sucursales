@@ -113,7 +113,7 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                 <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
             </div>
             <div class="menu-b">
-                <a href="<?= BASE_URL ?>logout.php"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->

@@ -21,18 +21,32 @@ $base_c = __DIR__ . '/../app/controllers/';
 // Verificar si hay sesión iniciada
 $tipo = $_SESSION['tipo_usuario'] ?? null;
 $id_usuario = $_SESSION['id_usuario'] ?? null;
+$public_routes = ['', 'loginProcess'];
 
 // Si no está logueado, solo permitir acceso al login
-if (!$id_usuario && $request !== '') {
+if (!$id_usuario && !in_array($request, $public_routes)) {
     header('Location: ' . BASE_URL);
     exit;
 }
+
 
 switch ($request) {
     case '':
         require_once $base . 'login.php';
         break;
 
+    case 'loginProcess':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            require_once $base_c . 'controllerLogin/controllerLogin.php'; // O la ruta de tu controlador de login
+        exit;
+        } else {
+            require_once $base . 'login.php';
+        }
+    break;
+
+    case 'logout':
+        require_once $base_c . 'controllerLogout/controllerLogout.php'; // O la ruta de tu controlador de logout
+        exit;
     // Módulos para administrador
     // ======= Módulo de información
     case 'admin/informacion':
@@ -293,16 +307,84 @@ switch ($request) {
 // //////////////////////////////////////////////////////////////////////////////
 // Módulos para usuario estándar
 // //////////////////////////////////////////////////////////////////////////////
+        // ======= Módulo de información
     case 'usuario/perfil':
+        if ($tipo === 'estandar') {
+            require_once $base . 'usestandar/informacionUE/informacionUE.php';
+        } else {
+            http_response_code(403);
+            echo "<h1>403 - Acceso denegado</h1>";
+        }
+        break;
+
+        // ======= Módulo de ventas
     case 'usuario/ventas':
         if ($tipo === 'estandar') {
-            require_once $base . 'ususuario/' . str_replace('usuario/', '', $request) . '/' . basename($request) . '.php';
+            require_once $base . 'usestandar/registrarVentaUE/registrarVentaUE.php';
         } else {
             http_response_code(403);
             echo "<h1>403 - Acceso denegado</h1>";
         }
         break;
     
+    case 'usuario/ventas/ventasRegistradas':
+        if ($tipo === 'estandar') {
+            require_once $base . 'usestandar/registrarVentaUE/btn_ventasRegistradasUE.php';
+        } else {
+            http_response_code(403);
+            echo "<h1>403 - Acceso denegado</h1>";
+        }
+        break;
+
+        // Modulo de inventario
+    case 'usuario/inventario':
+        if ($tipo === 'estandar') {
+            require_once $base . 'usestandar/inventarioUE/inventarioUE.php';
+        } else {
+            http_response_code(403);
+            echo "<h1>403 - Acceso denegado</h1>";
+        }
+    break;
+
+    case 'usuario/inventario/actualizarInventario':
+        if ($tipo === 'estandar') {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                require_once $base_c . 'us_estandar/inventarioUE/actualizarInventarioUE.php';
+                exit;
+            }
+            require_once $base . 'usestandar/inventarioUE/btn_actualizarInventarioUE.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
+
+    // Módulo de pedidos
+    case 'usuario/pedidos':
+        if ($tipo === 'estandar') {
+            require_once $base . 'usestandar/pedidosUE/pedidosUE.php';
+        } else {
+            http_response_code(403);
+            echo "<h1>403 - Acceso denegado</h1>";
+        }
+    break;
+
+    case 'usuario/pedidos/registrarPedido':
+        if ($tipo === 'estandar') {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                require_once $base_c . 'us_estandar/pedidosUE/registrarPedidoUE.php';
+                exit;
+            }
+            require_once $base . 'usestandar/pedidosUE/btn_registrarPedidoUE.php';
+        } else {
+            http_response_code(403);
+            echo "<h1>403 - Acceso denegado</h1>";
+        }
+    break;
+    
+    
+    
+
     default:
         http_response_code(404);
         echo "<h1>404 - Página no encontrada</h1>";

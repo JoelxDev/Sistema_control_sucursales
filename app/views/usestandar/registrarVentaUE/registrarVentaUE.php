@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../../models/us_estandar/registrarVentasUE/modelRegistrarVentasUE.php';
 require_once __DIR__ . '/../../../../config/config.php';
-$productos = Producto::obtenerTodos();
+$productos = ProductosVenta::obtenerTodos();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,8 @@ $productos = Producto::obtenerTodos();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../public/css/globalStyle.css">
-    <link rel="stylesheet" href="../../../../public/css/registrarVentasUE.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/registrarVentasUE.css">
 
     <title>Registrar Venta</title>
 </head>
@@ -59,34 +59,22 @@ $productos = Producto::obtenerTodos();
     <!-- Interfaz para pantallas grandes -->
     <div class="content">
         <div class="encabezado">
-            <div class="titulo">
-                <h3>Joel</h3>
+            <div class="titulo"><h3>Joel</h3></div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>usuario/perfil"><h3>Informacion</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../informacionUE/informacionUE.php">
-                    <h3>Informacion</h3>
-                </a>
+                <a href="<?= BASE_URL ?>usuario/ventas"><h3>Registrar Venta</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../registrarVentaUE/registrarVentaUE.php">
-                    <h3>Registrar Venta</h3>
-                </a>
+                <a href="<?= BASE_URL ?>usuario/inventario"><h3>Inventario</h3></a>
             </div>
             <div class="menu-a">
-                <a href="../inventarioUE/inventarioUE.php">
-                    <h3>Inventario</h3>
-                </a>
-            </div>
-            <div class="menu-a">
-                <a href="../pedidosUE/pedidosUE.php">
-                    <h3>Pedidos</h3>
-                </a>
+                <a href="<?= BASE_URL ?>usuario/pedidos"><h3>Pedidos</h3></a>
             </div>
 
             <div class="menu-b">
-                <a href="../../../logout.php">
-                    <h3>Salir</h3>
-                </a>
+                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
