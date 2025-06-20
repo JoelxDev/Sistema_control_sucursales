@@ -91,7 +91,7 @@ $productos = ProductosVenta::obtenerTodos();
                             <h3>Formulario de ventas</h3>
                         </div>
                         <div class="entrada-datos">
-                            <form action="<?= BASE_URL ?>app/controllers/us_estandar/registrarVentaUE/registrarVentaUE.php" method="post">
+                            <form action="<?= BASE_URL ?>usuario/registrarVenta" method="post">
                                 <div>
                                     <label for="tipo_venta">Tipo de venta</label>
                                     <select name="txttipo_venta" id="tipo_venta" required>
@@ -157,7 +157,8 @@ function calcularTotal() {
     document.getElementById('total').value = (precio * cantidad).toFixed(2);
 }
 </script>
-        <script src="/public/js/main.js"></script>
+    <script src="<?= BASE_URL ?>js/main.js"></script>
+
 </body>
 
 </html>

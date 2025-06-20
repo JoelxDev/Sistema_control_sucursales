@@ -326,6 +326,19 @@ switch ($request) {
             echo "<h1>403 - Acceso denegado</h1>";
         }
         break;
+
+    case 'usuario/registrarVenta':
+        if ($tipo === 'estandar') {
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                        require_once $base_c . 'us_estandar/registrarVentaUE/registrarVentaUE.php';
+                        exit;
+                    }
+                require_once $base . 'usestandar/registrarVentaUE/registrarVentaUE.php';
+        } else {
+            http_response_code(403);
+            echo "<h1>403 - Acceso denegado</h1>";
+        }
+        break;
     
     case 'usuario/ventas/ventasRegistradas':
         if ($tipo === 'estandar') {

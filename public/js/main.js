@@ -30,7 +30,7 @@ function btn_HPedidos() {
 
 // Usuario Estándar - Ventas registradas
 function btn_ventasRegistradasUE() {
-    window.location.href = '/usuario/ventas_registradas';
+    window.location.href = '/usuario/ventas/ventasRegistradas';
 }
 
 // Usuario Estándar - Actualizar inventario

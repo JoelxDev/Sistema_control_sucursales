@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once __DIR__ . '/../../../models/us_estandar/registrarVentasUE/modelRegistrarVentasUE.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $_SESSION['mensaje'] = "Error al registrar la venta.";
     }
-    header('Location: ../../../views/usestandar/registrarVentaUE/registrarVentaUE.php');
+    header('Location:' . BASE_URL . 'usuario/ventas');
     exit;
 }
 ?>
