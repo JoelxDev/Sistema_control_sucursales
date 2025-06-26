@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Lima');
 class Database
 {
     private static $host = 'db';      // O el IP de tu servidor
@@ -14,9 +15,10 @@ class Database
                 self::$usuario,
                 self::$password
             );
-
+            
             // Opciones recomendadas de seguridad
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conexion->exec("SET time_zone = '-05:00'");
             return $conexion;
         } catch (PDOException $e) {
             die("Error de conexión: " . $e->getMessage());

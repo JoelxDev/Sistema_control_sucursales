@@ -18,6 +18,7 @@ services:
       MYSQL_DATABASE: branches_db
       MYSQL_USER: user
       MYSQL_PASSWORD: password
+      TZ: America/Lima
     ports:
       - "3306:3306"
     volumes:

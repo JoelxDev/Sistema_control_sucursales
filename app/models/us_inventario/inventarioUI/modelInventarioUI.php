@@ -25,9 +25,9 @@ public static function asignarInventario($data)
     $stmt = $db->prepare("SELECT id_inventario 
         FROM inventario 
         WHERE productos_id_producto = :producto 
-          AND sucursal_id_sucursal = :sucursal 
-          AND epoca = :epoca 
-          AND DATE(fecha_actualizacion) = :hoy");
+        AND sucursal_id_sucursal = :sucursal 
+        AND epoca = :epoca 
+        AND DATE(fecha_actualizacion) = :hoy");
     $stmt->bindParam(':producto', $data['producto'], PDO::PARAM_INT);
     $stmt->bindParam(':sucursal', $data['sucursal'], PDO::PARAM_INT);
     $stmt->bindParam(':epoca', $data['epoca']);
@@ -65,9 +65,8 @@ public static function asignarInventario($data)
     $tipo_mov = strpos(strtolower($data['tipo_asig']), 'entrada') !== false ? 'entrada' : 'salida';
     $motivo = 'asignación manual';
 
-    $stmt3 = $db->prepare("INSERT INTO movimientos_inventario 
-        (tipo_mov, cantidad, fecha_movimento, productos_id_producto, sucursal_id_sucursal, usuarios_id_usuario, epoca, motivo)
-        VALUES (:tipo_mov, :cantidad, NOW(), :producto, :sucursal, :usuario, :epoca, :motivo)");
+    $stmt3 = $db->prepare("INSERT INTO movimientos_inventario (tipo_mov, cantidad, fecha_movimento, productos_id_producto, sucursal_id_sucursal, usuarios_id_usuario, epoca, motivo, ventas_id_venta)
+        VALUES (:tipo_mov, :cantidad, NOW(), :producto, :sucursal, :usuario, :epoca, :motivo, :id_venta)");
     $stmt3->bindParam(':tipo_mov', $tipo_mov);
     $stmt3->bindParam(':cantidad', $data['cantidad'], PDO::PARAM_INT);
     $stmt3->bindParam(':producto', $data['producto'], PDO::PARAM_INT);
@@ -75,6 +74,7 @@ public static function asignarInventario($data)
     $stmt3->bindParam(':usuario', $data['usuario'], PDO::PARAM_INT);
     $stmt3->bindParam(':epoca', $data['epoca']);
     $stmt3->bindParam(':motivo', $motivo);
+    $stmt3->bindParam(':id_venta', $id_venta, PDO::PARAM_INT); // <-- ID de la venta
     $stmt3->execute();
 
     // Devuelve la suma total de cantidades para mostrar si lo necesitas
