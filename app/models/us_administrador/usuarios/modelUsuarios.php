@@ -22,7 +22,15 @@ class Usuarios
         // 2. Obtener el id_personal recién creado
         $id_personal = $db->lastInsertId();
 
-        $tipo_usuario = (strtolower($roll_p) === 'administrador') ? 'administrador' : 'estandar';
+        // $tipo_usuario = (strtolower($roll_p) === 'administrador') ? 'administrador' : 'estandar';
+        $rol = strtolower($roll_p);
+        if ($rol === 'administrador') {
+            $tipo_usuario = 'administrador';
+        } elseif ($rol === 'inventario') {
+            $tipo_usuario = 'inventario';
+        } else {
+            $tipo_usuario = 'estandar';
+        }
 
         // 3. Crear usuario en la tabla usuarios
         $username = strtolower($nombre_p . '.' . $apellido_p); // Ejemplo: juan.perez
@@ -65,15 +73,15 @@ class Usuarios
     public static function obtenerUsuarioPorId($id_usuario)
     {
         $db = Database::conectarDB();
-    $stmt = $db->prepare("
+        $stmt = $db->prepare("
         SELECT p.*, u.username
         FROM personal p
         JOIN usuarios u ON u.personal_id_personal = p.id_personal
         WHERE p.id_personal = :id_personal
     ");
-    $stmt->bindParam(':id_personal', $id_usuario, PDO::PARAM_INT);
-    $stmt->execute();
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt->bindParam(':id_personal', $id_usuario, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     public static function editarUsuario($id_usuario, $nombre_p, $apellido_p, $telefono_p, $roll_p)
     {

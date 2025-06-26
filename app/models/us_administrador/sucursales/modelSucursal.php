@@ -20,11 +20,17 @@ class Sucursal {
     }
 
     public static function eliminar($id_sucursal) {
-        $db = Database::conectarDB();
-        $stmt = $db->prepare("DELETE FROM sucursal WHERE id_sucursal = :id_sucursal");
-        $stmt->bindParam(':id_sucursal', $id_sucursal, PDO::PARAM_INT);
-        return $stmt->execute();
-    }
+    $db = Database::conectarDB();
+    // Elimina relaciones en usuario_sucursal
+    $stmt1 = $db->prepare("DELETE FROM usuario_sucursal WHERE sucursal_id_sucursal = :id_sucursal");
+    $stmt1->bindParam(':id_sucursal', $id_sucursal, PDO::PARAM_INT);
+    $stmt1->execute();
+
+    // Ahora elimina la sucursal
+    $stmt2 = $db->prepare("DELETE FROM sucursal WHERE id_sucursal = :id_sucursal");
+    $stmt2->bindParam(':id_sucursal', $id_sucursal, PDO::PARAM_INT);
+    return $stmt2->execute();
+}
 
     public static function editar($id_sucursal, $nombre_s, $ubicacion_s, $estado_s, $ciudad_s) {
         $db = Database::conectarDB();

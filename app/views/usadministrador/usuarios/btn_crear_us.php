@@ -119,7 +119,8 @@ require_once __DIR__ . '/../../../../config/config.php';
                         <label for="txtroll_p">Roll</label><br>
                         <select name="txtroll_p" id="txtroll_p" required>
                             <option value="administrador">Administrador</option>
-                            <option value="vendedor">Personal</option>
+                            <option value="vendedor">Atencion Cliente</option>
+                            <option value="inventario">Controll Inventario</option>
                         </select>
                     </div>
                     <div>

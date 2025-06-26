@@ -1,8 +1,10 @@
 <?php
 require_once __DIR__ . '/../../../config/conexion_db.php';
 
-class ModelLogin {
-    public static function validarLogin($usuario, $contrasenia, $sucursal) {
+class ModelLogin
+{
+    public static function validarLogin($usuario, $contrasenia, $sucursal)
+    {
         if ($usuario === '' || $contrasenia === '') {
             return ['success' => false, 'error' => "Todos los campos son obligatorios."];
         }
@@ -19,6 +21,8 @@ class ModelLogin {
 
             if ($user['tipo_usuario'] === 'administrador') {
                 return ['success' => true, 'redirect' => 'admin/informacion'];
+            } elseif ($user['tipo_usuario'] === 'inventario') {
+                return ['success' => true, 'redirect' => 'inv/informacion'];
             } else {
                 if ($sucursal === '') {
                     return ['success' => false, 'error' => "Debes seleccionar una sucursal."];
@@ -38,7 +42,7 @@ class ModelLogin {
                 $fecha_entrada = date('Y-m-d H:i:s');
                 $horario_entrada = date('H:i:s');
                 $stmtInsert = $db->prepare("INSERT INTO usuario_sucursal (fecha_entrada, horario_entrada, sucursal_id_sucursal, usuarios_id_usuario)
-                    VALUES (:fecha_entrada, :horario_entrada, :sucursal_id, :usuario_id)");
+            VALUES (:fecha_entrada, :horario_entrada, :sucursal_id, :usuario_id)");
                 $stmtInsert->bindParam(':fecha_entrada', $fecha_entrada);
                 $stmtInsert->bindParam(':horario_entrada', $horario_entrada);
                 $stmtInsert->bindParam(':sucursal_id', $sucursal, PDO::PARAM_INT);

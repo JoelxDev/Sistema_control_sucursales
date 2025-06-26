@@ -395,8 +395,41 @@ switch ($request) {
         }
     break;
     
+    // //////////////////////////////////////////////////////////////////////////////
+    // Módulos para usuario inventario
+    // //////////////////////////////////////////////////////////////////////////////
     
-    
+    case 'inv/informacion':
+    if ($tipo === 'inventario') {
+        require_once $base . 'usinventario/informacionUI/informacionUI.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
+
+    case 'inv/inventario':
+    if ($tipo === 'inventario') {
+        require_once $base . 'usinventario/inventarioUI/asigInventarioUI.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
+
+    case 'inv/inventario/asigInventario':
+    if ($tipo === 'inventario') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            require_once $base_c . 'us_inventario/inventarioUI/con_asigInventarioUI.php';
+            exit;
+        }
+        // Mostrar la vista si es GET
+        require_once $base . 'usinventario/inventarioUI/asigInventarioUI.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
 
     default:
         http_response_code(404);

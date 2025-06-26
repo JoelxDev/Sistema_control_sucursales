@@ -82,5 +82,36 @@ class Producto
             return false;
         }
     }
+    public static function obtenerInventarioPorSucursal()
+    {
+        try {
+            $db = Database::conectarDB();
+            $stmt = $db->query(
+                "SELECT 
+                s.id_sucursal,
+                s.nombre_s AS sucursal,
+                p.id_producto,
+                p.nombre_pr AS producto,
+                SUM(i.cantidad_in) AS cantidad_total,
+                MAX(i.fecha_actualizacion) AS ultima_actualizacion,
+                (
+                    SELECT epoca 
+                    FROM inventario 
+                    WHERE productos_id_producto = i.productos_id_producto 
+                    AND sucursal_id_sucursal = i.sucursal_id_sucursal 
+                    ORDER BY fecha_actualizacion DESC 
+                    LIMIT 1
+                ) AS epoca
+            FROM inventario i
+            JOIN sucursal s ON i.sucursal_id_sucursal = s.id_sucursal
+            JOIN productos p ON i.productos_id_producto = p.id_producto
+            GROUP BY s.id_sucursal, p.id_producto
+            ORDER BY s.nombre_s, p.nombre_pr");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log('Error al obtener inventario por sucursal: ' . $e->getMessage());
+            return [];
+        }
+    }
 }
 ?>
