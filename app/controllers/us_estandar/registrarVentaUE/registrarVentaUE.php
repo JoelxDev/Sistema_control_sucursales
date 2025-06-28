@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = RegistrarVentasUE::registrarVenta($tipo_venta, $id_producto, $cantidad, $precio_unitario, $total, $metodo_pago, $id_usuario_sucursal);
 
     if ($resultado) {
-        $_SESSION['mensaje'] = "Venta registrada correctamente.";
+        $_SESSION['success'] = "Venta registrada correctamente.";
     } else {
-        $_SESSION['mensaje'] = "Error al registrar la venta.";
+        $_SESSION['error'] = "Error al registrar la venta.";
     }
     header('Location:' . BASE_URL . 'usuario/ventas');
     exit;

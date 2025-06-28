@@ -2,6 +2,8 @@
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/inventario/modelInventario.php';
+require_once __DIR__ . '/../../../controllers/us_administrador/inventario/crearProducto.php';
+
 $productos = Producto::obtenerTodos();
 ?>
 <!DOCTYPE html>
@@ -12,7 +14,7 @@ $productos = Producto::obtenerTodos();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Productos</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?=BASE_URL?>css/btn_VProductos.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/btn_VProductos.css">
 
 </head>
 
@@ -63,37 +65,71 @@ $productos = Producto::obtenerTodos();
                 </a>
             </div>
             <div class="mini-menu-b">
-                <a href="../../../../logout.php"><h3>Salir</h3></a>
+                <a href="../../../../logout.php">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
-   <div class="encabezado">
-            <div class="titulo"><h3>ADMINISTRADOR</h3></div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/informacion"><h3>Informacion</h3></a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/sucursales"><h3>Sucursales</h3></a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/usuarios"><h3>Usuarios</h3></a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/reporte_ventas"><h3>Reporte Ventas</h3></a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/inventario"><h3>Inventario</h3></a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
-            </div>
-            <div class="menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
-            </div>
+    <div class="encabezado">
+        <div class="titulo">
+            <h3>ADMINISTRADOR</h3>
         </div>
+        <div class="menu-a">
+            <a href="<?= BASE_URL ?>admin/informacion">
+                <h3>Informacion</h3>
+            </a>
+        </div>
+        <div class="menu-a">
+            <a href="<?= BASE_URL ?>admin/sucursales">
+                <h3>Sucursales</h3>
+            </a>
+        </div>
+        <div class="menu-a">
+            <a href="<?= BASE_URL ?>admin/usuarios">
+                <h3>Usuarios</h3>
+            </a>
+        </div>
+        <div class="menu-a">
+            <a href="<?= BASE_URL ?>admin/reporte_ventas">
+                <h3>Reporte Ventas</h3>
+            </a>
+        </div>
+        <div class="menu-a">
+            <a href="<?= BASE_URL ?>admin/inventario">
+                <h3>Inventario</h3>
+            </a>
+        </div>
+        <div class="menu-a">
+            <a href="<?= BASE_URL ?>admin/pedidos">
+                <h3>Pedidos</h3>
+            </a>
+        </div>
+        <div class="menu-b">
+            <a href="<?= BASE_URL ?>logout">
+                <h3>Salir</h3>
+            </a>
+        </div>
+    </div>
     <!-- Desde aqui se puede modificar para otros modulos -->
     <div class="cuerpo-VProductos" id="cuerpo_VProductos">
+        <?php if (isset($_SESSION['success']) || isset($_SESSION['error'])): ?>
+            <div id="mensaje-flotante" style="position:fixed;top:20px;right:20px;z-index:9999;
+                padding:15px 25px;border-radius:6px;
+                color:#fff;
+                background:<?= isset($_SESSION['success']) ? '#28a745' : '#dc3545' ?>;
+                box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+                <?= isset($_SESSION['success']) ? $_SESSION['success'] : $_SESSION['error'] ?>
+            </div>
+            <script>
+                setTimeout(() => {
+                    const msg = document.getElementById('mensaje-flotante');
+                    if (msg) msg.style.display = 'none';
+                }, 3000);
+            </script>
+            <?php unset($_SESSION['success'], $_SESSION['error']); ?>
+        <?php endif; ?>
         <div class="principal-contentBVP">
             <div class="cuerpo-superior">
                 <div>
@@ -134,11 +170,12 @@ $productos = Producto::obtenerTodos();
                                                     value="<?= htmlspecialchars($producto['id_producto']) ?>">
                                                 <button type="submit">Editar</button>
                                             </form> -->
-                                            <a href="<?= BASE_URL ?>admin/inventario/EditarProducto?id=<?= $producto['id_producto'] ?>" >Editar</a>
-                                            
+                                            <a
+                                                href="<?= BASE_URL ?>admin/inventario/EditarProducto?id=<?= $producto['id_producto'] ?>">Editar</a>
+
                                             <!-- Botón Eliminar -->
-                                            <form action="<?= BASE_URL ?>admin/inventario/EliminarProducto"
-                                                method="post" style="display:inline;"
+                                            <form action="<?= BASE_URL ?>admin/inventario/EliminarProducto" method="post"
+                                                style="display:inline;"
                                                 onsubmit="return confirm('¿Seguro que deseas eliminar este producto?');">
                                                 <input type="hidden" name="id_producto"
                                                     value="<?= htmlspecialchars($producto['id_producto']) ?>">
@@ -158,7 +195,7 @@ $productos = Producto::obtenerTodos();
             </div>
         </div>
     </div>
-        <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="<?= BASE_URL ?>js/main.js"></script>
 
 </body>
 

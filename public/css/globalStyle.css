@@ -210,3 +210,18 @@ p{
     border: 1px solid black;
     padding: 10px;
 }
+
+/* Mensaje interactivo */
+.mensaje-flotante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    padding: 15px 25px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.mensaje-exito { background: #28a745; }
+.mensaje-error { background: #dc3545; }

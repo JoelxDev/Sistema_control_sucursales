@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['error'] = "Error al crear la sucursal. Inténtalo nuevamente.";
     }
     // Redirigir al formulario
-    header('Location: ' . BASE_URL . 'admin/sucursales/crear');
+    header('Location: ' . BASE_URL . 'admin/sucursales');
     exit;
 }
 ?>

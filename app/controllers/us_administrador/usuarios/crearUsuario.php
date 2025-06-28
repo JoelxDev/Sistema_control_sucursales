@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['error'] = "Error al crear el usuario. Inténtalo nuevamente.";
     }
     // Redirigir al formulario
-    header('Location: ' . BASE_URL . 'admin/usuarios/btn_crear_us');
+    header('Location: ' . BASE_URL . 'admin/usuarios');
     exit;
 }
 ?>

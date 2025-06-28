@@ -112,6 +112,22 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
+        <?php if (isset($_SESSION['success']) || isset($_SESSION['error'])): ?>
+            <div id="mensaje-flotante" style="position:fixed;top:20px;right:20px;z-index:9999;
+                padding:15px 25px;border-radius:6px;
+                color:#fff;
+                background:<?= isset($_SESSION['success']) ? '#28a745' : '#dc3545' ?>;
+                box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+                <?= isset($_SESSION['success']) ? $_SESSION['success'] : $_SESSION['error'] ?>
+            </div>
+            <script>
+                setTimeout(() => {
+                    const msg = document.getElementById('mensaje-flotante');
+                    if (msg) msg.style.display = 'none';
+                }, 3000);
+            </script>
+            <?php unset($_SESSION['success'], $_SESSION['error']); ?>
+        <?php endif; ?>
         <div class="cuerpo">
             <div class="encabezado-modulo">
                 <div>
@@ -158,8 +174,7 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                                         </a>
                                     </td>
                                     <td class="bott">
-                                        <form method="POST"
-                                            action="<?= BASE_URL ?>admin/usuarios/eliminar"
+                                        <form method="POST" action="<?= BASE_URL ?>admin/usuarios/eliminar"
                                             onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
                                             <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
                                             <button type="submit">Eliminar</button>
@@ -171,7 +186,8 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
                                             <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
                                             <button type="submit">M.Inf</button>
                                         </form> -->
-                                        <a href="<?= BASE_URL ?>admin/usuarios/MasInformacion?id=<?= $usuario['id_personal'] ?>">
+                                        <a
+                                            href="<?= BASE_URL ?>admin/usuarios/MasInformacion?id=<?= $usuario['id_personal'] ?>">
                                             <button type="button">M.Inf</button>
                                         </a>
                                     </td>

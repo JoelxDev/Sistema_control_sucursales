@@ -81,6 +81,22 @@ $sucursales = ModelInventario::obtenerSucursales();
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
+        <?php if (isset($_SESSION['success']) || isset($_SESSION['error'])): ?>
+            <div id="mensaje-flotante" style="position:fixed;top:20px;right:20px;z-index:9999;
+                padding:15px 25px;border-radius:6px;
+                color:#fff;
+                background:<?= isset($_SESSION['success']) ? '#28a745' : '#dc3545' ?>;
+                box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+                <?= isset($_SESSION['success']) ? $_SESSION['success'] : $_SESSION['error'] ?>
+            </div>
+            <script>
+                setTimeout(() => {
+                    const msg = document.getElementById('mensaje-flotante');
+                    if (msg) msg.style.display = 'none';
+                }, 3000);
+            </script>
+            <?php unset($_SESSION['success'], $_SESSION['error']); ?>
+        <?php endif; ?>
         <div class="cuerpo">
             <div class="main-body">
                 <div class="inventario-body">
@@ -91,20 +107,11 @@ $sucursales = ModelInventario::obtenerSucursales();
                     </div>
                     <div class="lower-body">
                         <div class="form-inventario">
-                            <?php if (isset($_SESSION['error'])): ?>
-                        <p style="color: red; text-align:center"><?= $_SESSION['error'] ?></p>
-                        <?php unset($_SESSION['error']); ?>
-                    <?php endif; ?>
-
-                    <?php if (isset($_SESSION['success'])): ?>
-                        <p style="color: green;"><?= $_SESSION['success'] ?></p>
-                        <?php unset($_SESSION['success']); ?>
-                    <?php endif; ?>
                             <div class="form-title">
                                 <h3>Asignar Inventario</h3>
                             </div>
                             <form action="<?= BASE_URL ?>inv/inventario/asigInventario" method="post">
-                                
+
                                 <div>
                                     <label for="txttipoasigInv">Tipo de asignacion</label>
                                     <select name="txttipoasigInv" id="txttipoasigInv" required>
@@ -142,7 +149,7 @@ $sucursales = ModelInventario::obtenerSucursales();
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                
+
                                 <div>
                                     <label for="txtcantidadInv">Cantidad</label>
                                     <input type="number" name="txtcantidadInv" id="txtcantidadInv"

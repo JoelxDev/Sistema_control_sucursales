@@ -1,12 +1,6 @@
 <?php
 require_once __DIR__ . '/../../../../config/config.php';
-require_once __DIR__ . '/../../../models/us_administrador/informacion/informacionUsuarios.php';
-$inventarios = Producto::obtenerInventarioPorSucursal();
-// Agrupar inventarios por sucursal
-$sucursales = [];
-foreach ($inventarios as $inv) {
-    $sucursales[$inv['sucursal']][] = $inv;
-}
+require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostrarMInventario.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +8,7 @@ foreach ($inventarios as $inv) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario</title>
+    <title>Movimientos Inventario</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>css/inventario.css">
 </head>
@@ -115,55 +109,49 @@ foreach ($inventarios as $inv) {
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
-        <div class="cuerpo-inventario">
-            <div class="botones-inventario" id="btn_inventario">
+        <div class="cuerpo-movi-inventario">
+            <div class="movi- inventario">
                 <div>
-                    <button onclick="btn_VProductos()">Producto</button>
-                    <button onclick="btn_MInventario()">Movimientos Inventario</button>
+                    <br>
+                    <br>
+                    <br>
                 </div>
-                <!-- Los botones de las sucursales deben aparecer
-                automaticamente, mas no crearlos manualmente -->
-
-            </div>
-            <div class="inventario">
                 <div class="informacion-inventario">
                     <div class="titulo-inventario">
-                        <h3>Inventario de las Sucursales</h3>
+                        <h3>Historial de Movimientos de Inventario</h3>
                     </div>
                     <div class="cont-inventario">
-                        <div class="cont-superior">
-                            <div>
-                            </div>
-                        </div>
-                        <div class="cont-inferior">
-                            <?php
-                            // Agrupar por sucursal
-                            $sucursales = [];
-                            foreach ($inventarios as $inv) {
-                                $sucursales[$inv['sucursal']][] = $inv;
-                            }
-                            ?>
-                            <?php foreach ($sucursales as $nombre_sucursal => $inventariosSucursal): ?>
-                                <div class="sucursal-card">
-                                    <h2 class="sucursal-nombre"><?= htmlspecialchars($nombre_sucursal) ?></h2>
-                                    <div class="productos-lista">
-                                        <?php foreach ($inventariosSucursal as $inv): ?>
-                                            <div class="producto-card">
-                                                <div class="producto-nombre"><?= htmlspecialchars($inv['producto']) ?></div>
-                                                <div class="producto-cantidad">Cantidad total:
-                                                    <b><?= htmlspecialchars($inv['cantidad_total']) ?></b></div>
-                                                <div class="producto-fecha">Última actualización:
-                                                    <span><?= htmlspecialchars($inv['ultima_actualizacion']) ?></span></div>
-                                                <div class="producto-epoca">Época: <?= htmlspecialchars($inv['epoca']) ?></div>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Sucursal</th>
+                                    <th>Producto</th>
+                                    <th>Tipo</th>
+                                    <th>Cantidad</th>
+                                    <th>Época</th>
+                                    <th>Motivo</th>
+                                    <th>Usuario</th>
+                                    <!-- <th>ID Venta</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($movimientos as $mov): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($mov['fecha_movimento']) ?></td>
+                                        <td><?= htmlspecialchars($mov['sucursal']) ?></td>
+                                        <td><?= htmlspecialchars($mov['producto']) ?></td>
+                                        <td><?= htmlspecialchars($mov['tipo_mov']) ?></td>
+                                        <td><?= htmlspecialchars($mov['cantidad']) ?></td>
+                                        <td><?= htmlspecialchars($mov['epoca']) ?></td>
+                                        <td><?= htmlspecialchars($mov['motivo']) ?></td>
+                                        <td><?= htmlspecialchars($mov['usuario']) ?></td>
+                                        <!-- <td><?= htmlspecialchars($mov['ventas_id_venta']) ?></td> -->
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
             </div>
         </div>

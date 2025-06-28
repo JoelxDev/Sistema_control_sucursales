@@ -79,15 +79,7 @@ require_once __DIR__ . '/../../../../config/config.php';
             </div>
         </div>
     <!-- Desde aqui se puede modificar para otros modulos -->
-    <?php if (isset($_SESSION['error'])): ?>
-                        <p style="color: red; text-align:center"><?= $_SESSION['error'] ?></p>
-                        <?php unset($_SESSION['error']); ?>
-                    <?php endif; ?>
-
-                    <?php if (isset($_SESSION['success'])): ?>
-                        <p style="color: green;"><?= $_SESSION['success'] ?></p>
-                        <?php unset($_SESSION['success']); ?>
-                    <?php endif; ?>
+    
     <div class="formulario_usuario">
         <div class="cuerpo-form">
             <div class="titulo-form"> 

@@ -111,10 +111,10 @@ require_once __DIR__ . '/../../../../config/config.php';
                             <label for="txtprecio_pr">Precio Unitario</label><br>
                             <input type="number" step="any" name="txtprecio_pr" id="txtprecio_pr" placeholder="Precio Unitario" required>
                         </div>
-                        <div>
+                        <!-- <div>
                             <label for="txtunidades_pr">Unidades</label><br>
-                            <input type="number" name="txtunidades_pr" id="txtunidades_pr" placeholder="Unidades" required>
-                        </div>
+                            <input type="number" name="txtunidades_pr" id="txtunidades_pr" placeholder="Unidades" >
+                        </div> -->
                         <div>
                             <label for="txtcaregoria">Categoria</label><br>
                             <input type="text" name="txtcategoria_pr" id="txtcategoria_pr" placeholder="Categoria" required>

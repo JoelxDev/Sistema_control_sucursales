@@ -227,6 +227,16 @@ switch ($request) {
             echo "<h1>403 - Acceso denegado</h1>";
         }
         break;
+        // Ruta para movimientos inventario
+    case 'admin/movimientosInventario':
+        if ($tipo === 'administrador'){
+            require_once $base . 'usadministrador/inventario/btn_MInventario.php';
+        } else {
+            http_response_code(403);
+            echo "<h1>403 - Acceso denegado</h1>";
+        }
+        break;
+
         // Ruta para el CRUD de productos
     case 'admin/inventario/Productos':
         if ($tipo === 'administrador') {

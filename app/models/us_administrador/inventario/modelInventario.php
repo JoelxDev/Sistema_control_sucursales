@@ -3,16 +3,16 @@ require_once __DIR__ . '/../../../../config/conexion_db.php';
 
 class Producto
 {
-    public static function crear($nombre, $descripcion, $precio, $unidades, $categoria)
+    public static function crear($nombre, $descripcion, $precio, $categoria)
     {
         try {
             $db = Database::conectarDB();
-            $stmt = $db->prepare("INSERT INTO productos (nombre_pr, descripcion_pr, precio_unitario_pr, stock, categoria)
-                VALUES (:nombre, :descripcion, :precio, :unidades, :categoria)");
+            $stmt = $db->prepare("INSERT INTO productos (nombre_pr, descripcion_pr, precio_unitario_pr, categoria)
+                VALUES (:nombre, :descripcion, :precio, :categoria)");
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':precio', $precio);
-            $stmt->bindParam(':unidades', $unidades);
+            // $stmt->bindParam(':unidades', $unidades);
             $stmt->bindParam(':categoria', $categoria);
             if ($stmt->execute()) {
                 return true;
@@ -106,10 +106,39 @@ class Producto
             JOIN sucursal s ON i.sucursal_id_sucursal = s.id_sucursal
             JOIN productos p ON i.productos_id_producto = p.id_producto
             GROUP BY s.id_sucursal, p.id_producto
-            ORDER BY s.nombre_s, p.nombre_pr");
+            ORDER BY s.nombre_s, p.nombre_pr"
+            );
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             error_log('Error al obtener inventario por sucursal: ' . $e->getMessage());
+            return [];
+        }
+    }
+    public static function obtenerMovimientosInventario()
+    {
+        try {
+            $db = Database::conectarDB();
+            $stmt = $db->query(
+                "SELECT 
+                m.id_mov_inventario,
+                m.tipo_mov,
+                m.cantidad,
+                m.fecha_movimento,
+                m.epoca,
+                m.motivo,
+                m.ventas_id_venta,
+                s.nombre_s AS sucursal,
+                p.nombre_pr AS producto,
+                u.username AS usuario
+            FROM movimientos_inventario m
+            JOIN sucursal s ON m.sucursal_id_sucursal = s.id_sucursal
+            JOIN productos p ON m.productos_id_producto = p.id_producto
+            LEFT JOIN usuarios u ON m.usuarios_id_usuario = u.id_usuario
+            ORDER BY m.fecha_movimento DESC"
+            );
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log('Error al obtener movimientos de inventario: ' . $e->getMessage());
             return [];
         }
     }

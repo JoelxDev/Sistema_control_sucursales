@@ -42,3 +42,7 @@ function btn_actualizarInventarioUE() {
 function btn_listaPedidosUE() {
     window.location.href = '/usuario/lista_pedidos';
 }
+//  Usuario Administrador - Movimientos Inventario
+function btn_MInventario(){
+    window.location.href = '/admin/movimientosInventario'
+}

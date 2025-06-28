@@ -24,9 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoria = $_POST['txtcategoria_pr'];
 
     if (Producto::actualizar($id, $nombre, $descripcion, $precio, $categoria)) {
-        $_SESSION['mensaje'] = "Producto actualizado correctamente.";
+        $_SESSION['success'] = "Producto actualizado correctamente.";
     } else {
-        $_SESSION['mensaje'] = "Error al actualizar el producto.";
+        $_SESSION['error'] = "Error al actualizar el producto.";
     }
     header('Location: ' . BASE_URL . 'admin/inventario/Productos');
     exit;

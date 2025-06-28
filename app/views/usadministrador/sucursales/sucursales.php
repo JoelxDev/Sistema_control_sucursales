@@ -64,37 +64,71 @@ $sucursales = Sucursal::obtenerTodas();
                 </a>
             </div>
             <div class="mini-menu-b">
-                <a href="../../../../logout.php"><h3>Salir</h3></a>
+                <a href="../../../../logout.php">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
     <div class="content">
         <div class="encabezado">
-            <div class="titulo"><h3>ADMINISTRADOR</h3></div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/informacion"><h3>Informacion</h3></a>
+            <div class="titulo">
+                <h3>ADMINISTRADOR</h3>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/sucursales"><h3>Sucursales</h3></a>
+                <a href="<?= BASE_URL ?>admin/informacion">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/usuarios"><h3>Usuarios</h3></a>
+                <a href="<?= BASE_URL ?>admin/sucursales">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/reporte_ventas"><h3>Reporte Ventas</h3></a>
+                <a href="<?= BASE_URL ?>admin/usuarios">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>admin/reporte_ventas">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>admin/inventario">
+                    <h3>Inventario</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
             <div class="menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
+        <?php if (isset($_SESSION['success']) || isset($_SESSION['error'])): ?>
+            <div id="mensaje-flotante" style="position:fixed;top:20px;right:20px;z-index:9999;
+                padding:15px 25px;border-radius:6px;
+                color:#fff;
+                background:<?= isset($_SESSION['success']) ? '#28a745' : '#dc3545' ?>;
+                box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+                <?= isset($_SESSION['success']) ? $_SESSION['success'] : $_SESSION['error'] ?>
+            </div>
+            <script>
+                setTimeout(() => {
+                    const msg = document.getElementById('mensaje-flotante');
+                    if (msg) msg.style.display = 'none';
+                }, 3000);
+            </script>
+            <?php unset($_SESSION['success'], $_SESSION['error']); ?>
+        <?php endif; ?>
         <div class="cuerpo-S">
             <div class="boton-sucursal">
                 <button class="anadir-sucursal" onclick="A_sucursal()">Añadir Sucursal</button>
@@ -123,18 +157,12 @@ $sucursales = Sucursal::obtenerTodas();
                             </div>
                             <div class="botones-S">
                                 <!-- Botón para editar -->
-                                <!-- <form action="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>" method="POST" >                                     
-                                    <input type="hidden" name="id_sucursal" value="<?= $sucursal['id_sucursal'] ?>">
-                                    <input type="hidden" name="nombre_s" value="<?= $sucursal['nombre_s'] ?>">
-                                    <input type="hidden" name="ubicacion_s" value="<?= $sucursal['ubicacion_s'] ?>">
-                                    <input type="hidden" name="estado_s" value="<?= $sucursal['estado_s'] ?>">
-                                    <input type="hidden" name="ciudad_s" value="<?= $sucursal['ciudad_s'] ?>">
-                                    <button type="submit" class="modificar-btn">Modificar</button>
-                                </form> -->
-                                <a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>" class="modificar-btn">Modificar</a>
+                                <a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>"
+                                    class="modificar-btn">Modificar</a>
 
                                 <!-- Botón para eliminar -->
-                                <form method="POST" action="/admin/sucursales/eliminar" style="display: inline;" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta sucursal?');">
+                                <form method="POST" action="/admin/sucursales/eliminar" style="display: inline;"
+                                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta sucursal?');">
                                     <input type="hidden" name="id_sucursal" value="<?= $sucursal['id_sucursal'] ?>">
                                     <button type="submit" class="eliminar-btn">Eliminar</button>
                                 </form>
