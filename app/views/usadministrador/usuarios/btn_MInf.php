@@ -2,36 +2,147 @@
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
 require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
-
-// if (!isset($_POST['id_personal'])) {
-//     die("Error: No se proporcionó el ID del usuario.");
-// }
-
-// $usuario = Usuarios::obtenerUsuarioPorId($_POST['id_personal']);
-// if (!$usuario) {
-//     die("Error: Usuario no encontrado.");
-// }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información del Usuario</title>
+    <title>Informacio del Usuario</title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/usuarios.css">
 </head>
 <body>
-    <h1>Información del Usuario</h1>
-    <ul>
-        <li><strong>ID:</strong> <?= htmlspecialchars($usuario['id_personal']) ?></li>
-        <li><strong>Nombre:</strong> <?= htmlspecialchars($usuario['nombre_p']) ?></li>
-        <li><strong>Apellido:</strong> <?= htmlspecialchars($usuario['apellido_p']) ?></li>
-        <li><strong>DNI:</strong> <?= htmlspecialchars($usuario['dni_p']) ?></li>
-        <li><strong>Teléfono:</strong> <?= htmlspecialchars($usuario['telefono_p']) ?></li>
-        <li><strong>Correo electrónico:</strong> <?= htmlspecialchars($usuario['correo_elec']) ?></li>
-        <li><strong>Rol:</strong> <?= htmlspecialchars($usuario['roll_p']) ?></li>
-        <li><strong>Username</strong> <?= htmlspecialchars($usuario['username']) ?></li>
-        <!-- Agrega aquí más campos si tu tabla tiene más datos -->
-    </ul>
+    <!-- Interfaz Para pantallas pequeñas -->
+
+    <div class="encabezado-mvl">
+        <div class="cl-titulo">
+            <h3 class="titulo-mvl">ADMINISTRADOR</h3>
+        </div>
+        <div class="img-menu">
+            <img src="../../../../public/img/file.png" alt="">
+        </div>
+    </div>
+    <div class="mini-content">
+        <div class="mini-encabezado">
+            <div class="menu-a">
+                <a href="../informacion/informacion.php">
+                    <h3>Informacion</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../sucursales/sucursales.php">
+                    <h3>Sucursales</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../usuarios/usuarios.php">
+                    <h3>Usuarios</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../reporte_ventas/reporte_ventas.php">
+                    <h3>Reporte Ventas</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../inventario/inventario.php">
+                    <h3>Inventario</h3>
+                </a>
+            </div>
+            <div class="mini-menu-a">
+                <a href="../pedidos/pedidos.php">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
+            <div class="mini-menu-b">
+                <a href="../../../../logout.php">
+                    <h3>Salir</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Interfaz para pantallas grandes -->
+    <div class="content">
+        <div class="encabezado">
+            <div class="titulo">
+                <h3>ADMINISTRADOR</h3>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/informacion">
+                    <h3>Informacion</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/sucursales">
+                    <h3>Sucursales</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/usuarios">
+                    <h3>Usuarios</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/reporte_ventas">
+                    <h3>Reporte Ventas</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/inventario">
+                    <h3>Inventario</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>admin/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
+            <div class="menu-b">
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
+            </div>
+        </div>
+        <!-- Desde aqui se puede modificar para otros modulos -->
+        <div class="cuerpo">
+            <div class="encabezado-modulo">
+            </div>
+            <div class="modulo-usuarios">
+                <div class="titulo-modulo">
+                    <h3>Informacio del usuario</h3>
+                </div>
+                <div class="tabla-usuarios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>DNI</th>
+                                <th>Teléfono</th>
+                                <th>Correo electrónico</th>
+                                <th>Rol</th>
+                                <th>Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?= htmlspecialchars($usuario['id_personal']) ?></td>
+                                <td><?= htmlspecialchars($usuario['nombre_p']) ?></td>
+                                <td><?= htmlspecialchars($usuario['apellido_p']) ?></td>
+                                <td><?= htmlspecialchars($usuario['dni_p']) ?></td>
+                                <td><?= htmlspecialchars($usuario['telefono_p']) ?></td>
+                                <td><?= htmlspecialchars($usuario['correo_elec']) ?></td>
+                                <td><?= htmlspecialchars($usuario['roll_p']) ?></td>
+                                <td><?= htmlspecialchars($usuario['username']) ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>
 </html>
