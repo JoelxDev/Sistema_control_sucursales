@@ -50,3 +50,43 @@
     padding: 10px;
     border-radius: 20px ;
 }
+/* ESTILO PARA EDITAR SUCURSAL */
+.cuerpo-SEdit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    /* border-radius: 10px; */
+}
+.titulo-edit-sucursal {
+    border: 1px solid black;
+    text-align: center;
+    width: 100%;
+    padding: 10px 30px 10px 30px;
+}
+.cuerpo-edit-sucursal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    max-width: 300px;
+    width: 100%;
+}
+.formulario-edit-sucursal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.formulario-edit-sucursal form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-size: 17px;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+}
