@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contll_ventasRegistradas.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,29 +47,43 @@
                 </a>
             </div>
             <div class="mini-menu-b">
-                <a href="../../../logout.php"><h3>Salir</h3></a>
+                <a href="../../../logout.php">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
     <!-- Interfaz para pantallas grandes -->
     <div class="content">
         <div class="encabezado">
-            <div class="titulo"><h3>Joel</h3></div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>usuario/perfil"><h3>Informacion</h3></a>
+            <div class="titulo">
+                <h3>Joel</h3>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>usuario/ventas"><h3>Registrar Venta</h3></a>
+                <a href="<?= BASE_URL ?>usuario/perfil">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>usuario/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>usuario/ventas">
+                    <h3>Registrar Venta</h3>
+                </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>usuario/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>usuario/inventario">
+                    <h3>Inventario</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>usuario/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
 
             <div class="menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
@@ -80,7 +97,7 @@
                             <option value="">Hoy</option>
                         </select>
                     </div>
-                </div>  
+                </div>
                 <div class="reg-vent-lower-body">
                     <div class="tabla-list-ventas">
                         <div class="titulo-ventas-registradas">
@@ -90,6 +107,8 @@
                             <table>
                                 <thead>
                                     <tr>
+                                        <th>Sucursal</th>
+                                        <th>Usuario</th>
                                         <th>Tipo de venta</th>
                                         <th>Producto</th>
                                         <th>Cantidad</th>
@@ -101,16 +120,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    <?php if (!empty($ventas)): ?>
+                                        <?php foreach ($ventas as $venta): ?>
+                                            <tr>
+                                                <td><?= htmlspecialchars($venta['nombre_s']) ?></td>
+                                                <td><?= htmlspecialchars($venta['username']) ?></td>
+                                                <td><?= htmlspecialchars($venta['tipo_venta']) ?></td>
+                                                <td><?= htmlspecialchars($venta['producto']) ?></td>
+                                                <td><?= htmlspecialchars($venta['cantidad_dv']) ?></td>
+                                                <td><?= htmlspecialchars($venta['precio_unitario']) ?></td>
+                                                <td><?= htmlspecialchars($venta['subtotal']) ?></td>
+                                                <td><?= htmlspecialchars($venta['total']) ?></td>
+                                                <td><?= htmlspecialchars($venta['metodo_pago']) ?></td>
+                                                <td><?= htmlspecialchars($venta['fecha_venta']) ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="10" style="text-align:center;">No hay ventas registradas.</td>
+                                        </tr>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -120,4 +149,3 @@
         </div>
     </div>
 </body>
-        
