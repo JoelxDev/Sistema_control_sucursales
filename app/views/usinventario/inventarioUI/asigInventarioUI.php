@@ -24,7 +24,7 @@ $sucursales = ModelInventario::obtenerSucursales();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignar Inventario</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/informacion.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/asigInventario.css">
 </head>
 
 <body>
@@ -102,7 +102,7 @@ $sucursales = ModelInventario::obtenerSucursales();
                 <div class="inventario-body">
                     <div class="upper-body">
                         <div>
-                            <button>Historial de asignaciones</button>
+                            <button onclick="btn_historialAsigUI()">Historial de asignaciones</button>
                         </div>
                     </div>
                     <div class="lower-body">
@@ -111,23 +111,17 @@ $sucursales = ModelInventario::obtenerSucursales();
                                 <h3>Asignar Inventario</h3>
                             </div>
                             <form action="<?= BASE_URL ?>inv/inventario/asigInventario" method="post">
-
-                                <div>
                                     <label for="txttipoasigInv">Tipo de asignacion</label>
                                     <select name="txttipoasigInv" id="txttipoasigInv" required>
                                         <option value="entrada">Entrada</option>
-                                    </select>
-                                </div>
-                                <div>
+                                    </select><br>
                                     <label for="txtepocaInv">Epoca o N° de entrada</label>
                                     <select name="txtepocaInv" id="txtepocaInv" required>
                                         <option value="I">I</option>
                                         <option value="II">II</option>
                                         <option value="III">III</option>
                                         <option value="IV">IV</option>
-                                    </select>
-                                </div>
-                                <div>
+                                    </select><br>
                                     <label for="txtproductoInv">Seleccione el producto</label>
                                     <select name="txtproductoInv" id="txtproductoInv" required>
                                         <option value="">Seleccione un producto</option>
@@ -136,9 +130,7 @@ $sucursales = ModelInventario::obtenerSucursales();
                                                 <?= htmlspecialchars($producto['nombre_pr']) ?>
                                             </option>
                                         <?php endforeach; ?>
-                                    </select>
-                                </div>
-                                <div>
+                                    </select><br>
                                     <label for="txtsucursalInv">Seleccione la sucursal</label>
                                     <select name="txtsucursalInv" id="txtsucursalInv" required>
                                         <option value="">Seleccione una sucursal</option>
@@ -147,17 +139,11 @@ $sucursales = ModelInventario::obtenerSucursales();
                                                 <?= htmlspecialchars($sucursal['nombre_s']) ?>
                                             </option>
                                         <?php endforeach; ?>
-                                    </select>
-                                </div>
-
-                                <div>
+                                    </select><br>
                                     <label for="txtcantidadInv">Cantidad</label>
                                     <input type="number" name="txtcantidadInv" id="txtcantidadInv"
-                                        placeholder="Ingrese la cantidad" required>
-                                </div>
-                                <div>
+                                        placeholder="Ingrese la cantidad" required><br>
                                     <button type="submit">Enviar</button>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -165,6 +151,6 @@ $sucursales = ModelInventario::obtenerSucursales();
             </div>
         </div>
     </div>
+        <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>
-
 </html>

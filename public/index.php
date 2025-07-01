@@ -441,6 +441,16 @@ switch ($request) {
     }
     break;
 
+    case 'inv/inventario/historialAsignaciones':
+    if ($tipo === 'inventario') {
+            require_once $base . 'usinventario/inventarioUI/historialAsigUI.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
+
+
     default:
         http_response_code(404);
         echo "<h1>404 - Página no encontrada</h1>";

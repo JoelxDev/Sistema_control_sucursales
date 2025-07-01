@@ -23,6 +23,9 @@ function btn_AProducto() {
     window.location.href = '/admin/inventario/AnadirProducto';
 }
 
+function btn_historialAsigUI() {
+    window.location.href = '/inv/inventario/historialAsignaciones';
+}
 // Pedidos - Historial
 function btn_HPedidos() {
     window.location.href = '/admin/pedidos/HistorialPedidos';
