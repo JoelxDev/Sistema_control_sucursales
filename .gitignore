@@ -1,0 +1,32 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración del editor (Visual Studio Code, PHPStorm, etc.)
+.vscode/
+.idea/
+
+# Archivos de configuración sensibles
+config/conexion_db.php
+.env
+
+# Directorios de bases de datos o datos temporales
+database/
+tmp/
+*.log
+*.bak
+*.tmp
+
+# Directorios de dependencias (si usas Composer o npm en algún momento)
+vendor/
+node_modules/
+
+# Docker archivos opcionales
+docker-compose.override.yml
+*.tar
+*.img
+.docker/
+
+# Archivos de caché y PID
+*.cache
+*.pid
