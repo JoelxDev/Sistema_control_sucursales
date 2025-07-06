@@ -49,3 +49,13 @@ function btn_listaPedidosUE() {
 function btn_MInventario(){
     window.location.href = '/admin/movimientosInventario'
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imgMenu = document.querySelector('.img-menu');
+    const miniMenu = document.querySelector('.mini-content');
+    if (imgMenu && miniMenu) {
+        imgMenu.addEventListener('click', function() {
+            miniMenu.classList.toggle('menu-visible');
+        });
+    }
+});

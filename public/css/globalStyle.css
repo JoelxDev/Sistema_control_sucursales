@@ -92,11 +92,38 @@ a {
 
 .mini-content {
     display: none;
+    transition: 1s;
+    align-items: center;
+    justify-content: center;
+    width:100%;
 }
 
 .encabezado-mvl {
     display: none;
 }
+
+.mini-encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    width: 100%;
+    border-radius: 5px;
+    gap: 5px;
+    background-color: #706f6f;
+    margin-top: 5px;
+}
+
+.mini-menu-a{
+    width: 90%;
+    margin: 5px;
+}
+
+.mini-content.menu-visible {
+    display: block;
+}
+
 
 @media (max-width: 1078px) {
     .encabezado-mvl {
@@ -133,6 +160,8 @@ a {
     }
 
 }
+
+
 
 
 /* DESDE AQUI YA SE PUEDE EDITAR EL CODIGO */

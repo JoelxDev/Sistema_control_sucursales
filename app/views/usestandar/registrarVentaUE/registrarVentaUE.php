@@ -19,40 +19,29 @@ $productos = ProductosVenta::obtenerTodos();
     <!-- Interfaz Para pantallas pequeñas -->
     <div class="encabezado-mvl">
         <div class="cl-titulo">
-            <h3 class="titulo-mvl">ADMINISTRADOR</h3>
+            <h3 class="titulo-mvl">SUCURSAL</h3>
         </div>
         <div class="img-menu">
-            <img src="../../../../public/img/file.png" alt="">
-
+            <img src="<?= BASE_URL ?>/img/file.png" alt="">
         </div>
 
     </div>
-    <div class="mini-content">
+    <div class="mini-content"> 
         <div class="mini-encabezado">
-            <div class="menu-a">
-                <a href="../informacionUE/informacionUE.php">
-                    <h3>Informacion</h3>
-                </a>
+            <div class="mini-menu-a">
+                <a href="<?= BASE_URL ?>usuario/perfil"><h3>Informacion</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../registrarVentaUE/registrarVentaUE.php">
-                    <h3>Registrar Venta</h3>
-                </a>
+                <a href="<?= BASE_URL ?>usuario/ventas"><h3>Registrar Venta</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../inventarioUE/inventarioUE.php">
-                    <h3>Inventario</h3>
-                </a>
+                <a href="<?= BASE_URL ?>usuario/inventario"><h3>Inventario</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="../pedidosUE/pedidosUE.php">
-                    <h3>Pedidos</h3>
-                </a>
+                <a href="<?= BASE_URL ?>usuario/pedidos"><h3>Pedidos</h3></a>
             </div>
             <div class="mini-menu-b">
-                <a href="../../../../logout.php">
-                    <h3>Salir</h3>
-                </a>
+                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
             </div>
         </div>
     </div>
@@ -179,15 +168,15 @@ $productos = ProductosVenta::obtenerTodos();
             }
             document.getElementById('cantidad').addEventListener('input', calcularTotal);
             document.getElementById('nom_producto').addEventListener('change', calcularTotal);
-
+            
             function calcularTotal() {
                 const precio = parseFloat(document.getElementById('precio_unitario').value) || 0;
                 const cantidad = parseInt(document.getElementById('cantidad').value) || 0;
                 document.getElementById('total').value = (precio * cantidad).toFixed(2);
             }
-        </script>
-        <script src="<?= BASE_URL ?>js/main.js"></script>
-
+            </script>
+            <script src="<?= BASE_URL ?>js/main.js"></script>
+            
 </body>
 
 </html>
