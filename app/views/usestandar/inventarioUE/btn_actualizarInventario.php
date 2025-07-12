@@ -68,7 +68,7 @@
                 </div>
                 <div class="Act_Inventario-lower-body">
                     <div class="actualizar-inventario">
-                        <div class="titulo-actualizarInv">
+                        <div class="subtitulo">
                             <h3>Actualizar Inventario</h3>
                         </div>
                         <div class="conten-actualizarInv">

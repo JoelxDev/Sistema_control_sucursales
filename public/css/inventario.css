@@ -1,19 +1,19 @@
 .informacion-inventario{
     display: flex;
     flex-direction: column;
-    margin: 0 20px 0 20px;
+    /* background-color: #CCD0CF; */
 }
 .titulo-inventario{
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: #afaaaa;
+    background-color: #9BA8AB;
     border: 1px solid black;
     padding: 10px;
 }
-.cont-inventario{
+/* .cont-inventario{
     margin: 10px;
-}
+} */
 .cont-superior{
     display: flex;
     justify-content: space-evenly;
@@ -24,6 +24,8 @@
     gap: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 10px;
+
 }
 .cont-enviar{
     display: flex;
@@ -45,7 +47,6 @@
     margin: 10px;
 }
 button{
-    margin: 25px;
     border-radius: 10px;
     padding: 10px;
 }

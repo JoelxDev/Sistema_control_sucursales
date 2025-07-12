@@ -32,28 +32,42 @@ $productos = Producto::obtenerTodos();
 
     </div>
 
-    <div class="mini-content"> 
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/informacion"><h3>Informacion</h3></a>
+                <a href="<?= BASE_URL ?>admin/informacion">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/sucursales"><h3>Sucursales</h3></a>
+                <a href="<?= BASE_URL ?>admin/sucursales">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/usuarios"><h3>Usuarios</h3></a>
+                <a href="<?= BASE_URL ?>admin/usuarios">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/reporte_ventas"><h3>Reporte Ventas</h3></a>
+                <a href="<?= BASE_URL ?>admin/reporte_ventas">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>admin/inventario">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>admin/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
             <div class="mini-menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -99,7 +113,7 @@ $productos = Producto::obtenerTodos();
         </div>
     </div>
     <!-- Desde aqui se puede modificar para otros modulos -->
-    <div class="cuerpo-VProductos" id="cuerpo_VProductos">
+    <div class="cuerpo" id="">
         <?php if (isset($_SESSION['success']) || isset($_SESSION['error'])): ?>
             <div id="mensaje-flotante" style="position:fixed;top:20px;right:20px;z-index:9999;
                 padding:15px 25px;border-radius:6px;
@@ -117,72 +131,72 @@ $productos = Producto::obtenerTodos();
             <?php unset($_SESSION['success'], $_SESSION['error']); ?>
         <?php endif; ?>
         <div class="principal-contentBVP">
-            <div class="cuerpo-superior">
+            <div class="upper-body">
                 <div>
                     <button class="btn_añadirP" onclick="btn_AProducto()">Añadir producto</button>
                 </div>
-
             </div>
-            <div class="cuerpo-inferior">
-                <div class="titulo-VProductos">
-                    <h3>Productos registrados en el inventario</h3>
-                </div>
-                <div class="tabla-VProductos">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID PRODUCTO</th>
-                                <th>NOMBRE DEL PRODUCTO</th>
-                                <th>CATEGORIA</th>
-                                <th>DESCRIPCION</th>
-                                <th>PRECIO UNITARIO</th>
-                                <th colspan="3">ACCIONES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if (!empty($productos)): ?>
-                                <?php foreach ($productos as $producto): ?>
-                                    <tr>
-                                        <td><?= htmlspecialchars($producto['id_producto']) ?></td>
-                                        <td><?= htmlspecialchars($producto['nombre_pr']) ?></td>
-                                        <td><?= htmlspecialchars($producto['categoria']) ?></td>
-                                        <td><?= htmlspecialchars($producto['descripcion_pr']) ?></td>
-                                        <td>S/. <?= htmlspecialchars($producto['precio_unitario_pr']) ?></td>
-                                        <td>
-                                            <!-- Botón Editar -->
-                                            <!-- <form action="../../../controllers/us_administrador/inventario/editarProducto.php"
+            <div class="lower-body">
+                <div class="cuerpo-inferior">
+                    <div class="subtitulo">
+                        <h3>Productos registrados en el inventario</h3>
+                    </div>
+                    <div class="tabla-VProductos">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID PRODUCTO</th>
+                                    <th>NOMBRE DEL PRODUCTO</th>
+                                    <th>CATEGORIA</th>
+                                    <th>DESCRIPCION</th>
+                                    <th>PRECIO UNITARIO</th>
+                                    <th colspan="3">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if (!empty($productos)): ?>
+                                    <?php foreach ($productos as $producto): ?>
+                                        <tr>
+                                            <td><?= htmlspecialchars($producto['id_producto']) ?></td>
+                                            <td><?= htmlspecialchars($producto['nombre_pr']) ?></td>
+                                            <td><?= htmlspecialchars($producto['categoria']) ?></td>
+                                            <td><?= htmlspecialchars($producto['descripcion_pr']) ?></td>
+                                            <td>S/. <?= htmlspecialchars($producto['precio_unitario_pr']) ?></td>
+                                            <td>
+                                                <!-- Botón Editar -->
+                                                <!-- <form action="../../../controllers/us_administrador/inventario/editarProducto.php"
                                                 method="get" style="display:inline;">
                                                 <input type="hidden" name="id_producto"
                                                     value="<?= htmlspecialchars($producto['id_producto']) ?>">
                                                 <button type="submit">Editar</button>
                                             </form> -->
-                                            <a
-                                                href="<?= BASE_URL ?>admin/inventario/EditarProducto?id=<?= $producto['id_producto'] ?>">Editar</a>
-
-                                            <!-- Botón Eliminar -->
-                                            <form action="<?= BASE_URL ?>admin/inventario/EliminarProducto" method="post"
-                                                style="display:inline;"
-                                                onsubmit="return confirm('¿Seguro que deseas eliminar este producto?');">
-                                                <input type="hidden" name="id_producto"
-                                                    value="<?= htmlspecialchars($producto['id_producto']) ?>">
-                                                <button type="submit">Eliminar</button>
-                                            </form>
-                                        </td>
+                                                <button>
+                                                    <a href="<?= BASE_URL ?>admin/inventario/EditarProducto?id=<?= $producto['id_producto'] ?>"
+                                                        style="color: black">Editar</a>
+                                                </button>
+                                                <!-- Botón Eliminar -->
+                                                <form action="<?= BASE_URL ?>admin/inventario/EliminarProducto" method="post"
+                                                    style="display:inline;"
+                                                    onsubmit="return confirm('¿Seguro que deseas eliminar este producto?');">
+                                                    <input type="hidden" name="id_producto"
+                                                        value="<?= htmlspecialchars($producto['id_producto']) ?>">
+                                                    <button type="submit">Eliminar</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <tr>
+                                        <td colspan="8" style="text-align:center;">No hay productos registrados.</td>
                                     </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <tr>
-                                    <td colspan="8" style="text-align:center;">No hay productos registrados.</td>
-                                </tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="<?= BASE_URL ?>js/main.js"></script>
-
 </body>
-
 </html>

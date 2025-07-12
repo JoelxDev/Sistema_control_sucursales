@@ -1,29 +1,27 @@
-.invetario-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
+
 .inventario-main-body{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 98%;
+    /* width: 100%; */
 }
 
 .inventario-upper-body{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin: 50px;
+    /* margin: 50px; */
+    margin: 20px;
     width: 100%;
+    gap:20px;
 }
 
-.inventario-lower-body{
+.inventario{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -44,6 +42,15 @@
     width: 90%;
     margin-bottom: 20px;
 }
+.vista-inventario{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    gap: 40px;
+
+}
 .nom_producto{
     text-align: center;
     border: 1px solid black;
@@ -63,7 +70,7 @@
     width: 100%;
 }
 
-button, input{
+button{
     padding: 10px;
     border-radius: 10px;
 }

@@ -95,16 +95,16 @@ $productos = ProductosVenta::obtenerTodos();
             </script>
             <?php unset($_SESSION['success'], $_SESSION['error']); ?>
         <?php endif; ?>
-        <div class="reg-venta-body">
+        <div class="cuerpo">
             <div class="reg-venta-main-body">
-                <div class="reg-venta-upper-bodyf">
+                <div class="upper-body">
                     <div class="btn_ventas-registradas">
                         <button onclick="btn_ventasRegistradasUE()">Ventas registradas</button>
                     </div>
                 </div>
-                <div class="reg-venta-lower-body">
+                <div class="lower-body">
                     <div class="formulario-registro-venta">
-                        <div class="titulo-formulario-rv">
+                        <div class="subtitulo">
                             <h3>Formulario de ventas</h3>
                         </div>
                         <div class="entrada-datos">
@@ -115,7 +115,7 @@ $productos = ProductosVenta::obtenerTodos();
                                         <option value="Unico">Unico</option>
                                         <option value="Mixta">Mixta</option>
                                     </select>
-                                </div>
+                                </div><br>
                                 <div>
                                     <label for="nom_producto">Nombre del Producto</label><br>
                                     <select name="txtnom_producto" id="nom_producto" required
@@ -129,27 +129,26 @@ $productos = ProductosVenta::obtenerTodos();
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
-                                </div>
+                                </div><br>
                                 <div>
                                     <label for="cantidad">Cantidad</label><br>
-                                    <input type="number" name="txtcantidad" id="cantidad" min="1" required>
-                                </div>
+                                    <input type="number" name="txtcantidad" id="cantidad" min="1" placeholder="Cantidad" required>
+                                </div><br>
                                 <div>
                                     <label for="precio_unitario">Precio unitario</label><br>
-                                    <input type="number" name="txtprecio_unitario" id="precio_unitario" step="0.01"
-                                        required>
-                                </div>
+                                    <input type="number" name="txtprecio_unitario" id="precio_unitario" step="0.01" placeholder="Precio Unitario" required>
+                                </div><br>
                                 <div>
                                     <label for="total">Total</label><br>
-                                    <input type="number" step="any" name="txttotal" id="total" step="0.01" required>
-                                </div>
+                                    <input type="number" step="any" name="txttotal" id="total" step="0.01"  placeholder="Total" required>
+                                </div><br>
                                 <div>
                                     <label for="metod_pago">Metodo de pago</label><br>
                                     <select name="txtmetodo_pago" id="metodo_pago" required>
                                         <option value="Efectivo">Efectivo</option>
                                         <option value="Digital">Digital</option>
                                     </select>
-                                </div>
+                                </div><br>
                                 <div class="btn-registrarV">
                                     <button type="submit">Registrar</button>
                                 </div>

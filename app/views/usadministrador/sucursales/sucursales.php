@@ -31,28 +31,42 @@ $sucursales = Sucursal::obtenerTodas();
 
     </div>
 
-    <div class="mini-content"> 
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/informacion"><h3>Informacion</h3></a>
+                <a href="<?= BASE_URL ?>admin/informacion">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/sucursales"><h3>Sucursales</h3></a>
+                <a href="<?= BASE_URL ?>admin/sucursales">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/usuarios"><h3>Usuarios</h3></a>
+                <a href="<?= BASE_URL ?>admin/usuarios">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/reporte_ventas"><h3>Reporte Ventas</h3></a>
+                <a href="<?= BASE_URL ?>admin/reporte_ventas">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>admin/inventario">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>admin/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
             <div class="mini-menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -115,49 +129,58 @@ $sucursales = Sucursal::obtenerTodas();
             </script>
             <?php unset($_SESSION['success'], $_SESSION['error']); ?>
         <?php endif; ?>
-        <div class="cuerpo-S">
-            <div class="boton-sucursal">
-                <button class="anadir-sucursal" onclick="A_sucursal()">Añadir Sucursal</button>
-            </div>
-            <div class="modulos-sucursales" id="moduloSucursal">
-                <?php foreach ($sucursales as $sucursal): ?>
-                    <div id="cont-sucursal">
-                        <div class="titulo-S">
-                            <h3><?= htmlspecialchars($sucursal['nombre_s']) ?></h3>
-                        </div>
-                        <div class="datos-sucursal">
-                            <div class="ubicacion-S">
-                                <?= htmlspecialchars($sucursal['ubicacion_s']) ?><br>
-                            </div>
-                            <div class="ciudad-S">
-                                <?= htmlspecialchars($sucursal['ciudad_s']) ?>
-                            </div>
-                            <div class="estado-S">
-                                <label for="estado">Estado</label><br>
-                                <select name="estado" id="estado">
-                                    <option value="activo" <?= $sucursal['estado_s'] === 'activo' ? 'selected' : '' ?>>Activo
-                                    </option>
-                                    <option value="inactivo" <?= $sucursal['estado_s'] === 'inactivo' ? 'selected' : '' ?>>
-                                        Inactivo</option>
-                                </select>
-                            </div>
-                            <div class="botones-S">
-                                <!-- Botón para editar -->
-                                <a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>"
-                                    class="modificar-btn">Modificar</a>
-
-                                <!-- Botón para eliminar -->
-                                <form method="POST" action="/admin/sucursales/eliminar" style="display: inline;"
-                                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta sucursal?');">
-                                    <input type="hidden" name="id_sucursal" value="<?= $sucursal['id_sucursal'] ?>">
-                                    <button type="submit" class="eliminar-btn">Eliminar</button>
-                                </form>
-                            </div>
-                        </div>
+        <div class="cuerpo">
+            <div class="main-body-sucursales">
+                <div class="upper-body">
+                    <div class="boton-sucursal">
+                        <button class="anadir-sucursal" onclick="A_sucursal()">Añadir Sucursal</button>
                     </div>
-                <?php endforeach; ?>
-            </div>
+                </div>
+                <div class="lower-body">
+                    <div class="subtitulo">
+                        <h3>Lista de sucursales</h3>
+                    </div>
+                    <div class="modulos-sucursales" id="moduloSucursal">
+                        <?php foreach ($sucursales as $sucursal): ?>
+                            <div id="cont-sucursal">
+                                <div class="titulo-S">
+                                    <h3><?= htmlspecialchars($sucursal['nombre_s']) ?></h3>
+                                </div>
+                                <div class="datos-sucursal">
+                                    <div class="ubicacion-S">
+                                        <?= htmlspecialchars($sucursal['ubicacion_s']) ?><br>
+                                    </div>
+                                    <div class="ciudad-S">
+                                        <?= htmlspecialchars($sucursal['ciudad_s']) ?>
+                                    </div>
+                                    <div class="estado-S">
+                                        <label for="estado">Estado</label><br>
+                                        <select name="estado" id="estado">
+                                            <option value="activo" <?= $sucursal['estado_s'] === 'activo' ? 'selected' : '' ?>>
+                                                Activo
+                                            </option>
+                                            <option value="inactivo" <?= $sucursal['estado_s'] === 'inactivo' ? 'selected' : '' ?>>
+                                                Inactivo</option>
+                                        </select>
+                                    </div>
+                                    <div class="botones-S">
+                                        <!-- Botón para editar -->
+                                        <a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>"
+                                            class="modificar-btn">Modificar</a>
 
+                                        <!-- Botón para eliminar -->
+                                        <form method="POST" action="/admin/sucursales/eliminar" style="display: inline;"
+                                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta sucursal?');">
+                                            <input type="hidden" name="id_sucursal" value="<?= $sucursal['id_sucursal'] ?>">
+                                            <button type="submit" class="eliminar-btn">Eliminar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="<?= BASE_URL ?>js/main.js"></script>

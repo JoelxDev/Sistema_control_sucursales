@@ -20,7 +20,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #afaaaa;
     gap: 20px;
     width: 100%;
 }
@@ -43,9 +42,9 @@
     margin: 0 10px 0 10px;
     width: 300px;
 }
-input{
+/* input{
     padding: 5px;
-}
+} */
 .btn-registrarV{
     margin-bottom: 20px;
 }

@@ -6,6 +6,7 @@ require_once __DIR__ . '/../../../../config/config.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,22 +27,32 @@ require_once __DIR__ . '/../../../../config/config.php';
         </div>
 
     </div>
-    <div class="mini-content"> 
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/perfil"><h3>Informacion</h3></a>
+                <a href="<?= BASE_URL ?>usuario/perfil">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/ventas"><h3>Registrar Venta</h3></a>
+                <a href="<?= BASE_URL ?>usuario/ventas">
+                    <h3>Registrar Venta</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>usuario/inventario">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>usuario/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
             <div class="mini-menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -79,30 +90,38 @@ require_once __DIR__ . '/../../../../config/config.php';
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
-        <div class="invetario-body">
+        <div class="cuerpo">
             <div class="inventario-main-body">
-                <div class="inventario-upper-body">
+                <div class="upper-body">
                     <div class="buscar-producto">
-                        <input type="text" placeholder="Buscar un producto">
+                        <!-- <input type="text" placeholder="Buscar un producto"> -->
                     </div>
                     <div class="btn_actualizarInvenario">
-                        <button onclick="btn_actualizarInventarioUE()">Actualizar inventario</button>
+                        <!-- <button onclick="btn_actualizarInventarioUE()">Actualizar inventario</button> -->
                     </div>
                 </div>
-                <div class="inventario-lower-body">
-                    <?php foreach ($inventario as $producto): ?>
-                        <div class="producto_invetario" data-id="<?= $producto['id_producto'] ?>">
-                            <div class="nom_producto">
-                                <h3><?= htmlspecialchars($producto['nombre_pr']) ?></h3>
-                            </div>
-                            <div class="datos-producto">
-                                <div class="cantidad_producto">
-                                    <h4>Cantidad: <?= $producto['cantidad_total'] ?></h4>
-                                </div>
-                                <!-- Si tienes precio, agrégalo aquí -->
-                            </div>
+                <div class="lower-body">
+                    <div class="inventario">
+                        <div class="subtitulo">
+                            <h3>Inventario actual de la sucursal</h3>
                         </div>
-                    <?php endforeach; ?>
+                        <div class="vista-inventario">
+                            <?php foreach ($inventario as $producto): ?>
+                                <div class="producto_invetario" data-id="<?= $producto['id_producto'] ?>">
+                                    <div class="nom_producto">
+                                        <h3><?= htmlspecialchars($producto['nombre_pr']) ?></h3>
+                                    </div>
+                                    <div class="datos-producto">
+                                        <div class="cantidad_producto">
+                                            <h4>Cantidad: <?= $producto['cantidad_total'] ?></h4>
+                                        </div>
+                                        <!-- Si tienes precio, agrégalo aquí -->
+
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

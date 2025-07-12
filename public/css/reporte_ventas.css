@@ -2,17 +2,11 @@
     display: flex;
     justify-content: center;
 } */
-#principal_contentRV {
-    display: flex;
-    justify-content: center;
-    overflow: auto;
-    margin: 10px;
-}
+
 
 .content-reporteV {
     display: grid;
     justify-content: center;
-    background-color: #afaaaa;
 }
 
 .encabezado-botones {
@@ -39,7 +33,7 @@
 .datos-reporteV {
     display: flex;
     justify-content: center;
-    margin: 10px 10px 0 10px;
+    margin-top: 10px;
 }
 
 .campo-bot_bus {

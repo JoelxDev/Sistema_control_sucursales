@@ -89,7 +89,7 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
                 </div>
                 <div class="reg-vent-lower-body">
                     <div class="tabla-list-ventas">
-                        <div class="titulo-ventas-registradas">
+                        <div class="subtitulo">
                             <h3>Ventas regsitradas por el usuario</h3>
                         </div>
                         <div class="tabla-ventas-registradas">

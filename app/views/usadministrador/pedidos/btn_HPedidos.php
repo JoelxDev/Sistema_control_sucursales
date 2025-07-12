@@ -77,16 +77,15 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
                 <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
             </div>
         </div>
-    </div>
-    <div class="HPed-body">
+        <div class="cuerpo">
         <div class="HPed-main-body">
-            <div class="HPed-upper-body">
+            <div class="upper-body">
                 <!-- ordenar por fecha -->
                 <!-- Mostrar solo los pedidos de una sucursal -->
             </div>
-            <div class="HPed-lower-body">
+            <div class="lower-body">
                 <div class="historial-pedidos">
-                    <div class="titulo-HistPedidos">
+                    <div class="subtitulo">
                         <h3>
                             Historial de pedidos
                         </h3>
@@ -139,6 +138,6 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
             </div>
         </div>
     </div>
-
+    </div>
 </body>
         <!-- Desde aqui se puede modificar para otros modulos -->

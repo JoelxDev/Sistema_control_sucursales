@@ -93,7 +93,6 @@ $sucursales = ModelInventario::obtenerSucursales();
         <?php endif; ?>
         <div class="cuerpo">
             <div class="main-body">
-                <div class="inventario-body">
                     <div class="upper-body">
                         <div>
                             <button onclick="btn_historialAsigUI()">Historial de asignaciones</button>
@@ -101,8 +100,8 @@ $sucursales = ModelInventario::obtenerSucursales();
                     </div>
                     <div class="lower-body">
                         <div class="form-inventario">
-                            <div class="form-title">
-                                <h3>Asignar Inventario</h3>
+                            <div class="subtitulo">
+                                <h3>Asignar Inventariado</h3>
                             </div>
                             <form action="<?= BASE_URL ?>inv/inventario/asigInventario" method="post">
                                     <label for="txttipoasigInv">Tipo de asignacion</label>
@@ -142,7 +141,6 @@ $sucursales = ModelInventario::obtenerSucursales();
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
         <script src="<?= BASE_URL ?>js/main.js"></script>

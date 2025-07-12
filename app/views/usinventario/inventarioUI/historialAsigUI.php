@@ -73,7 +73,7 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
                 </div>
                 <div class="reg-vent-lower-body">
                     <div class="tabla-list-ventas">
-                        <div class="titulo-ventas-registradas">
+                        <div class="subtitulo">
                             <h3>Historial de Asignaciones registradas</h3>
                         </div>
                         <div class="historial-asignaciones">

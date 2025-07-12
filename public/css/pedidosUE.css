@@ -30,7 +30,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #afaaaa;;
+    width: 100%
 }
 .titul-regist-ped{
     border: 1px solid black;
@@ -45,7 +45,7 @@
     flex-direction: column;
     margin: 10px;
 }
-button, input{
+button{
     padding: 10px;
     border-radius: 10px;
 }

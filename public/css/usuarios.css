@@ -9,9 +9,8 @@ th, td{
 }
 .modulo-usuarios{
     text-align: center;
-    background-color:#afaaaa ;
+    /* background-color:#afaaaa ; */
     overflow: auto; 
-    margin: 10px;
 }
 .encabezado-modulo{
     display: flex;

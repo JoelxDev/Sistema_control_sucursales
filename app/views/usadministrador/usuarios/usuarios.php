@@ -30,28 +30,42 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
 
     </div>
 
-    <div class="mini-content"> 
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/informacion"><h3>Informacion</h3></a>
+                <a href="<?= BASE_URL ?>admin/informacion">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/sucursales"><h3>Sucursales</h3></a>
+                <a href="<?= BASE_URL ?>admin/sucursales">
+                    <h3>Sucursales</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/usuarios"><h3>Usuarios</h3></a>
+                <a href="<?= BASE_URL ?>admin/usuarios">
+                    <h3>Usuarios</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/reporte_ventas"><h3>Reporte Ventas</h3></a>
+                <a href="<?= BASE_URL ?>admin/reporte_ventas">
+                    <h3>Reporte Ventas</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>admin/inventario">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>admin/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
             <div class="mini-menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -115,80 +129,73 @@ $usuarios = Usuarios::obtenerTodosUsuarios();
             <?php unset($_SESSION['success'], $_SESSION['error']); ?>
         <?php endif; ?>
         <div class="cuerpo">
-            <div class="encabezado-modulo">
-                <div>
-                    <input type="text" name="buscar_usuario" class="buscar_usuario" id="buscar_usuarios"
-                        placeholder="Buscar por nombre">
+            <div class="main-body-usuarios">
+                <div class="upper-body">
+                    <!-- <div>
+                        <input type="text" name="buscar_usuario" class="buscar_usuario" id="buscar_usuarios"
+                            placeholder="Buscar por nombre">
+                    </div> -->
+                    <div>
+                        <button class="button-crearU" onclick="C_usuarios()">Crear usuarios</button>
+                    </div>
                 </div>
-                <div>
-                    <button class="button-crearU" onclick="C_usuarios()">Crear usuarios</button>
-                </div>
-            </div>
-            <div class="modulo-usuarios">
-                <div class="titulo-modulo">
-                    <h3>Lista de usuarios</h3>
-                </div>
-                <div class="tabla-usuarios">
-                    <table>
-                        <thead>
-                            <tr>
-                                <!-- <th>Username</th> -->
-                                <th>Primer Nombre</th>
-                                <th>Primer Apellido</th>
-                                <!-- <th>Tipo Usuario</th> -->
-                                <th>Roll</th>
-                                <th>Telefono</th>
-                                <th colspan="3">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($usuarios as $usuario): ?>
-                                <tr>
-                                    <td><?= htmlspecialchars($usuario['nombre_p']) ?></td>
-                                    <td><?= htmlspecialchars($usuario['apellido_p']) ?></td>
-                                    <td><?= htmlspecialchars($usuario['roll_p']) ?></td>
-                                    <td><?= htmlspecialchars($usuario['telefono_p']) ?></td>
-                                    <td class="bott">
-                                        <!-- <form method="POST"
-                                            action="<?= BASE_URL ?>app/views/usadministrador/usuarios/btn_EditUsuario.php">
-                                            <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
-                                            <button type="submit">Editar</button>
-                                        </form> -->
-                                        <a
-                                            href="<?= BASE_URL ?>admin/usuarios/btn_edit_us?id=<?= $usuario['id_personal'] ?>">
-                                            <button type="button">Editar</button>
-                                        </a>
-                                    </td>
-                                    <td class="bott">
-                                        <form method="POST" action="<?= BASE_URL ?>admin/usuarios/eliminar"
-                                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
-                                            <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
-                                            <button type="submit">Eliminar</button>
-                                        </form>
-                                    </td>
-                                    <td class="bott">
-                                        <!-- <form method="POST"
-                                            action="<?= BASE_URL ?>app/views/usadministrador/usuarios/btn_MInf.php">
-                                            <input type="hidden" name="id_personal" value="<?= $usuario['id_personal'] ?>">
-                                            <button type="submit">M.Inf</button>
-                                        </form> -->
-                                        <a
-                                            href="<?= BASE_URL ?>admin/usuarios/MasInformacion?id=<?= $usuario['id_personal'] ?>">
-                                            <button type="button">M.Inf</button>
-                                        </a>
-                                    </td>
-                                <tr>
-                                <?php endforeach; ?>
-                                <!-- Para una nueva lista de datos, crear un nuevo 'tr' -->
-                        </tbody>
-
-                    </table>
+                <div class="lower-body">
+                    <div class="modulo-usuarios">
+                        <div class="subtitulo">
+                            <h3>Lista de usuarios</h3>
+                        </div>
+                        <div class="tabla-usuarios">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <!-- <th>Username</th> -->
+                                        <th>Primer Nombre</th>
+                                        <th>Primer Apellido</th>
+                                        <!-- <th>Tipo Usuario</th> -->
+                                        <th>Roll</th>
+                                        <th>Telefono</th>
+                                        <th colspan="3">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($usuarios as $usuario): ?>
+                                        <tr>
+                                            <td><?= htmlspecialchars($usuario['nombre_p']) ?></td>
+                                            <td><?= htmlspecialchars($usuario['apellido_p']) ?></td>
+                                            <td><?= htmlspecialchars($usuario['roll_p']) ?></td>
+                                            <td><?= htmlspecialchars($usuario['telefono_p']) ?></td>
+                                            <td class="bott">
+                                                <a
+                                                    href="<?= BASE_URL ?>admin/usuarios/btn_edit_us?id=<?= $usuario['id_personal'] ?>">
+                                                    <button type="button">Editar</button>
+                                                </a>
+                                            </td>
+                                            <td class="bott">
+                                                <form method="POST" action="<?= BASE_URL ?>admin/usuarios/eliminar"
+                                                    onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
+                                                    <input type="hidden" name="id_personal"
+                                                        value="<?= $usuario['id_personal'] ?>">
+                                                    <button type="submit">Eliminar</button>
+                                                </form>
+                                            </td>
+                                            <td class="bott">
+                                                <a
+                                                    href="<?= BASE_URL ?>admin/usuarios/MasInformacion?id=<?= $usuario['id_personal'] ?>">
+                                                    <button type="button">M.Inf</button>
+                                                </a>
+                                            </td>
+                                        <tr>
+                                        <?php endforeach; ?>
+                                        <!-- Para una nueva lista de datos, crear un nuevo 'tr' -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="<?= BASE_URL ?>js/main.js"></script>
-
 </body>
 
 </html>
