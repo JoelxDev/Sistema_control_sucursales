@@ -1,7 +1,6 @@
 <?php
-// session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-require_once __DIR__ . '/../../../models/us_administrador/informacion/informacionUsuarios.php';
+require_once __DIR__ . '/../../../controllers/us_administrador/contrll_informacion/mostrarInformacion.php';
 
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 if (!$id_usuario) {
@@ -10,7 +9,7 @@ if (!$id_usuario) {
     exit;
 }
 
-$usuario = informacionUsuario::obtenerPorId($id_usuario);
+// $usuario = informacionUsuario::obtenerPorId($id_usuario);
 ?>
 
 <!DOCTYPE html>
