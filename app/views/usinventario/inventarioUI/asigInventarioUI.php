@@ -31,7 +31,7 @@ $sucursales = ModelInventario::obtenerSucursales();
     <!-- Interfaz Para pantallas pequeñas -->
     <div class="encabezado-mvl">
         <div class="cl-titulo">
-            <h3 class="titulo-mvl">ADMINISTRADOR</h3>
+            <h3 class="titulo-mvl">INVENTARIADO</h3>
         </div>
         <div class="img-menu">
             <img src="<?= BASE_URL ?>/img/file.png" alt="">
@@ -41,7 +41,7 @@ $sucursales = ModelInventario::obtenerSucursales();
     </div>
     <div class="mini-content"> 
         <div class="mini-encabezado">
-            <div class="MINI-menu-a">
+            <div class="mini-menu-a">
                 <a href="<?= BASE_URL ?>inv/informacion"><h3>Informacion</h3></a>
             </div>
             <div class="mini-menu-a">
@@ -56,7 +56,7 @@ $sucursales = ModelInventario::obtenerSucursales();
     <div class="content">
         <div class="encabezado">
             <div class="titulo">
-                <h3>Joel</h3>
+                <h3>INVENTARIADO: </h3>
             </div>
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>inv/informacion">

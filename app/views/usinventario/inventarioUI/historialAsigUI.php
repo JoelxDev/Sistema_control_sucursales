@@ -16,7 +16,7 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
     <!-- Interfaz Para pantallas pequeñas -->
     <div class="encabezado-mvl">
         <div class="cl-titulo">
-            <h3 class="titulo-mvl">ADMINISTRADOR</h3>
+            <h3 class="titulo-mvl">INVENTARIADO</h3>
         </div>
         <div class="img-menu">
             <img src="<?= BASE_URL ?>/img/file.png" alt="">
@@ -26,7 +26,7 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
     </div>
     <div class="mini-content"> 
         <div class="mini-encabezado">
-            <div class="MINI-menu-a">
+            <div class="mini-menu-a">
                 <a href="<?= BASE_URL ?>inv/informacion"><h3>Informacion</h3></a>
             </div>
             <div class="mini-menu-a">
@@ -41,7 +41,7 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
     <div class="content">
         <div class="encabezado">
             <div class="titulo">
-                <h3>Joel</h3>
+                <h3>INVENTARIADO: </h3>
             </div>
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>inv/informacion">
@@ -60,10 +60,11 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
+    <div class="cuerpo">
 
-        <div class="reg-vent-body">
+        <!-- <div class="reg-vent-body"> -->
             <div class="main-body">
-                <div class="reg-vent-upper-body">
+                <div class="upper-body">
                     <div>
                         <label for="orden_list">Ordenar por</label>
                         <select name="" id="orden_list">
@@ -71,8 +72,8 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
                         </select>
                     </div>
                 </div>
-                <div class="reg-vent-lower-body">
-                    <div class="tabla-list-ventas">
+                <div class="lower-body">
+                    <div class="tabla-list-asignaciones">
                         <div class="subtitulo">
                             <h3>Historial de Asignaciones registradas</h3>
                         </div>
@@ -114,6 +115,7 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
                 </div>
             </div>
         </div>
+                <!-- </div> -->
     </div>
     <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>

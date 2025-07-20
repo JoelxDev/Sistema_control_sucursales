@@ -1,34 +1,32 @@
-.main-body{
+.main-body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
 }
-.reg-vent-upper-body{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 50px;
-    width: 100%;
+
+.upper-body div {
+    color: white;
 }
-.reg-vent-lower-body{
+
+.reg-vent-lower-body {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.tabla-list-ventas{
+.tabla-list-ventas {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    overflow-x: auto;
     /* background-color: #afaaaa; */
 }
 
-.titulo-ventas-registradas{
+.titulo-ventas-registradas {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -37,7 +35,28 @@
     width: 100%;
 }
 
-.tabla-ventas-registradas{
-    display: flex;
+.tabla-ventas-registradas {
+    /* display: flex; */
     width: 100%;
+    overflow-x: auto;
+}
+
+/* HISTORIAL DE ASIGNACIONES DE INVENTARIO  USUARIO INVENTARIO */
+
+.tabla-list-asignaciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.historial-asignaciones {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    width: 100%;
+    overflow-x: auto;
 }

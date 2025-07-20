@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    max-width: 350px;
     width: 98%;
 }
 .PED-uppder-body{
