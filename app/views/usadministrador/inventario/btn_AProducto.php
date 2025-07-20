@@ -163,6 +163,7 @@ require_once __DIR__ . '/../../../../config/config.php';
         </div>
     </div>
     </div>
+    <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>
 
 </html>

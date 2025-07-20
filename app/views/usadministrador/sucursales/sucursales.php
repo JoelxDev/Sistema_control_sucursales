@@ -165,8 +165,7 @@ $sucursales = Sucursal::obtenerTodas();
                                     </div>
                                     <div class="botones-S">
                                         <!-- Botón para editar -->
-                                        <a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>"
-                                            class="modificar-btn">Modificar</a>
+                                        <button ><a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>" class="modificar-btn">Modificar</a></button>
 
                                         <!-- Botón para eliminar -->
                                         <form method="POST" action="/admin/sucursales/eliminar" style="display: inline;"

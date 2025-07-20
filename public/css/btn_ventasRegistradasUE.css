@@ -1,16 +1,9 @@
-.reg-vent-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .main-body{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 98%;
+    width: 100%;
 }
 .reg-vent-upper-body{
     display: flex;
@@ -32,7 +25,7 @@
     flex-direction: column;
     width: 100%;
     overflow-x: auto;
-    background-color: #afaaaa;
+    /* background-color: #afaaaa; */
 }
 
 .titulo-ventas-registradas{

@@ -110,52 +110,56 @@ require_once __DIR__ . '/../../../../config/config.php';
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
 
-        <div class="formulario_usuario">
-            <div class="cuerpo">
+        <div class="cuerpo">
+            <div class="formulario_usuario">
                 <div class="upper-body">
                 </div>
                 <div class="lower-body">
-                    <div class="subtitulo">
-                        <h3>Datos sobre el usuario</h3>
-                    </div>
-                    <div class="from-us">
-                        <form action="/admin/usuarios/btn_crear_us" method="POST">
-                            <div>
-                                <label for="txtnombre">Nombre</label><br>
-                                <input type="text" name="txtnombre_p" placeholder="Nombre" required>
-                            </div>
-                            <div>
-                                <label for="">Apellido</label><br>
-                                <input type="text" name="txtapellido_p" placeholder="Apellido" required>
-                            </div>
-                            <div>
-                                <label for="">DNI</label><br>
-                                <input type="number" name="txtdni_p" placeholder="DNI" required>
-                            </div>
-                            <div>
-                                <label for="">Telefono</label><br>
-                                <input type="number" name="txttelefono_p" placeholder="Telefono" required>
-                            </div>
-                            <div>
-                                <label for="">Correo electronico</label><br>
-                                <input type="text" name="txtcorreo_p" placeholder="Correo Electronico">
-                            </div>
-                            <div>
-                                <label for="txtroll_p">Roll</label><br>
-                                <select name="txtroll_p" id="txtroll_p" required>
-                                    <option value="administrador">Administrador</option>
-                                    <option value="vendedor">Atencion Cliente</option>
-                                    <option value="inventario">Controll Inventario</option>
-                                </select>
-                            </div>
-                            <div>
-                                <button type="submit">Crear Usuario</button>
-                            </div>
-                        </form>
+                    <div class="formulario-crear-usuario">
+                        <div class="subtitulo">
+                            <h3>Datos sobre el usuario</h3>
+                        </div>
+                        <div class="from-us">
+                            <form action="/admin/usuarios/btn_crear_us" method="POST">
+                                <div>
+                                    <label for="txtnombre">Nombre</label><br>
+                                    <input type="text" name="txtnombre_p" placeholder="Nombre" required>
+                                </div>
+                                <div>
+                                    <label for="">Apellido</label><br>
+                                    <input type="text" name="txtapellido_p" placeholder="Apellido" required>
+                                </div>
+                                <div>
+                                    <label for="">DNI</label><br>
+                                    <input type="number" name="txtdni_p" placeholder="DNI" required>
+                                </div>
+                                <div>
+                                    <label for="">Telefono</label><br>
+                                    <input type="number" name="txttelefono_p" placeholder="Telefono" required>
+                                </div>
+                                <div>
+                                    <label for="">Correo electronico</label><br>
+                                    <input type="text" name="txtcorreo_p" placeholder="Correo Electronico">
+                                </div>
+                                <div>
+                                    <label for="txtroll_p">Roll</label><br>
+                                    <select name="txtroll_p" id="txtroll_p" required>
+                                        <option value="administrador">Administrador</option>
+                                        <option value="vendedor">Atencion Cliente</option>
+                                        <option value="inventario">Controll Inventario</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button type="submit">Crear Usuario</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script src="<?= BASE_URL ?>js/main.js"></script>
+
 </body>
 
 </html>

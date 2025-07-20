@@ -1,8 +1,10 @@
-.formulario_usuario{
+/* .formulario_usuario{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top:50px ;
-}
+    width: 100%;
+} */
 .cuerpo-form{
     display: grid;
     justify-content: center;
@@ -10,6 +12,12 @@
 }
 .titulo-form{
     padding: 10px 90px 10px 90px;
+    border: 1px solid black;
+}
+.formulario-crear-usuario{
+    align-items: center;
+    /* background-color: #afaaaa; */
+    display: inline-block;
     border: 1px solid black;
 }
 

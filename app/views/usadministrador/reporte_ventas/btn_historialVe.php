@@ -182,5 +182,6 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
             </div>
         </div>
     </div>
+    <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>
 </html>

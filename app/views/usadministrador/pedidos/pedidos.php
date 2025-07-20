@@ -120,7 +120,7 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
                         <div class="subtitulo">
                             <h3>Pedidos pendientes</h3>
                         </div>
-                        <div class="infor-pedidos">
+                        <!-- <div class="infor-pedidos"> -->
                             <div class="infor-tbl-pedidos">
                                 <table>
                                     <thead>
@@ -148,7 +148,7 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    <!-- </div> -->
                 </div>
             </div>
         </div>

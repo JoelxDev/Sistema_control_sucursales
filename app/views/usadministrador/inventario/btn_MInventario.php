@@ -110,7 +110,7 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostra
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
         <div class="cuerpo">
-            <div class="movi- inventario">
+            <div class="movi-inventario">
                 <div class="upper-body">
                 </div>
                 <div class="lower-body">

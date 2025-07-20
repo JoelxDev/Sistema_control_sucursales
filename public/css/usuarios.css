@@ -1,16 +1,19 @@
-th, td{
-    border: 1px solid black;
-    padding: 10px;
-    text-align: center;
-}
 .tabla-usuarios{
-    overflow: auto; 
+    overflow-x: auto; 
 
+}
+.main-body-usuarios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 .modulo-usuarios{
     text-align: center;
     /* background-color:#afaaaa ; */
-    overflow: auto; 
+    /* overflow: auto;  */
+    width: 100%;
 }
 .encabezado-modulo{
     display: flex;
@@ -25,6 +28,10 @@ th, td{
 .button-crearU,.buscar_usuario {
     padding: 10px;
     border-radius: 10px;
+}
+
+.bott button{
+    padding: 2px;
 }
 
 /* ESTILO PARA EDITAR USUARIOS */
@@ -65,4 +72,12 @@ th, td{
     font-size: 17px;
     margin: 10px 10px 10px 10px;
     text-align: center;
+}
+/* ESTILO PARA MAS INFOMRACION DEL USUARIO */
+.main-body-MInf{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }

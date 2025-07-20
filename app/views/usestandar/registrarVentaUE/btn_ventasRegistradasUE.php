@@ -76,10 +76,9 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
-
-        <div class="reg-vent-body">
-            <div class="main-body">
-                <div class="reg-vent-upper-body">
+<div class="cuerpo">
+        <div class="main-body">
+                <div class="upper-body">
                     <div>
                         <label for="orden_list">Ordenar por</label>
                         <select name="" id="orden_list">
@@ -87,7 +86,7 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
                         </select>
                     </div>
                 </div>
-                <div class="reg-vent-lower-body">
+                <div class="lower-body">
                     <div class="tabla-list-ventas">
                         <div class="subtitulo">
                             <h3>Ventas regsitradas por el usuario</h3>
@@ -134,9 +133,9 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
+</div>
     <script src="<?= BASE_URL ?>js/main.js"></script>
 
 </body>

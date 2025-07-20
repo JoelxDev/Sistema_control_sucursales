@@ -41,6 +41,8 @@ select {
 
 /* Contenedor de la tabla */
 .cuerpo-HVentas {
+    display: flex;
+    flex-direction: column;
     width: 100%; /* Ajuste para evitar cortes */
 }
 
@@ -48,8 +50,6 @@ select {
 .tabla-container {
     overflow-x: auto; /* Permite desplazamiento horizontal si la tabla es más ancha */
 }
-
-
 
 /* Estilo del título */
 .titulo-hist {

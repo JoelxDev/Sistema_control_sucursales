@@ -137,11 +137,11 @@ $productos = Producto::obtenerTodos();
                 </div>
             </div>
             <div class="lower-body">
-                <div class="cuerpo-inferior">
+                <div class="tabla-VProductos">
                     <div class="subtitulo">
                         <h3>Productos registrados en el inventario</h3>
                     </div>
-                    <div class="tabla-VProductos">
+                    <div class="tabla-Productos">
                         <table>
                             <thead>
                                 <tr>
@@ -193,10 +193,12 @@ $productos = Producto::obtenerTodos();
                             </tbody>
                         </table>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
     <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>
+
 </html>

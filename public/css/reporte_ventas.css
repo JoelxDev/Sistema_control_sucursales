@@ -2,11 +2,19 @@
     display: flex;
     justify-content: center;
 } */
-
+.main-body-reportVent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
 
 .content-reporteV {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    width:100%;
 }
 
 .encabezado-botones {
@@ -43,11 +51,12 @@
 }
 
 .lista-ventas {
-    display: grid;
+    /* display: grid;
     justify-content: center;
     overflow-x: auto;
     margin-bottom: 10px;
-    width: 100%;
+    width: 100%; */
+    overflow-x: auto;
 }
 
 

@@ -139,5 +139,6 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
         </div>
     </div>
     </div>
+    <script src="<?= BASE_URL ?>js/main.js"></script>
 </body>
         <!-- Desde aqui se puede modificar para otros modulos -->

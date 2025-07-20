@@ -33,11 +33,12 @@
 .botones-S{
     display: flex;
     justify-content: space-evenly;
+    gap:5px;
 }
 .modificar-btn, .eliminar-btn {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 7px;
-    
+    color: black;
 }
 
 .boton-sucursal{

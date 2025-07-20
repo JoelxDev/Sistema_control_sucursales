@@ -126,7 +126,6 @@ foreach ($inventarios as $inv) {
                     </div>
                     <!-- Los botones de las sucursales deben aparecer
                 automaticamente, mas no crearlos manualmente -->
-
                 </div>
                 <div class="lower-body">
                         <div class="informacion-inventario">

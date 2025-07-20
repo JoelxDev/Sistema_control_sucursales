@@ -178,8 +178,6 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                         </div>
                         <div class="lista-ventas">
                             <table>
-                                <!-- Las tablas deben crearse automaticamente al registrarse una venta por los vendedores -->
-                                <!-- Este es solo un ejemplo del codigo para las tablas -->
                                 <thead id="tabla_ventas">
                                     <tr>
                                         <th>

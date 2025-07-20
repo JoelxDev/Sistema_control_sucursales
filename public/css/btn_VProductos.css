@@ -1,13 +1,16 @@
-/* 
 .principal-contentBVP{
-    overflow: auto;
-} */
-.tabla-VProductos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    display: block;
-
+}
+.tabla-VProductos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    /* display: block; */
 }
 .titulo-VProductos{
     border: 1px solid black;
@@ -15,9 +18,16 @@
     background-color: #9BA8AB;
 
 }
+.tabla-Productos{
+    overflow-x: auto;
+    width:100%;
+}
 .cuerpo-inferior{
+    display: flex;
     overflow: auto;
-    background-color: #CCD0CF;
+    width:100%;
+    justify-content: center;
+    /* background-color: #CCD0CF; */
 }
 .cuerpo-VProductos{
     display: flex;
@@ -36,6 +46,10 @@
 .btn_añadirP{
     padding: 10px;
     border-radius: 10px;
+}
+
+.tabla-Productos button{
+    padding: 2px;
 }
 /* ESTILO PARA EDITAR PRODUCTO */
 .cuerpo-EditProducto{

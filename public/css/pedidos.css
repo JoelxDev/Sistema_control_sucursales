@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width:100%;
 }
 .Pe-upper-body{
     margin: 2%;
@@ -24,13 +25,13 @@
     text-align: center;
     padding: 10px;
 }
-.infor-pedidos{
+/* .infor-pedidos{
     display: flex;
     text-align: center;
     width: 100%;
-}
+} */
 .infor-tbl-pedidos{
-    display: flex;
+    /* display: flex; */
     width: 100%;
     overflow-x: auto;
 }
