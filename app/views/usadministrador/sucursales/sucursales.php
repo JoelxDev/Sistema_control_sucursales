@@ -1,7 +1,7 @@
 <?php
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-require_once __DIR__ . '/../../../models/us_administrador/sucursales/modelSucursal.php';
+require_once __DIR__ . '/../../../controllers/us_administrador/sucursales/vistaSucursal.php';
 
 // Obtener todas las sucursales
 $sucursales = Sucursal::obtenerTodas();
