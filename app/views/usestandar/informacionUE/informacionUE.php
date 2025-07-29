@@ -1,8 +1,7 @@
 <?php
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-
-require_once __DIR__ . '/../../../models/us_administrador/informacion/informacionUsuarios.php';
+require_once __DIR__ . '/../../../controllers/us_estandar/informacionUE/vistaInformacionUE.php';
 
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 if (!$id_usuario) {
@@ -10,11 +9,7 @@ if (!$id_usuario) {
     header('Location: ' . BASE_URL . 'public/');
     exit;
 }
-
-$usuario = informacionUsuario::obtenerPorId($id_usuario);
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,21 +109,25 @@ $usuario = informacionUsuario::obtenerPorId($id_usuario);
                             <div class="circulo"></div>
                         </div>
                         <div class="informacion">
-                            <div class="dat">ID usuario:
-                                <b><?= htmlspecialchars($usuario['id_usuario']) ?></b>
-                            </div>
-                            <div class="dat">Nombre de usuario:
-                                <b><?= htmlspecialchars($usuario['username']) ?></b>
-                            </div>
-                            <div class="dat">Nombre:
-                                <b> <?= htmlspecialchars($usuario['nombre_p']) ?></b>
-                            </div>
-                            <div class="dat">Apellido:
-                                <b><?= htmlspecialchars($usuario['apellido_p']) ?></b>
-                            </div>
-                            <div class="dat">Telefono:
-                                <b><?= htmlspecialchars($usuario['telefono_p']) ?></b>
-                            </div>
+                            <?php if ($usuario): ?>
+                                <div class="dat">ID usuario:
+                                    <b><?= htmlspecialchars($usuario['id_usuario']) ?></b>
+                                </div>
+                                <div class="dat">Nombre de usuario:
+                                    <b><?= htmlspecialchars($usuario['username']) ?></b>
+                                </div>
+                                <div class="dat">Nombre:
+                                    <b> <?= htmlspecialchars($usuario['nombre_p']) ?></b>
+                                </div>
+                                <div class="dat">Apellido:
+                                    <b><?= htmlspecialchars($usuario['apellido_p']) ?></b>
+                                </div>
+                                <div class="dat">Telefono:
+                                    <b><?= htmlspecialchars($usuario['telefono_p']) ?></b>
+                                </div>
+                            <?php else: ?>
+                                <p style="color: red;">Usuario no encontrado.</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

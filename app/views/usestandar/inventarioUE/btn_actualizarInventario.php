@@ -42,7 +42,7 @@
     <!-- Interfaz para pantallas grandes -->
     <div class="content">
         <div class="encabezado">
-            <div class="titulo"><h3>Joel</h3></div>
+            <div class="titulo"><h3>SUCURSAL</h3></div>
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>usuario/perfil"><h3>Informacion</h3></a>
             </div>

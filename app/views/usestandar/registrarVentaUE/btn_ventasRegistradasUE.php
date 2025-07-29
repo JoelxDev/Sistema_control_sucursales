@@ -46,7 +46,7 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
     <div class="content">
         <div class="encabezado">
             <div class="titulo">
-                <h3>Joel</h3>
+                <h3>SUCURSAL</h3>
             </div>
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>usuario/perfil">

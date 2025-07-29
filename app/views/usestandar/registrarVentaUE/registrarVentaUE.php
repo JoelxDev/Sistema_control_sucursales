@@ -1,7 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../models/us_estandar/registrarVentasUE/modelRegistrarVentasUE.php';
 require_once __DIR__ . '/../../../../config/config.php';
-$productos = ProductosVenta::obtenerTodos();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +47,7 @@ $productos = ProductosVenta::obtenerTodos();
     <div class="content">
         <div class="encabezado">
             <div class="titulo">
-                <h3>Joel</h3>
+                <h3>SUCURSAL</h3>
             </div>
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>usuario/perfil">
