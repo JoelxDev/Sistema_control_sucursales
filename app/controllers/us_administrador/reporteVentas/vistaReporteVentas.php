@@ -1,13 +1,14 @@
 <?php
-require_once __DIR__ . '/../../../models/us_administrador/inventario/modelInventario.php';
+require_once __DIR__ . '/../../../models/us_administrador/reporte-ventas/modelReVentas.php';
+
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 try {
     $id_usuario = $_SESSION['id_usuario'] ?? null;
     if (!$id_usuario) {
         throw new Exception('No hay sesión activa del usuario.');
     }
-    $movimientos = Producto::obtenerMovimientosInventario();
-    if (!$movimientos) {
+    $ventas = Ventas::obtenerVentas();
+    if (!$ventas) {
         throw new Exception('Usuario no encontrada.');
     }
 } catch (Exception $e) {

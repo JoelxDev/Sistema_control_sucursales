@@ -1,8 +1,7 @@
 <?php
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-require_once __DIR__ . '/../../../models/us_administrador/reporte-ventas/modelReVentas.php';
-$ventas = Ventas::obtenerVentas();
+require_once __DIR__ . '/../../../controllers/us_administrador/reporteVentas/vistaReporteVentas.php';
 // Calcular cantidad de ventas (número de registros)
 $cantidadVentas = count($ventas);
 

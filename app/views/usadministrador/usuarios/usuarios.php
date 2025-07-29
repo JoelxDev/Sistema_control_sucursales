@@ -1,10 +1,7 @@
 <?php
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
-
-// Obtener todas las sucursales
-$usuarios = Usuarios::obtenerTodosUsuarios();
+require_once __DIR__ . '/../../../controllers/us_administrador/usuarios/vistaUsuarios.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

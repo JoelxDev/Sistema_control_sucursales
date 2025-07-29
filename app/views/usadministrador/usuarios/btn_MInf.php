@@ -1,7 +1,7 @@
 <?php
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
+// require_once __DIR__ . '/../../../models/us_administrador/usuarios/modelUsuarios.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,10 +1,9 @@
 <?php
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-require_once __DIR__ . '/../../../models/us_administrador/inventario/modelInventario.php';
-require_once __DIR__ . '/../../../controllers/us_administrador/inventario/crearProducto.php';
+require_once __DIR__ . '/../../../controllers/us_administrador/inventario/vistaProductos.php';
 
-$productos = Producto::obtenerTodos();
+// $productos = Producto::obtenerTodos();
 ?>
 <!DOCTYPE html>
 <html lang="en">

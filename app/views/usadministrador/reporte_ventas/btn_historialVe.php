@@ -1,7 +1,6 @@
 <?php
 // session_start(); // Asegúrate de iniciar la sesión si no está iniciada
-require_once __DIR__ . '/../../../models/us_administrador/reporte-ventas/modelReVentas.php';
-$ventas = Ventas::obtenerVentas();
+require_once __DIR__ . '/../../../controllers/us_administrador/reporteVentas/vistaReporteVentas.php';
 $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'administrador');
 ?>
 <!DOCTYPE html>
