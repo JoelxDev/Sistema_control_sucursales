@@ -1,10 +1,7 @@
 <?php
 // session_start();
 require_once __DIR__ . '/../../../../config/config.php';
-
-require_once __DIR__ .
-'/../../../models/us_inventario/informacionUI/informacionUI.php';
-
+require_once __DIR__ . '/../../../controllers/us_inventario/informacionUI/vistaInformacionUI.php';
 $id_usuario = $_SESSION['id_usuario'] ?? null;
 if (!$id_usuario) {
 // Si no hay sesión, redirige al login
@@ -12,7 +9,7 @@ header('Location: ' . BASE_URL . 'public/');
 exit;
 }
 
-$usuario = informacionUsuario::obtenerPorId($id_usuario);
+// $usuario = informacionUsuario::obtenerPorId($id_usuario);
 ?>
 
 <!DOCTYPE html>
