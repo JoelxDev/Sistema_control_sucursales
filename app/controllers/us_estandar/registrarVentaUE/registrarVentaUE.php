@@ -3,7 +3,8 @@
 require_once __DIR__ . '/../../../models/us_estandar/registrarVentasUE/modelRegistrarVentasUE.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $tipo_venta = $_POST['txttipo_venta'];
+    try{
+        $tipo_venta = $_POST['txttipo_venta'];
     $id_producto = $_POST['txtnom_producto'];
     $cantidad = $_POST['txtcantidad'];
     $precio_unitario = $_POST['txtprecio_unitario'];
@@ -32,6 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['success'] = "Venta registrada correctamente.";
     } else {
         $_SESSION['error'] = "Error al registrar la venta.";
+    }
+    }catch(Exception $e) {
+        $_SESSION['error'] = $e->getMessage();
+        error_log(date('[Y-m-d H:i:s]'). $e -> getMessage() . PHP_EOL,3, __DIR__ .'/../../../logs/error.log' );
     }
     header('Location:' . BASE_URL . 'usuario/ventas');
     exit;
