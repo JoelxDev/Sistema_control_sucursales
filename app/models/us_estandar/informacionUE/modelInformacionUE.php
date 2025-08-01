@@ -13,9 +13,9 @@ class informacionUsuario
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
+        }  (PDOException $e) {
             error_log(date('[Y-m-d H:i:s] ') . $e->getMessage() . PHP_EOL, 3, __DIR__ . '/../../../logs/error.log');
-            return [];
+           catch return [];
         }
     }
 }

@@ -5,20 +5,31 @@ class ModelInventario
 {
     public static function obtenerProductos()
     {
-        $db = Database::conectarDB();
-        $stmt = $db->query("SELECT id_producto, nombre_pr FROM productos");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try{
+            $db = Database::conectarDB();
+            $stmt = $db->query("SELECT id_producto, nombre_pr FROM productos");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            error_log(date('[Y-m-d H:i:s] ') . $e->getMessage() . PHP_EOL, 3, __DIR__ . '/../../../logs/error.log');
+            return [];
+        }
     }
 
     public static function obtenerSucursales()
     {
-        $db = Database::conectarDB();
-        $stmt = $db->query("SELECT id_sucursal, nombre_s FROM sucursal WHERE estado_s = 'activo'");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try{
+            $db = Database::conectarDB();
+            $stmt = $db->query("SELECT id_sucursal, nombre_s FROM sucursal WHERE estado_s = 'activo'");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException $e) {
+            error_log(date('[Y-m-d H:i:s] ') . $e->getMessage() . PHP_EOL, 3, __DIR__ . '/../../../logs/error.log');
+            return [];
+        }
     }
     public static function asignarInventario($data)
     {
-        $db = Database::conectarDB();
+        try{
+            $db = Database::conectarDB();
         $hoy = date('Y-m-d');
 
         // 1. Verifica si ya existe el registro con misma época, producto, sucursal y fecha de hoy
@@ -82,6 +93,10 @@ class ModelInventario
             'success' => true,
             'total_cantidad_hoy' => $suma['total_cantidad']
         ];
+        }catch (PDOException $e) {
+            error_log(date('[Y-m-d H:i:s] ') . $e->getMessage() . PHP_EOL, 3, __DIR__ . '/../../../logs/error.log');
+            return false;
+        }
     }
     public static function obtenerHistorialAsignaciones()
     {
