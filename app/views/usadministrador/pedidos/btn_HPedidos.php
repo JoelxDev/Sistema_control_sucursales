@@ -9,8 +9,8 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pedidos</title>
         <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/pedidos.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/btn_HPedidos.css">
+    <link rel="stylesheet" href="/css/pedidos.css">
+    <link rel="stylesheet" href="/css/btn_HPedidos.css">
 </head>
 <body>
     <!-- Interfaz Para pantallas pequeñas -->

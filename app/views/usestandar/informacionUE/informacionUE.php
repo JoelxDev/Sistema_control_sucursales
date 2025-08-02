@@ -17,8 +17,8 @@ if (!$id_usuario) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informacion</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/informacion.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/informacion.css">
 </head>
 
 <body>
@@ -134,7 +134,7 @@ if (!$id_usuario) {
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 

@@ -14,8 +14,8 @@ foreach ($inventarios as $inv) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/inventario.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/inventario.css">
 </head>
 
 <body>
@@ -168,7 +168,7 @@ foreach ($inventarios as $inv) {
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 

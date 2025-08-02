@@ -9,8 +9,8 @@ require_once __DIR__ . '/../../../../config/config.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fomulario Sucural</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/anadir_sucursal.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/anadir_sucursal.css">
 </head>
 
 <body>
@@ -149,7 +149,7 @@ require_once __DIR__ . '/../../../../config/config.php';
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

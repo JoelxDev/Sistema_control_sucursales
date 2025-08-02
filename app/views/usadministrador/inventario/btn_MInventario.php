@@ -9,8 +9,8 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostra
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movimientos Inventario</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/inventario.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/inventario.css">
 </head>
 
 <body>
@@ -155,6 +155,6 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostra
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

@@ -23,8 +23,8 @@ $sucursales = ModelInventario::obtenerSucursales();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asignar Inventario</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/asigInventario.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/asigInventario.css">
 </head>
 
 <body>
@@ -143,6 +143,6 @@ $sucursales = ModelInventario::obtenerSucursales();
                 </div>
         </div>
     </div>
-        <script src="<?= BASE_URL ?>js/main.js"></script>
+        <script src="/js/main.js"></script>
 </body>
 </html>

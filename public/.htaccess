@@ -1,5 +1,10 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+     # 🔒 Redirige de HTTP a HTTPS (solo si no está usando HTTPS)
+    # Detecta HTTPS aunque esté detrás de un proxy como Ngrok
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
     RewriteBase /
 
     # Si el archivo o directorio existe, no reescribas

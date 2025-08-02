@@ -9,8 +9,8 @@ require_once __DIR__ . '/../../../../config/config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/inventarioUE.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/inventarioUE.css">
 
     <title>Inventario</title>
 </head>
@@ -125,7 +125,7 @@ require_once __DIR__ . '/../../../../config/config.php';
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

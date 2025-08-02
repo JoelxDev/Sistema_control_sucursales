@@ -12,8 +12,8 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/vistaP
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Productos</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/btn_VProductos.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/btn_VProductos.css">
 
 </head>
 
@@ -197,7 +197,7 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/vistaP
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>

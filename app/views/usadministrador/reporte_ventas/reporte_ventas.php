@@ -34,8 +34,8 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte Ventas</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/reporte_ventas.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/reporte_ventas.css">
 </head>
 
 <body>
@@ -220,7 +220,7 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 

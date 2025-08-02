@@ -10,8 +10,8 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de ventas</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/btn_historialVe.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/btn_historialVe.css">
 
 </head>
 
@@ -181,6 +181,6 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>

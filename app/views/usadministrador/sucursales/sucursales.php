@@ -10,8 +10,8 @@ require_once __DIR__ . '/../../../controllers/us_administrador/sucursales/vistaS
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sucursales</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/globalStyle.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/sucursal.css">
+    <link rel="stylesheet" href="/css/globalStyle.css">
+    <link rel="stylesheet" href="/css/sucursal.css">
 </head>
 
 <body>
@@ -179,7 +179,7 @@ require_once __DIR__ . '/../../../controllers/us_administrador/sucursales/vistaS
             </div>
         </div>
     </div>
-    <script src="<?= BASE_URL ?>js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
