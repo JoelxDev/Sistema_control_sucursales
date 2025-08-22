@@ -118,8 +118,8 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostra
                         <div class="subtitulo">
                             <h3>Historial de Movimientos de Inventario</h3>
                         </div>
-                        <div class="cont-inventario">
-                            <table>
+                        <div class="cont-inventario" style="overflow-y:auto;" id="scroll-contenedor">
+                            <table id="tabla-movimientos">
                                 <thead>
                                     <tr>
                                         <th>Fecha</th>
@@ -133,9 +133,9 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostra
                                         <!-- <th>ID Venta</th> -->
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <?php foreach ($movimientos as $mov): ?>
-                                        <tr>
+                                <tbody id="tbody-movimientos">
+                                    <?php foreach ($movimientos as $i => $mov): ?>
+                                        <tr <?= $i >= 20 ? 'style="display:none;"' : '' ?>>
                                             <td><?= htmlspecialchars($mov['fecha_movimento']) ?></td>
                                             <td><?= htmlspecialchars($mov['sucursal']) ?></td>
                                             <td><?= htmlspecialchars($mov['producto']) ?></td>
@@ -144,11 +144,13 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostra
                                             <td><?= htmlspecialchars($mov['epoca']) ?></td>
                                             <td><?= htmlspecialchars($mov['motivo']) ?></td>
                                             <td><?= htmlspecialchars($mov['usuario']) ?></td>
-                                            <!-- <td><?= htmlspecialchars($mov['ventas_id_venta']) ?></td> -->
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div style="text-align:center; margin:20px 0;">
+                                <button id="cargar-mas">Cargar más...</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,5 +158,31 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/mostra
         </div>
     </div>
     <script src="/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filas = document.querySelectorAll('#tbody-movimientos tr');
+            const btn = document.getElementById('cargar-mas');
+            let mostradas = 20;
+            const paso = 10;
+
+            btn.addEventListener('click', function() {
+                let hayMas = false;
+                for (let i = mostradas; i < mostradas + paso && i < filas.length; i++) {
+                    filas[i].style.display = '';
+                    hayMas = true;
+                }
+                mostradas += paso;
+                if (mostradas >= filas.length) {
+                    btn.style.display = 'none';
+                }
+            });
+
+            // Oculta el botón si hay pocas filas
+            if (filas.length <= mostradas) {
+                btn.style.display = 'none';
+            }
+        });
+    </script>
 </body>
+
 </html>

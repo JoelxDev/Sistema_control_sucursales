@@ -10,6 +10,7 @@ $totalVentas = 0;
 $usuariosActivos = [];
 $fechaHoy = date('Y-m-d');
 $cantidadVentas = 0;
+$ventasHoy = [];
 
 if (!empty($ventas) && is_array($ventas)) {
     foreach ($ventas as $venta) {
@@ -18,6 +19,7 @@ if (!empty($ventas) && is_array($ventas)) {
             $cantidadVentas++;
             $totalVentas += floatval($venta['total_venta'] ?? 0);
             // Sanitiza los nombres para evitar XSS
+            $ventasHoy[] = $venta;
             $nombreCompleto = htmlspecialchars(trim(($venta['nombre_vendedor'] ?? '') . ' ' . ($venta['apellido_vendedor'] ?? '')));
             if ($nombreCompleto !== '') {
                 $usuariosActivos[$nombreCompleto] = true;
@@ -155,7 +157,7 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                             </div>
                             <div class="Total-V">
                                 <h4>Total de Ventas</h4><br>
-                                $<?= number_format($totalVentas, 2) ?>
+                                S/. <?= number_format($totalVentas, 2) ?>
                             </div>
                             <div class="Ususarios-R">
                                 <h4>Usuarios Activos</h4><br>
@@ -167,16 +169,15 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                             </div>
                         </div>
                         <div class="campo-bot_bus">
-                            <!-- <div>
-                                <input type="text" name="buscar_ventas" class="buscar_ventas" id="buscar_ventas"
-                                    placeholder="Buscar por producto o vendedor">
+                            <div class="campo-bot_bus">
+                                <input type="text" id="buscar_ventas" placeholder="Buscar producto o vendedor...">
                             </div>
-                            <div>
+                            <!-- <div>
                                 <button>Generar PDF</button>
                             </div> -->
                         </div>
                         <div class="lista-ventas">
-                            <table>
+                            <table id="tabla-movimientos">
                                 <thead id="tabla_ventas">
                                     <tr>
                                         <th>
@@ -196,11 +197,15 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($ventas as $venta): ?>
+                                    <?php if (empty($ventasHoy)): ?>
+                                        <tr>
+                                            <td colspan="8" style="text-align:center;">No hay ventas registradas para hoy.</td>
+                                        </tr>
+                                    <?php endif; ?>
+                                    <?php foreach ($ventasHoy as $venta): ?>
                                         <tr>
                                             <td><?= htmlspecialchars($venta['nombre_producto']) ?></td>
-                                            <td><?= htmlspecialchars($venta['nombre_vendedor'] . ' ' . $venta['apellido_vendedor']) ?>
-                                            </td>
+                                            <td><?= htmlspecialchars($venta['nombre_vendedor'] . ' ' . $venta['apellido_vendedor']) ?></td>
                                             <td><?= htmlspecialchars($venta['sucursal']) ?></td>
                                             <td><?= htmlspecialchars($venta['total_venta']) ?></td>
                                             <td><?= htmlspecialchars($venta['cantidad']) ?></td>
@@ -221,7 +226,16 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
         </div>
     </div>
     <script src="/js/main.js"></script>
-
+    <script>
+        document.getElementById('buscar_ventas').addEventListener('keyup', function() {
+            let filtro = this.value.toLowerCase();
+            let filas = document.querySelectorAll('.lista-ventas tbody tr');
+            filas.forEach(function(fila) {
+                let texto = fila.textContent.toLowerCase();
+                fila.style.display = texto.includes(filtro) ? '' : 'none';
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -128,6 +128,17 @@ ORDER BY v.fecha_venta DESC
             return [];
         }
     }
+    public static function obtenerProductosDisponiblesPorSucursal($id_sucursal) {
+    $db = Database::conectarDB();
+    $sql = "SELECT p.id_producto, p.nombre_pr, p.precio_unitario_pr, i.cantidad_in
+            FROM productos p
+            INNER JOIN inventario i ON p.id_producto = i.productos_id_producto
+            WHERE i.sucursal_id_sucursal = :id_sucursal AND i.cantidad_in > 0";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':id_sucursal', $id_sucursal, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }
 class ProductosVenta
 {

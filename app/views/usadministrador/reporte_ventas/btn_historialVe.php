@@ -115,11 +115,11 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
         <div class="cuerpo">
             <div class="cont-historialVe">
                 <div class="upper-body">
-                    <!-- <div class="buscar-HV">
-                        <input type="text" class="buscar_Dt_HV" id="buscar_Dt_HV"
-                            placeholder="Buscar por fecha, vendedor, producto, tipo de venta o pago">
-                    </div>
-                    <div>
+                    <form method="get" style="margin-bottom: 20px;">
+                        <input type="date" id="fecha" name="fecha" value="<?= htmlspecialchars($_GET['fecha'] ?? date('Y-m-d')) ?>">
+                        <button type="submit" style="padding: 5px;">Filtrar</button>
+                    </form>
+                    <!-- <div>
                         <label for="ordenarHV">Ordenar por:</label><br>
                         <select name="ordenarHV" id="ordenarHV">
                             <option value="fecha">Fecha</option>
@@ -156,23 +156,37 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
                                         <th>Fecha y Hora Registrada</th>
                                     </tr>
                                 </thead>
+                                <?php
+                                $fechaFiltro = $_GET['fecha'] ?? date('Y-m-d');
+                                $ventasFiltradas = [];
+                                foreach ($ventas as $venta) {
+                                    if (isset($venta['fecha_venta']) && strpos($venta['fecha_venta'], $fechaFiltro) === 0) {
+                                        $ventasFiltradas[] = $venta;
+                                    }
+                                }
+                                ?>
                                 <tbody>
-                                    <?php foreach ($ventas as $venta): ?>
+                                    <?php if (empty($ventasFiltradas)): ?>
                                         <tr>
-                                            <?php if ($esAdmin): ?>
-                                                <td><?= htmlspecialchars($venta['id_venta'] ?? '') ?></td>
-                                            <?php endif; ?>
-                                            <td><?= htmlspecialchars(($venta['nombre_vendedor'] ?? '') . ' ' . ($venta['apellido_vendedor'] ?? '')) ?>
-                                            </td>
-                                            <td><?= htmlspecialchars($venta['tipo_venta'] ?? '') ?></td>
-                                            <td><?= htmlspecialchars($venta['nombre_producto'] ?? '') ?></td>
-                                            <td>S/.<?= number_format($venta['precio_unitario'] ?? 0, 2) ?></td>
-                                            <td><?= htmlspecialchars($venta['cantidad'] ?? '') ?></td>
-                                            <td>S/.<?= number_format($venta['total_venta'] ?? 0, 2) ?></td>
-                                            <td><?= htmlspecialchars($venta['tipo_pago'] ?? '') ?></td>
-                                            <td><?= htmlspecialchars($venta['fecha_venta'] ?? '') ?></td>
+                                            <td colspan="9" style="text-align:center;">No hay ventas registradas para la fecha seleccionada.</td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <?php foreach ($ventasFiltradas as $venta): ?>
+                                            <tr>
+                                                <?php if ($esAdmin): ?>
+                                                    <td><?= htmlspecialchars($venta['id_venta'] ?? '') ?></td>
+                                                <?php endif; ?>
+                                                <td><?= htmlspecialchars(($venta['nombre_vendedor'] ?? '') . ' ' . ($venta['apellido_vendedor'] ?? '')) ?></td>
+                                                <td><?= htmlspecialchars($venta['tipo_venta'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($venta['nombre_producto'] ?? '') ?></td>
+                                                <td>S/.<?= number_format($venta['precio_unitario'] ?? 0, 2) ?></td>
+                                                <td><?= htmlspecialchars($venta['cantidad'] ?? '') ?></td>
+                                                <td>S/.<?= number_format($venta['total_venta'] ?? 0, 2) ?></td>
+                                                <td><?= htmlspecialchars($venta['tipo_pago'] ?? '') ?></td>
+                                                <td><?= htmlspecialchars($venta['fecha_venta'] ?? '') ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -183,4 +197,5 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
     </div>
     <script src="/js/main.js"></script>
 </body>
+
 </html>

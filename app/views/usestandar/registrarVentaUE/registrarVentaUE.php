@@ -24,22 +24,32 @@ require_once __DIR__ . '/../../../../config/config.php';
         </div>
 
     </div>
-    <div class="mini-content"> 
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/perfil"><h3>Informacion</h3></a>
+                <a href="<?= BASE_URL ?>usuario/perfil">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/ventas"><h3>Registrar Venta</h3></a>
+                <a href="<?= BASE_URL ?>usuario/ventas">
+                    <h3>Registrar Venta</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>usuario/inventario">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>usuario/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
             <div class="mini-menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -116,14 +126,13 @@ require_once __DIR__ . '/../../../../config/config.php';
                                 </div><br>
                                 <div>
                                     <label for="nom_producto">Nombre del Producto</label><br>
-                                    <select name="txtnom_producto" id="nom_producto" required
-                                        onchange="mostrarPrecio()">
+                                    
+                                    <select name="txtnom_producto" id="nom_producto" required onchange="mostrarPrecio()">
                                         <option value="">Seleccione un producto</option>
-                                        <?php foreach ($productos as $producto): ?>
+                                        <?php foreach ($productosDisponibles as $producto): ?>
                                             <option value="<?= htmlspecialchars($producto['id_producto']) ?>"
                                                 data-precio="<?= htmlspecialchars($producto['precio_unitario_pr']) ?>">
-                                                <?= htmlspecialchars($producto['nombre_pr']) ?>
-                                                <?= htmlspecialchars($producto['precio_unitario_pr']) ?>
+                                                <?= htmlspecialchars($producto['nombre_pr']) ?> (Hay: <?= htmlspecialchars($producto['cantidad_in']) ?> U.)
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
@@ -138,7 +147,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                                 </div><br>
                                 <div>
                                     <label for="total">Total</label><br>
-                                    <input type="number" step="any" name="txttotal" id="total" step="0.01"  placeholder="Total" required>
+                                    <input type="number" step="any" name="txttotal" id="total" step="0.01" placeholder="Total" required>
                                 </div><br>
                                 <div>
                                     <label for="metod_pago">Metodo de pago</label><br>
@@ -165,15 +174,15 @@ require_once __DIR__ . '/../../../../config/config.php';
             }
             document.getElementById('cantidad').addEventListener('input', calcularTotal);
             document.getElementById('nom_producto').addEventListener('change', calcularTotal);
-            
+
             function calcularTotal() {
                 const precio = parseFloat(document.getElementById('precio_unitario').value) || 0;
                 const cantidad = parseInt(document.getElementById('cantidad').value) || 0;
                 document.getElementById('total').value = (precio * cantidad).toFixed(2);
             }
-            </script>
-            <script src="/js/main.js"></script>
-            
+        </script>
+        <script src="/js/main.js"></script>
+
 </body>
 
 </html>

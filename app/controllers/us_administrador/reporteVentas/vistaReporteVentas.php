@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../../../models/us_administrador/reporte-ventas/modelReVentas.php';
-
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 try {
     $id_usuario = $_SESSION['id_usuario'] ?? null;

@@ -330,7 +330,7 @@ switch ($request) {
         // ======= Módulo de ventas
     case 'usuario/ventas':
         if ($tipo === 'estandar') {
-            require_once $base . 'usestandar/registrarVentaUE/registrarVentaUE.php';
+            require_once $base_c . 'us_estandar/registrarVentaUE/registrarVentaUE.php';
         } else {
             http_response_code(403);
             echo "<h1>403 - Acceso denegado</h1>";
@@ -343,7 +343,6 @@ switch ($request) {
                         require_once $base_c . 'us_estandar/registrarVentaUE/registrarVentaUE.php';
                         exit;
                     }
-                require_once $base . 'usestandar/registrarVentaUE/registrarVentaUE.php';
         } else {
             http_response_code(403);
             echo "<h1>403 - Acceso denegado</h1>";
@@ -352,7 +351,7 @@ switch ($request) {
     
     case 'usuario/ventas/ventasRegistradas':
         if ($tipo === 'estandar') {
-            require_once $base . 'usestandar/registrarVentaUE/btn_ventasRegistradasUE.php';
+            require_once $base. 'usestandar/registrarVentaUE/btn_ventasRegistradasUE.php';
         } else {
             http_response_code(403);
             echo "<h1>403 - Acceso denegado</h1>";
