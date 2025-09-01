@@ -162,7 +162,7 @@ require_once __DIR__ . '/../../../controllers/us_administrador/sucursales/vistaS
                                     </div>
                                     <div class="botones-S">
                                         <!-- Botón para editar -->
-                                        <button ><a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>" class="modificar-btn">Modificar</a></button>
+                                        <button><a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>" class="modificar-btn">Modificar</a></button>
 
                                         <!-- Botón para eliminar -->
                                         <form method="POST" action="/admin/sucursales/eliminar" style="display: inline;"
@@ -170,6 +170,15 @@ require_once __DIR__ . '/../../../controllers/us_administrador/sucursales/vistaS
                                             <input type="hidden" name="id_sucursal" value="<?= $sucursal['id_sucursal'] ?>">
                                             <button type="submit" class="eliminar-btn">Eliminar</button>
                                         </form>
+                                    </div>
+                                    <div class="qr-sucursal">
+                                        <img id="qr-img-<?= $sucursal['id_sucursal'] ?>"
+                                            src="/qr_sucursal.php?id=<?= urlencode($sucursal['id_sucursal']) ?>"
+                                            alt="QR Sucursal" width="200" height="200">
+                                        <button><a href="/qr_sucursal.php?id=<?= urlencode($sucursal['id_sucursal']) ?>"
+                                            download="qr_sucursal_<?= $sucursal['id_sucursal'] ?>.png">
+                                            Descargar QR
+                                        </a></button>
                                     </div>
                                 </div>
                             </div>

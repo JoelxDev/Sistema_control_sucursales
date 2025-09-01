@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../../config/config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = trim($_POST['txtusername'] ?? '');
     $contrasenia = trim($_POST['txtcontrasenia'] ?? '');
-    $sucursal = trim($_POST['txtsucursal'] ?? '');
+    $sucursal = trim($_POST['qr_sucursal_id'] ?? $_POST['txtsucursal'] ?? '');
 
     $resultado = ModelLogin::validarLogin($usuario, $contrasenia, $sucursal);
 
