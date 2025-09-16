@@ -11,6 +11,7 @@ $usuariosActivos = [];
 $fechaHoy = date('Y-m-d');
 $cantidadVentas = 0;
 $ventasHoy = [];
+// $sucursalesActivas = [];
 
 if (!empty($ventas) && is_array($ventas)) {
     foreach ($ventas as $venta) {
@@ -143,7 +144,9 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                     <div>
                         <button onclick="H_ventas()">Historial de ventas</button>
                     </div>
-                    <!-- Los botones deben aparecer de las sucursales creadas, mas no manualmente -->
+                    <!-- Botón para mostrar todas las ventas del día -->
+
+
                 </div>
                 <div class="lower-body" id="principal_contentRV">
                     <div class="content-reporteV">
@@ -152,7 +155,7 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                         </div>
                         <div class="datos-reporteV">
                             <div class="Cantidad-V">
-                                <h4>Cantidad de Ventas</h4><br>
+                                <h4>Numero de Ventas</h4><br>
                                 <?= htmlspecialchars($cantidadVentas) ?>
                             </div>
                             <div class="Total-V">
@@ -169,9 +172,20 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                             </div>
                         </div>
                         <div class="campo-bot_bus">
-                            <div class="campo-bot_bus">
+                            <div class="">
                                 <input type="text" id="buscar_ventas" placeholder="Buscar producto o vendedor...">
                             </div>
+                            <div class='btn-filtros-sucursales' >
+                                <?php foreach ($sucursalesActivas as $sucursal): ?>
+                                    <div>
+                                        <button onclick="window.location.href='/admin/reporte_ventas/porSucursal?sucursal=<?= urlencode($sucursal['id_sucursal']) ?>&nombre=<?= urlencode($sucursal['nombre_s']) ?>'">
+                                            <?= htmlspecialchars($sucursal['nombre_s']) ?>
+                                        </button>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <!-- Botones dinámicos de sucursales activas -->
+
                             <!-- <div>
                                 <button>Generar PDF</button>
                             </div> -->
@@ -189,7 +203,7 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                                         <th>
                                             Sucursal
                                         </th>
-                                        <th>Total Venta</th>
+                                        <th>Total Venta S/.</th>
                                         <th>Cantidad</th>
                                         <th>Tipo de venta</th>
                                         <th>Tipo de pago</th>
@@ -207,7 +221,7 @@ $nombresUsuariosActivos = implode(', ', array_keys($usuariosActivos));
                                             <td><?= htmlspecialchars($venta['nombre_producto']) ?></td>
                                             <td><?= htmlspecialchars($venta['nombre_vendedor'] . ' ' . $venta['apellido_vendedor']) ?></td>
                                             <td><?= htmlspecialchars($venta['sucursal']) ?></td>
-                                            <td><?= htmlspecialchars($venta['total_venta']) ?></td>
+                                            <td>S\. <?= htmlspecialchars($venta['total_venta']) ?></td>
                                             <td><?= htmlspecialchars($venta['cantidad']) ?></td>
                                             <td><?= htmlspecialchars($venta['tipo_venta']) ?></td>
                                             <td><?= htmlspecialchars($venta['tipo_pago']) ?></td>

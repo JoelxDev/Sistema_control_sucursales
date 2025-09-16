@@ -89,3 +89,7 @@
     margin: 10px 10px 10px 10px;
     text-align: center;
 }
+.formulario-edit-sucursal div {
+    display:flex;
+    flex-direction: column;
+}

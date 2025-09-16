@@ -162,13 +162,13 @@ require_once __DIR__ . '/../../../controllers/us_administrador/sucursales/vistaS
                                     </div>
                                     <div class="botones-S">
                                         <!-- Botón para editar -->
-                                        <button><a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>" class="modificar-btn">Modificar</a></button>
+                                        <button class="btn-editar"><a href="/admin/sucursales/editar?id=<?= $sucursal['id_sucursal'] ?>" class="modificar-btn">Modificar</a></button>
 
                                         <!-- Botón para eliminar -->
                                         <form method="POST" action="/admin/sucursales/eliminar" style="display: inline;"
                                             onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta sucursal?');">
                                             <input type="hidden" name="id_sucursal" value="<?= $sucursal['id_sucursal'] ?>">
-                                            <button type="submit" class="eliminar-btn">Eliminar</button>
+                                            <button type="submit" class="btn-eliminar">Eliminar</button>
                                         </form>
                                     </div>
                                     <div class="qr-sucursal">

@@ -104,8 +104,8 @@ require_once __DIR__ . '/../../../../config/config.php';
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
+        <div class="cuerpo">
         <div class="cuerpo-editar-usuario">
-            <div class="cuerpo">
                 <div class="upper-body">
                 </div>
                 <div class="lower-body">
@@ -119,24 +119,37 @@ require_once __DIR__ . '/../../../../config/config.php';
                                 onsubmit="return confirm('¿Estás seguro de que deseas editar este usuario?');">
                                 <input type="hidden" name="id_personal"
                                     value="<?= htmlspecialchars($usuario['id_personal']) ?>">
-                                <label for="nombre_p">Nombre:</label>
-                                <input type="text" id="nombre_p" name="nombre_p"
-                                    value="<?= htmlspecialchars($usuario['nombre_p']) ?>" required><br>
-                                <label for="apellido_p">Apellido:</label>
-                                <input type="text" id="apellido_p" name="apellido_p"
-                                    value="<?= htmlspecialchars($usuario['apellido_p']) ?>" required><br>
-                                <label for="telefono_p">Teléfono:</label>
-                                <input type="text" id="telefono_p" name="telefono_p"
-                                    value="<?= htmlspecialchars($usuario['telefono_p']) ?>" required><br>
-                                <label for="roll_p">Rol:</label>
-                                <select id="roll_p" name="roll_p" required>
-                                    <option value="administrador" <?= $usuario['roll_p'] === 'administrador' ? 'selected' : '' ?>>
-                                        Administrador</option>
+                                <div>
+                                    <label for="nombre_p">Nombre:</label>
+                                    <input type="text" id="nombre_p" name="nombre_p"
+                                    value="<?= htmlspecialchars($usuario['nombre_p']) ?>" required>
+                                </div>
+                                <div>
+                                    <label for="apellido_p">Apellido:</label>
+                                    <input type="text" id="apellido_p" name="apellido_p"
+                                        value="<?= htmlspecialchars($usuario['apellido_p']) ?>" required>
+                                </div>
+                                <div>
+                                    <label for="telefono_p">Teléfono:</label>
+                                    <input type="text" id="telefono_p" name="telefono_p"
+                                        value="<?= htmlspecialchars($usuario['telefono_p']) ?>" required>
+                                </div>
+                                <div>
+                                    <label for="dni_p">DNI:</label>
+                                    <input type="text" id="dni_p" name="dni_p"
+                                        value="<?= htmlspecialchars($usuario['dni_p']) ?>" required>
+                                </div>
+                                <div>
+                                    <label for="roll_p">Rol:</label>
+                                    <select id="roll_p" name="roll_p" required>
+                                        <option value="administrador" <?= $usuario['roll_p'] === 'administrador' ? 'selected' : '' ?>>
+                                            Administrador</option>
                                     <option value="vendedor" <?= $usuario['roll_p'] === 'vendedor' ? 'selected' : '' ?>>
                                         Vendedor
                                     </option>
-                                </select><br>
-                                <button type="submit">Guardar Cambios</button>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-editar">Guardar Cambios</button>
                             </form>
                         </div>
                     </div>

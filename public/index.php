@@ -218,6 +218,14 @@ switch ($request) {
         echo "<h1>403 - Acceso denegado</h1>";
     }
     break;
+    case 'admin/reporte_ventas/porSucursal':
+    if ($tipo === 'administrador') {
+        require_once $base . 'usadministrador/reporte_ventas/btn_repPorSucursal.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
 // ======= Módulo de inventario
     case 'admin/inventario':
         if ($tipo === 'administrador') {

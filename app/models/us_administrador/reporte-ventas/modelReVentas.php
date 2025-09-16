@@ -9,11 +9,12 @@ class Ventas
         try {
             $db = Database::conectarDB();
             $sql = "SELECT 
-        v.id_venta AS id_venta, 
+                    v.id_venta AS id_venta, 
                     dv.cantidad_dv AS cantidad,
                     p.nombre_pr AS nombre_producto,
                     per.nombre_p AS nombre_vendedor,
                     per.apellido_p AS apellido_vendedor,
+                    s.id_sucursal as id_sucursal,
                     s.nombre_s AS sucursal,
                     v.total AS total_venta,
                     v.tipo_venta,
@@ -36,5 +37,18 @@ class Ventas
             return [];
         }
     }
+    public static function obtenerSucursalesActivas() {
+        try {
+            $db = Database::conectarDB();
+            $sql = "SELECT id_sucursal, nombre_s FROM sucursal WHERE estado_s = 'activo'";
+            $stmt = $db->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log(date('[Y-m-d H:i:s] ') . $e->getMessage() . PHP_EOL, 3, __DIR__ . '/../../../logs/error.log');
+            return [];
+        }
+    
+}
 }
 ?>

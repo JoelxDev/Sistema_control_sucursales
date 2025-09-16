@@ -140,7 +140,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                                     <input type="text" name="txtciudad_s" placeholder="Ciudad" required>
                                 </div>
                                 <div>
-                                    <button type="submit">Añadir</button>
+                                    <button type="submit" class="btn-registrar">Añadir</button>
                                 </div>
                             </form>
                         </div>

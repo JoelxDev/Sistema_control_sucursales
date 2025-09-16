@@ -154,7 +154,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                                     required>
                             </div>
                             <div>
-                                <button type="submit">Registrar</button>
+                                <button type="submit" class="btn-registrar">Registrar</button>
                             </div>
                         </div>
                     </form>

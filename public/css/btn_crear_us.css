@@ -1,10 +1,12 @@
-/* .formulario_usuario{
+.formulario_usuario{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-top:50px ;
     width: 100%;
-} */
+    max-width: 300px;
+}
 .cuerpo-form{
     display: grid;
     justify-content: center;
@@ -19,6 +21,7 @@
     /* background-color: #afaaaa; */
     display: inline-block;
     border: 1px solid black;
+    width: 100%;
 }
 
 form{

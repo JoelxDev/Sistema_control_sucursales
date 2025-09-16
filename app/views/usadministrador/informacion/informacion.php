@@ -126,7 +126,7 @@ if (!$id_usuario) {
                 <div class="lower-body">
                     <div class="modulo-informacion">
                         <div class="subtitulo">
-                            <h3>Informacion basica sobre el usuario</h3>
+                            <h3>Informacion basica del usuario</h3>
                         </div>
                         <div class="perfil">
                             <div class="circulo"></div>

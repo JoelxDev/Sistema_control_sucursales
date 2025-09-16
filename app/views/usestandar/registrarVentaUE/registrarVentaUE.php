@@ -123,7 +123,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                                         <option value="Unico">Unico</option>
                                         <option value="Mixta">Mixta</option>
                                     </select>
-                                </div><br>
+                                </div>
                                 <div>
                                     <label for="nom_producto">Nombre del Producto</label><br>
                                     
@@ -136,28 +136,28 @@ require_once __DIR__ . '/../../../../config/config.php';
                                             </option>
                                         <?php endforeach; ?>
                                     </select>
-                                </div><br>
+                                </div>
                                 <div>
                                     <label for="cantidad">Cantidad</label><br>
                                     <input type="number" name="txtcantidad" id="cantidad" min="1" placeholder="Cantidad" required>
-                                </div><br>
+                                </div>
                                 <div>
                                     <label for="precio_unitario">Precio unitario</label><br>
                                     <input type="number" name="txtprecio_unitario" id="precio_unitario" step="0.01" placeholder="Precio Unitario" required>
-                                </div><br>
+                                </div>
                                 <div>
                                     <label for="total">Total</label><br>
                                     <input type="number" step="any" name="txttotal" id="total" step="0.01" placeholder="Total" required>
-                                </div><br>
+                                </div>
                                 <div>
                                     <label for="metod_pago">Metodo de pago</label><br>
                                     <select name="txtmetodo_pago" id="metodo_pago" required>
                                         <option value="Efectivo">Efectivo</option>
                                         <option value="Digital">Digital</option>
                                     </select>
-                                </div><br>
-                                <div class="btn-registrarV">
-                                    <button type="submit">Registrar</button>
+                                </div>
+                                <div class="boton">
+                                    <button type="submit" class="btn-registrar">Registrar</button>
                                 </div>
                             </form>
                         </div>

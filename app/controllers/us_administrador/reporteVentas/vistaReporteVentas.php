@@ -7,6 +7,7 @@ try {
         throw new Exception('No hay sesión activa del usuario.');
     }
     $ventas = Ventas::obtenerVentas();
+    $sucursalesActivas = Ventas::obtenerSucursalesActivas();
     if (!$ventas) {
         throw new Exception('Usuario no encontrada.');
     }

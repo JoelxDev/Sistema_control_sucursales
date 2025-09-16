@@ -164,7 +164,7 @@ require_once __DIR__ . '/../../../controllers/us_administrador/usuarios/vistaUsu
                                             <td class="bott">
                                                 <a
                                                     href="<?= BASE_URL ?>admin/usuarios/btn_edit_us?id=<?= $usuario['id_personal'] ?>">
-                                                    <button type="button">Editar</button>
+                                                    <button type="button" class="btn-editar">Editar</button>
                                                 </a>
                                             </td>
                                             <td class="bott">
@@ -172,13 +172,13 @@ require_once __DIR__ . '/../../../controllers/us_administrador/usuarios/vistaUsu
                                                     onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">
                                                     <input type="hidden" name="id_personal"
                                                         value="<?= $usuario['id_personal'] ?>">
-                                                    <button type="submit">Eliminar</button>
+                                                    <button type="submit" class="btn-eliminar">Eliminar</button>
                                                 </form>
                                             </td>
                                             <td class="bott">
                                                 <a
                                                     href="<?= BASE_URL ?>admin/usuarios/MasInformacion?id=<?= $usuario['id_personal'] ?>">
-                                                    <button type="button">M.Inf</button>
+                                                    <button type="button" class="btn-mas-info">M.Inf</button>
                                                 </a>
                                             </td>
                                         <tr>

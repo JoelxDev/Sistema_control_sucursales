@@ -127,23 +127,31 @@ require_once __DIR__ . '/../../../../config/config.php';
                             onsubmit="return confirm('¿Estás seguro de que deseas editar este producto?');">
                             <input type="hidden" name="id_producto"
                                 value="<?= htmlspecialchars($producto['id_producto']) ?>">
-                            <label>Nombre:</label>
-                            <input type="text" name="txtnombre_pr"
-                                value="<?= htmlspecialchars($producto['nombre_pr']) ?>" required><br>
-                            <label>Descripción:</label>
-                            <input type="text" name="txtdescripcion_pr"
-                                value="<?= htmlspecialchars($producto['descripcion_pr']) ?>" required><br>
-                            <label>Precio Unitario:</label>
-                            <input type="number" name="txtprecio_pr"
+                            <div>
+                                <label>Nombre:</label>
+                                <input type="text" name="txtnombre_pr"
+                                value="<?= htmlspecialchars($producto['nombre_pr']) ?>" required>
+                            </div>
+                            <div>
+                                <label>Descripción:</label>
+                                <input type="text" name="txtdescripcion_pr"
+                                    value="<?= htmlspecialchars($producto['descripcion_pr']) ?>" required>
+                            </div>
+                            <div>
+                                <label>Precio Unitario:</label>
+                                <input type="number" name="txtprecio_pr"
                                 value="<?= htmlspecialchars($producto['precio_unitario_pr']) ?>" step="0.01"
-                                required><br>
-                            <label>Categoría:</label>
-                            <input type="text" name="txtcategoria_pr"
-                                value="<?= htmlspecialchars($producto['categoria']) ?>" required><br>
-                            <button type="submit">Guardar Cambios</button><br>
-                            <button>
+                                required>
+                            </div>
+                            <div>
+                                <label>Categoría:</label>
+                                <input type="text" name="txtcategoria_pr"
+                                    value="<?= htmlspecialchars($producto['categoria']) ?>" required>
+                            </div>  
+                            <button type="submit" class="btn-editar">Guardar Cambios</button>
+                            <!-- <button>
                                 <a href="<?= BASE_URL ?>admin/inventario/Productos" style="color: black">Cancelar</a>
-                            </button>
+                            </button> -->
                         </form>
                     </div>
                 </div>

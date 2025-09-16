@@ -119,6 +119,9 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
                         <input type="date" id="fecha" name="fecha" value="<?= htmlspecialchars($_GET['fecha'] ?? date('Y-m-d')) ?>">
                         <button type="submit" style="padding: 5px;">Filtrar</button>
                     </form>
+                    <div class="">
+                        <input type="text" id="buscar_movimiento" placeholder="Buscar producto o vendedor...">
+                    </div>
                     <!-- <div>
                         <label for="ordenarHV">Ordenar por:</label><br>
                         <select name="ordenarHV" id="ordenarHV">
@@ -196,6 +199,16 @@ $esAdmin = (isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'a
         </div>
     </div>
     <script src="/js/main.js"></script>
+    <script>
+        document.getElementById('buscar_movimiento').addEventListener('keyup', function() {
+            let filtro = this.value.toLowerCase();
+            let filas = document.querySelectorAll('.tabla-container tbody tr');
+            filas.forEach(function(fila) {
+                let texto = fila.textContent.toLowerCase();
+                fila.style.display = texto.includes(filtro) ? '' : 'none';
+            });
+        });
+    </script>
 </body>
 
 </html>

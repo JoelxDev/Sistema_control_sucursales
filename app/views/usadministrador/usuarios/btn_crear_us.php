@@ -10,7 +10,6 @@ require_once __DIR__ . '/../../../../config/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Usuarios</title>
     <link rel="stylesheet" href="/css/globalStyle.css">
-
     <link rel="stylesheet" href="/css/btn_crear_us.css">
 </head>
 
@@ -150,7 +149,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                                     </select>
                                 </div>
                                 <div>
-                                    <button type="submit">Crear Usuario</button>
+                                    <button type="submit" class="btn-registrar">Crear Usuario</button>
                                 </div>
                             </form>
                         </div>

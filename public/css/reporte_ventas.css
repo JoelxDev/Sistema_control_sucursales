@@ -47,7 +47,16 @@
 .campo-bot_bus {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     padding: 20px;
+}
+
+.btn-filtros-sucursales{
+    display: flex;
+    max-width: 500px;
+    width:100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .lista-ventas {

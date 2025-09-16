@@ -169,7 +169,7 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/vistaP
                                                     value="<?= htmlspecialchars($producto['id_producto']) ?>">
                                                 <button type="submit">Editar</button>
                                             </form> -->
-                                                <button>
+                                                <button class="btn-editar">
                                                     <a href="<?= BASE_URL ?>admin/inventario/EditarProducto?id=<?= $producto['id_producto'] ?>"
                                                         style="color: black">Editar</a>
                                                 </button>
@@ -179,7 +179,7 @@ require_once __DIR__ . '/../../../controllers/us_administrador/inventario/vistaP
                                                     onsubmit="return confirm('¿Seguro que deseas eliminar este producto?');">
                                                     <input type="hidden" name="id_producto"
                                                         value="<?= htmlspecialchars($producto['id_producto']) ?>">
-                                                    <button type="submit">Eliminar</button>
+                                                    <button type="submit" class="btn-eliminar">Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>
