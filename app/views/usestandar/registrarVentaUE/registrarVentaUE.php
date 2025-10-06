@@ -124,64 +124,104 @@ require_once __DIR__ . '/../../../../config/config.php';
                                         <option value="Mixta">Mixta</option>
                                     </select>
                                 </div>
-                                <div>
-                                    <label for="nom_producto">Nombre del Producto</label><br>
-                                    
-                                    <select name="txtnom_producto" id="nom_producto" required onchange="mostrarPrecio()">
-                                        <option value="">Seleccione un producto</option>
-                                        <?php foreach ($productosDisponibles as $producto): ?>
-                                            <option value="<?= htmlspecialchars($producto['id_producto']) ?>"
-                                                data-precio="<?= htmlspecialchars($producto['precio_unitario_pr']) ?>">
-                                                <?= htmlspecialchars($producto['nombre_pr']) ?> (Hay: <?= htmlspecialchars($producto['cantidad_in']) ?> U.)
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                <div class="datos-producto">
+                                    <div>
+                                        <label for="nom_producto">Nombre del Producto</label><br>
+
+                                        <select name="txtnom_producto" id="nom_producto" required onchange="mostrarPrecio()">
+                                            <option value="">Seleccione un producto</option>
+                                            <?php foreach ($productosDisponibles as $producto): ?>
+                                                <option value="<?= htmlspecialchars($producto['id_producto']) ?>"
+                                                    data-precio="<?= htmlspecialchars($producto['precio_unitario_pr']) ?>">
+                                                    <?= htmlspecialchars($producto['nombre_pr']) ?> (Hay: <?= htmlspecialchars($producto['cantidad_in']) ?> U.)
+                                                </option>
+                                            <?php endforeach; ?>
+
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="precio_unitario">Precio unitario</label><br>
+                                        <input type="number" name="txtprecio_unitario" id="precio_unitario" step="0.01" placeholder="Precio Unitario" required>
+                                    </div>
+                                    <div>
+                                        <label for="cantidad">Cantidad</label><br>
+                                        <input type="number" name="txtcantidad" id="cantidad" min="1" placeholder="Cantidad" required>
+                                    </div>
+                                    <div>
+                                        <label for="subtotal">Sub Total</label><br>
+                                        <input type="number" name="txtsubtotal" id="subtotal" min="0" step="0.01" placeholder="Sub Total">
+                                    </div>
                                 </div>
-                                <div>
-                                    <label for="cantidad">Cantidad</label><br>
-                                    <input type="number" name="txtcantidad" id="cantidad" min="1" placeholder="Cantidad" required>
-                                </div>
-                                <div>
-                                    <label for="precio_unitario">Precio unitario</label><br>
-                                    <input type="number" name="txtprecio_unitario" id="precio_unitario" step="0.01" placeholder="Precio Unitario" required>
-                                </div>
-                                <div>
-                                    <label for="total">Total</label><br>
-                                    <input type="number" step="any" name="txttotal" id="total" step="0.01" placeholder="Total" required>
-                                </div>
-                                <div>
-                                    <label for="metod_pago">Metodo de pago</label><br>
-                                    <select name="txtmetodo_pago" id="metodo_pago" required>
-                                        <option value="Efectivo">Efectivo</option>
-                                        <option value="Digital">Digital</option>
-                                    </select>
-                                </div>
-                                <div class="boton">
-                                    <button type="submit" class="btn-registrar">Registrar</button>
-                                </div>
-                            </form>
                         </div>
+                        <div>
+                            <label for="total">Total</label><br>
+                            <input type="number" step="any" name="txttotal" id="total" step="0.01" placeholder="Total" required>
+                        </div>
+                        <div>
+                            <label for="metod_pago">Metodo de pago</label><br>
+                            <select name="txtmetodo_pago" id="metodo_pago" required>
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Digital">Digital</option>
+                            </select>
+                        </div>
+                        <div class="boton">
+                            <button type="submit" class="btn-registrar">Registrar</button>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <script>
-            function mostrarPrecio() {
-                const select = document.getElementById('nom_producto');
-                const precio = select.options[select.selectedIndex].getAttribute('data-precio');
-                document.getElementById('precio_unitario').value = precio ? precio : '';
-                calcularTotal();
-            }
-            document.getElementById('cantidad').addEventListener('input', calcularTotal);
-            document.getElementById('nom_producto').addEventListener('change', calcularTotal);
+    </div>
+    <script>
+        // Referencias a elementos
+        const cantidadEl = document.getElementById('cantidad');
+        const nomProductoEl = document.getElementById('nom_producto');
+        const precioEl = document.getElementById('precio_unitario');
+        const subtotalEl = document.getElementById('subtotal');
+        const totalEl = document.getElementById('total');
 
-            function calcularTotal() {
-                const precio = parseFloat(document.getElementById('precio_unitario').value) || 0;
-                const cantidad = parseInt(document.getElementById('cantidad').value) || 0;
-                document.getElementById('total').value = (precio * cantidad).toFixed(2);
-            }
-        </script>
-        <script src="/js/main.js"></script>
+        function calcularSubtotal() {
+            const precio = parseFloat(precioEl.value) || 0;
+            const cantidad = parseFloat(cantidadEl.value) || 0;
+            const subtotal = precio * cantidad;
+            subtotalEl.value = subtotal.toFixed(2);
+            return subtotal;
+        }
+
+        function calcularTotal() {
+            const subtotal = parseFloat(subtotalEl.value) || 0;
+            totalEl.value = subtotal.toFixed(2);
+        }
+
+        function mostrarPrecio() {
+            const select = document.getElementById('nom_producto');
+            const precio = select.options[select.selectedIndex].getAttribute('data-precio');
+            precioEl.value = precio ? precio : '';
+            calcularSubtotal();
+            calcularTotal();
+        }
+
+        // Listeners: recalcular subtotal y total al cambiar cantidad o producto
+        if (cantidadEl) {
+            cantidadEl.addEventListener('input', () => {
+                calcularSubtotal();
+                calcularTotal();
+            });
+        }
+        if (nomProductoEl) {
+            nomProductoEl.addEventListener('change', () => {
+                mostrarPrecio();
+            });
+        }
+
+        // Inicializar valores si ya hay selección/valor al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            if (nomProductoEl && nomProductoEl.value) mostrarPrecio();
+            else calcularSubtotal(), calcularTotal();
+        });
+    </script>
+    <script src="/js/main.js"></script>
 
 </body>
 

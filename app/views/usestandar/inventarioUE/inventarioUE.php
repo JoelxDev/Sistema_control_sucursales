@@ -105,20 +105,24 @@ require_once __DIR__ . '/../../../../config/config.php';
                             <h3>Inventario actual de la sucursal</h3>
                         </div>
                         <div class="vista-inventario">
-                            <?php foreach ($inventario as $producto): ?>
+                            <div class="cont-inventario">
+                                <?php foreach ($inventario as $producto): ?>
                                 <div class="producto_invetario" data-id="<?= $producto['id_producto'] ?>">
                                     <div class="nom_producto">
-                                        <h3><?= htmlspecialchars($producto['nombre_pr']) ?></h3>
+                                        <h3> <?= htmlspecialchars($producto['nombre_pr']) ?></h3>
                                     </div>
-                                    <div class="datos-producto">
-                                        <div class="cantidad_producto">
-                                            <h4>Cantidad: <?= $producto['cantidad_total'] ?></h4>
-                                        </div>
-                                        <!-- Si tienes precio, agrégalo aquí -->
-
+                                    <div class="precio_producto">
+                                        <h4>Precio: S/. <?= htmlspecialchars($producto['precio_unitario_pr']) ?></h4>
+                                    </div>
+                                    <div class="descripcion_producto">
+                                        <h4>Desc: <br> <?= htmlspecialchars($producto['descripcion_pr']) ?></h4>
+                                    </div>
+                                    <div class="cantidad_producto">
+                                        <h4>Cantidad: <?= $producto['cantidad_total'] ?></h4>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,18 +7,30 @@ class ModelInventarioUE
     {
         try {
             $db = Database::conectarDB();
-            $stmt = $db->prepare(" SELECT p.id_producto, p.nombre_pr, SUM(i.cantidad_in) AS cantidad_total
-            FROM productos p
-            INNER JOIN inventario i ON i.productos_id_producto = p.id_producto
-            WHERE i.sucursal_id_sucursal = :id_sucursal
-            AND i.completado = 'no'
-            GROUP BY p.id_producto, p.nombre_pr
-        ");
+            $sql = "
+                SELECT
+                    p.id_producto,
+                    p.nombre_pr,
+                    p.precio_unitario_pr,
+                    p.descripcion_pr,
+                    p.categoria,
+                    SUM(i.cantidad_in) AS cantidad_total,
+                    MAX(i.fecha_actualizacion) AS ultima_actualizacion,
+                    s.id_sucursal,
+                    s.nombre_s AS sucursal
+                FROM inventario i
+                JOIN productos p ON i.productos_id_producto = p.id_producto
+                JOIN sucursal s ON i.sucursal_id_sucursal = s.id_sucursal
+                WHERE s.id_sucursal = :id_sucursal
+                GROUP BY p.id_producto, p.nombre_pr, p.precio_unitario_pr, p.descripcion_pr, p.categoria, s.id_sucursal, s.nombre_s
+                ORDER BY p.nombre_pr
+            ";
+            $stmt = $db->prepare($sql);
             $stmt->bindParam(':id_sucursal', $id_sucursal, PDO::PARAM_INT);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            error_log(date('[Y-m-d H:i:s] ') . $e->getMessage() . PHP_EOL, 3, __DIR__ . '/../../../logs/error.log');
+            error_log('Error ModelInventarioUE::obtenerInventarioSucursal: ' . $e->getMessage());
             return [];
         }
     }

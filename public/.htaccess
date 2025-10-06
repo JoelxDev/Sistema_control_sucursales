@@ -1,10 +1,23 @@
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#      # 🔒 Redirige de HTTP a HTTPS (solo si no está usando HTTPS)
+#     # Detecta HTTPS aunque esté detrás de un proxy como Ngrok
+# RewriteCond %{HTTP:X-Forwarded-Proto} !https
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#     RewriteBase /
+
+#     # Si el archivo o directorio existe, no reescribas
+#     RewriteCond %{REQUEST_FILENAME} !-f
+#     RewriteCond %{REQUEST_FILENAME} !-d
+
+#     # Todo lo demás, envíalo a index.php
+#     RewriteRule ^ index.php [QSA,L]
+# </IfModule>
+# ---------------------------------------------------------------------------
+# Localhost -- Eliminar al hacer un push
 <IfModule mod_rewrite.c>
     RewriteEngine On
-     # 🔒 Redirige de HTTP a HTTPS (solo si no está usando HTTPS)
-    # Detecta HTTPS aunque esté detrás de un proxy como Ngrok
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
     RewriteBase /
 
     # Si el archivo o directorio existe, no reescribas
@@ -14,4 +27,3 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     # Todo lo demás, envíalo a index.php
     RewriteRule ^ index.php [QSA,L]
 </IfModule>
-

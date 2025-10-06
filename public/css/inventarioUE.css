@@ -26,22 +26,42 @@
 }
 
 .producto_invetario{
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    padding: 18px 22px;
+    min-width: 210px;
+    max-width: 220px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
     flex-direction: column;
-    width: 150px;
-    gap: 10px;
+    align-items: center;
+    border: 2px solid #444;
+    margin-bottom: 10px;
     background-color: #afaaaa;
 }
-.datos-producto{
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    width: 90%;
-    margin-bottom: 20px;
+
+.nom_producto {
+    background: #8f8e8e;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    padding: 8px 0 6px 0;
+    margin-bottom: 10px;
 }
+
+.precio_producto, .descripcion_producto, .cantidad_producto {
+    background: #d1d1d1;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    padding: 7px 0;
+    font-size: 1em;
+    color: #222;
+}
+
 .vista-inventario{
     display: flex;
     flex-wrap: wrap;
@@ -51,18 +71,7 @@
     gap: 40px;
 
 }
-.nom_producto{
-    text-align: center;
-    border: 1px solid black;
-    padding: 5px;
-    width: 100%;
-}
-.cantidad_producto{
-    text-align: start;
-    border: 1px solid black;
-    padding: 5px;
-    width: 100%;
-}
+
 .precio_unitario{
     text-align: start;
     border: 1px solid black;
@@ -74,3 +83,4 @@ button{
     padding: 10px;
     border-radius: 10px;
 }
+

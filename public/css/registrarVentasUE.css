@@ -43,6 +43,12 @@
     margin: 0 10px 0 10px;
     width: 300px;
 }
+
+.datos-producto{
+    background-color: #979696;
+    padding: 10px;
+    border-radius: 10px;
+}
 /* input{
     padding: 5px;
 } */
