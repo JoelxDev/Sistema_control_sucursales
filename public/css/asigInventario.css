@@ -11,6 +11,11 @@ form{
     margin: 10px;
     font-size: 17px;
 }
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
 /* input{
     padding: 5px;
 } */

@@ -3,6 +3,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 require_once __DIR__ . '/../../config/config.php';
+$ipBlocked = $_SESSION['ip_blocked'] ?? false;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,16 +29,16 @@ require_once __DIR__ . '/../../config/config.php';
             </div>
             <div class="content-login">
                 <form action="<?= BASE_URL ?>loginProcess" method="post">
-                    <input class="input-login" type="text" name="txtusername" placeholder="Nombre de usuario" required>
-                    <input class="input-login" type="password" name="txtcontrasenia" placeholder="Contraseña" required>
+                    <input class="input-login" type="text" name="txtusername" placeholder="Nombre de usuario" required <?= $ipBlocked ? 'disabled' : '' ?>>
+                    <input class="input-login" type="password" name="txtcontrasenia" placeholder="Contraseña" required <?= $ipBlocked ? 'disabled' : '' ?>>
                     <input class="input-login" type="text" id="txtsucursal" name="txtsucursal" placeholder="Sucursal"
-                        readonly>
+                        readonly <?= $ipBlocked ? 'disabled' : '' ?>>
                     <small style="color: #888; display: block; margin-bottom: 10px;">
                         Este campo (Sucursal) se llena automáticamente al escanear el código QR de la sucursal.
                     </small>
                     <div id="reader" style="width:300px; margin: 0 auto;"></div>
                     <!-- Campo oculto para el id de sucursal -->
-                    <button class="boton-login" type="submit">Iniciar</button>
+                    <button class="boton-login" type="submit" <?= $ipBlocked ? 'disabled' : '' ?>>Iniciar</button>
                 </form>
                 <?php if (!empty($_SESSION['login_error'])): ?>
                     <div class="mensaje-error">
@@ -64,6 +65,17 @@ require_once __DIR__ . '/../../config/config.php';
                         qrbox: 250,
                     });
                     html5QrcodeScanner.render(onScanSuccess);
+                </script>
+                <script>
+                (function(){
+                    const ipBlocked = <?= $ipBlocked ? 'true' : 'false' ?>;
+                    if (ipBlocked) {
+                        const form = document.getElementById('loginForm');
+                        form && form.addEventListener('submit', function(e){
+                            e.preventDefault();
+                        });
+                    }
+                })();
                 </script>
             </div>
         </div>

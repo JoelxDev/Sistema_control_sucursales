@@ -29,6 +29,14 @@ if (!$id_usuario && !in_array($request, $public_routes)) {
     exit;
 }
 
+require_once __DIR__ . '/../app/services/servicioSeguridad.php';
+
+$ip = SecurityService::getClientIP();
+$bloqueo = SecurityService::estaBloqueado('', $ip); // chequeo por IP
+
+// Antes: se bloqueaba toda la página y se hacía exit.
+// Ahora: guardamos el estado en sesión para que la vista de login desactive campos.
+$_SESSION['ip_blocked'] = !empty($bloqueo['bloqueado']);
 
 switch ($request) {
     case '':

@@ -121,7 +121,7 @@ require_once __DIR__ . '/../../../../config/config.php';
                                     <label for="tipo_venta">Tipo de venta</label>
                                     <select name="txttipo_venta" id="tipo_venta" required>
                                         <option value="Unico">Unico</option>
-                                        <option value="Mixta">Mixta</option>
+                                        <!-- <option value="Mixta">Mixta</option> -->
                                     </select>
                                 </div>
                                 <div class="datos-producto">
