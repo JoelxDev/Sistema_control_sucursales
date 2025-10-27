@@ -42,12 +42,24 @@ class ModelLogin
                 $fecha_entrada = date('Y-m-d H:i:s');
                 $horario_entrada = date('H:i:s');
                 $stmtInsert = $db->prepare("INSERT INTO usuario_sucursal (fecha_entrada, horario_entrada, sucursal_id_sucursal, usuarios_id_usuario)
-            VALUES (:fecha_entrada, :horario_entrada, :sucursal_id, :usuario_id)");
+                VALUES (:fecha_entrada, :horario_entrada, :sucursal_id, :usuario_id)");
                 $stmtInsert->bindParam(':fecha_entrada', $fecha_entrada);
                 $stmtInsert->bindParam(':horario_entrada', $horario_entrada);
                 $stmtInsert->bindParam(':sucursal_id', $sucursal, PDO::PARAM_INT);
                 $stmtInsert->bindParam(':usuario_id', $user['id_usuario'], PDO::PARAM_INT);
                 $stmtInsert->execute();
+
+                // guardar id_usuario_sucursal en sesión para usarlo luego (evita ambigüedad si tiene varias asignaciones)
+                $lastId = (int)$db->lastInsertId();
+                if ($lastId > 0) {
+                    $_SESSION['id_usuario_sucursal'] = $lastId;
+                } else {
+                    // fallback: buscar la relación más reciente
+                    $stmtUS = $db->prepare("SELECT id_usuario_sucursal FROM usuario_sucursal WHERE usuarios_id_usuario = :usuario AND sucursal_id_sucursal = :sucursal ORDER BY id_usuario_sucursal DESC LIMIT 1");
+                    $stmtUS->execute([':usuario' => $user['id_usuario'], ':sucursal' => $sucursal]);
+                    $rowUS = $stmtUS->fetch(PDO::FETCH_ASSOC);
+                    if ($rowUS) $_SESSION['id_usuario_sucursal'] = (int)$rowUS['id_usuario_sucursal'];
+                }
 
                 return ['success' => true, 'redirect' => 'usuario/perfil'];
             }

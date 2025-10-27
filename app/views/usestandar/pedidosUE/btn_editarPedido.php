@@ -113,49 +113,44 @@
                             <h3>Registrar pedido</h3>
                         </div>
                         <div class="form-regist-ped">
-                            <form action="<?= BASE_URL ?>usuario/pedidos" method="POST" >
-                                <div>
-                                    <label for="">Nombre del Cliente</label>
-                                    <input type="text" name="txtnombre_cliente" placeholder="Nombre del cliente">
-                                </div>
-                                <div>
-                                    <label for="">Nombre del Producto</label>
-                                    <input type="text" name="txtnombre_producto" placeholder="Nombre del Producto">
-                                </div>
-                                <div>
-                                    <label for="">Cantidad</label>
-                                    <input type="text" name="txtcantidad_ped" placeholder="Cantidad">
-                                </div>
-                                <div>
-                                    <label for="">Descripción</label>
-                                    <input type="text" name="txtdescripcion" placeholder="Descripción">
-                                </div>
-                                <div>
-                                    <label for="">Fecha registrada</label>
-                                    <input type="date" name="txtfecha_registro" placeholder="Fecha y hora de registro">
-                                </div>
-                                <div>
-                                    <label for="">Fecha y hora de entrega</label>
-                                    <input type="date" name="txtfecha_entrega" placeholder="Fecha y hora de entrega">
-                                </div>
-                                <div>
-                                    <label for="">Pago adelantado</label>
-                                    <input type="text" name="txtpago_adelanto" placeholder="Pago adelantado">
-                                </div>
-                                <div>
-                                    <label for="">Pago completo</label>
-                                    <input type="text" name="txtpago_completado" placeholder="Pago completo">
-                                </div>
-                                <div>
-                                    <label for="">Estado</label>
-                                    <select name="txtestado" id="estado">
-                                        <option value="pendiente">Pendiente</option>
-                                        <option value="completado">Completado</option>
-                                        <option value="cancelado">Cancelado</option>
-                                </select>
-                                </div>
-                                <div>
-                                    <button class="btn-registrar">Registrar</button>
+                            <form method="POST" action="<?= BASE_URL ?>usuario/pedidos/editar" style="display:grid;gap:10px;max-width:720px;">
+                                <input type="hidden" name="id_pedido" value="<?= (int)$pedido['id_pedido'] ?>">
+
+                                <label>Cliente
+                                    <input type="text" name="cliente_ped" required value="<?= htmlspecialchars($pedido['cliente_ped'] ?? '') ?>">
+                                </label>
+
+                                <label>Producto
+                                    <input type="text" name="producto_ped" required value="<?= htmlspecialchars($pedido['producto_ped'] ?? '') ?>">
+                                </label>
+
+                                <label>Detalles
+                                    <textarea name="detalles_ped" rows="3"><?= htmlspecialchars($pedido['detalles_ped'] ?? '') ?></textarea>
+                                </label>
+
+                                <label>Fecha entrega
+                                    <input type="datetime-local" name="fecha_entrega" required value="<?= !empty($pedido['fecha_entrega']) ? date('Y-m-d\TH:i', strtotime($pedido['fecha_entrega'])) : '' ?>">
+                                </label>
+
+                                <label>Pago adelanto
+                                    <input type="number" step="0.01" min="0" name="pago_adelanto" value="<?= number_format((float)($pedido['pago_adelanto'] ?? 0), 2, '.', '') ?>">
+                                </label>
+
+                                <label>Pago completado
+                                    <input type="number" step="0.01" min="0" name="pago_completado" value="<?= number_format((float)($pedido['pago_completado'] ?? 0), 2, '.', '') ?>">
+                                </label>
+
+                                <label>Estado
+                                    <select name="estado_ped">
+                                        <?php foreach (['pendiente', 'en_proceso', 'completado', 'cancelado'] as $est): ?>
+                                            <option value="<?= $est ?>" <?= (($pedido['estado_ped'] ?? '') === $est) ? 'selected' : '' ?>><?= ucfirst(str_replace('_', ' ', $est)) ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </label>
+
+                                <div style="display:flex;gap:8px;">
+                                    <button type="submit">Guardar cambios</button>
+                                    <a href="<?= BASE_URL ?>usuario/pedidos/listaPedidos">Cancelar</a>
                                 </div>
                             </form>
                         </div>
@@ -167,7 +162,7 @@
     <script src="/js/main.js"></script>
     <script>
         const fe = document.getElementById('fecha_entrega');
-        if (fe) fe.min = new Date().toISOString().slice(0,16);
+        if (fe) fe.min = new Date().toISOString().slice(0, 16);
     </script>
 </body>
 

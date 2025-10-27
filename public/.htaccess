@@ -13,7 +13,7 @@
 
 #     # Todo lo demás, envíalo a index.php
 #     RewriteRule ^ index.php [QSA,L]
-# </IfModule>
+# # </IfModule>
 # ---------------------------------------------------------------------------
 # Localhost -- Eliminar al hacer un push
 <IfModule mod_rewrite.c>

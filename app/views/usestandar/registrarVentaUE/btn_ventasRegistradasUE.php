@@ -23,22 +23,32 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
         </div>
 
     </div>
-    <div class="mini-content"> 
+    <div class="mini-content">
         <div class="mini-encabezado">
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/perfil"><h3>Informacion</h3></a>
+                <a href="<?= BASE_URL ?>usuario/perfil">
+                    <h3>Informacion</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/ventas"><h3>Registrar Venta</h3></a>
+                <a href="<?= BASE_URL ?>usuario/ventas">
+                    <h3>Registrar Venta</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/inventario"><h3>Inventario</h3></a>
+                <a href="<?= BASE_URL ?>usuario/inventario">
+                    <h3>Inventario</h3>
+                </a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>usuario/pedidos"><h3>Pedidos</h3></a>
+                <a href="<?= BASE_URL ?>usuario/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
             </div>
             <div class="mini-menu-b">
-                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
+                <a href="<?= BASE_URL ?>logout">
+                    <h3>Salir</h3>
+                </a>
             </div>
         </div>
     </div>
@@ -76,8 +86,8 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
             </div>
         </div>
         <!-- Desde aqui se puede modificar para otros modulos -->
-<div class="cuerpo">
-        <div class="main-body">
+        <div class="cuerpo">
+            <div class="main-body">
                 <div class="upper-body">
                     <div>
                         <label for="orden_list">Ordenar por</label>
@@ -133,10 +143,11 @@ require_once __DIR__ . '/../../../controllers/us_estandar/registrarVentaUE/contl
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
-</div>
     <script src="/js/main.js"></script>
 
 </body>
+
 </html>

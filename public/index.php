@@ -400,25 +400,55 @@ switch ($request) {
     // Módulo de pedidos
     case 'usuario/pedidos':
         if ($tipo === 'estandar') {
+            // require_once $base . 'usestandar/pedidosUE/pedidosUE.php';
+             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Crear pedido
+                require_once $base_c . 'us_estandar/pedidosUE/controllerCrearPedido.php';
+                exit;
+            }
+            // Mostrar formulario para crear pedido
             require_once $base . 'usestandar/pedidosUE/pedidosUE.php';
         } else {
             http_response_code(403);
             echo "<h1>403 - Acceso denegado</h1>";
         }
     break;
+    
+    case 'usuario/pedidos/listaPedidos':
+    if ($tipo === 'estandar') {
+        require_once $base_c . 'us_estandar/pedidosUE/controllerListarPedidos.php';
+        require_once $base . 'usestandar/pedidosUE/btn_listaPedidosUE.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
 
-    case 'usuario/pedidos/registrarPedido':
+    case 'usuario/pedidos/editar':
         if ($tipo === 'estandar') {
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                require_once $base_c . 'us_estandar/pedidosUE/registrarPedidoUE.php';
+                require_once $base_c . 'us_estandar/pedidosUE/controllerActualizarPedido.php';
                 exit;
             }
-            require_once $base . 'usestandar/pedidosUE/btn_registrarPedidoUE.php';
+            // Cargar controller (GET) para preparar $pedido y luego la vista
+            require_once $base_c . 'us_estandar/pedidosUE/controllerActualizarPedido.php';
+            require_once $base . 'usestandar/pedidosUE/btn_editarPedido.php';
         } else {
             http_response_code(403);
             echo "<h1>403 - Acceso denegado</h1>";
         }
     break;
+
+    case 'usuario/pedidos/eliminar':
+        if ($tipo === 'estandar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            require_once $base_c . 'us_estandar/pedidosUE/controllerEliminarPedido.php';
+            exit;
+        } else {
+            header('Location: ' . BASE_URL . 'usuario/pedidos/listaPedidos');
+            exit;
+        }
+    break;
+
     
     // //////////////////////////////////////////////////////////////////////////////
     // Módulos para usuario inventario
