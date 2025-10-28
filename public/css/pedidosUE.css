@@ -26,6 +26,8 @@
     justify-content: center;
     align-items: center;
 }
+
+
 .regis-pedidos{
     display: flex;
     align-items: center;
@@ -63,3 +65,43 @@ button{
     padding: 10px;
     border-radius: 10px;
 }
+
+.tabla-lista-pedidos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tabla-pedidos-registrados{
+    width: 100%;
+    overflow-x: auto;
+
+}
+/* ==================================== */
+/* ESTILOS PARA EDITAR PEDIDOS */
+/* ==================================== */
+
+.editar-pedidos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%
+}
+
+.form-edit-ped{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.form-edit-ped form div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+

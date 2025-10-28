@@ -47,6 +47,11 @@ exit;
                         <h3>Inventario</h3>
                     </a>
                 </div>
+                <div class="mini-menu-a">
+                <a href="<?= BASE_URL ?>inv/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
                 <div class="mini-menu-b">
                     <a href="<?= BASE_URL ?>logout">
                         <h3>Salir</h3>
@@ -70,6 +75,11 @@ exit;
                         <h3>Inventario</h3>
                     </a>
                 </div>
+                <div class="menu-a">
+                <a href="<?= BASE_URL ?>inv/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
                 <div class="menu-b">
                     <a href="<?= BASE_URL ?>logout">
                         <h3>Salir</h3>

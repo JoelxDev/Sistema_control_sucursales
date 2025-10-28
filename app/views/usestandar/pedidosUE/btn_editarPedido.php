@@ -53,7 +53,10 @@
     <div class="content">
         <div class="encabezado">
             <div class="titulo">
-                <h3>SUCURSAL</h3>
+                <h3>SUCURSAL: <?= htmlspecialchars(
+                                    $sucursal_nombre ?? $_SESSION['nombre_sucursal']
+                                        ?? (isset($_SESSION['id_sucursal']) ? 'Sucursal #' . (int)$_SESSION['id_sucursal'] : 'No asignada')
+                                ) ?></h3>
             </div>
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>usuario/perfil">
@@ -108,49 +111,48 @@
                     </div>
                 </div>
                 <div class="lower-body">
-                    <div class="regis-pedidos">
+                    <div class="editar-pedidos">
                         <div class="subtitulo">
-                            <h3>Registrar pedido</h3>
+                            <h3>Editar pedido</h3>
                         </div>
-                        <div class="form-regist-ped">
+                        <div class="form-edit-ped">
                             <form method="POST" action="<?= BASE_URL ?>usuario/pedidos/editar" style="display:grid;gap:10px;max-width:720px;">
                                 <input type="hidden" name="id_pedido" value="<?= (int)$pedido['id_pedido'] ?>">
-
-                                <label>Cliente
-                                    <input type="text" name="cliente_ped" required value="<?= htmlspecialchars($pedido['cliente_ped'] ?? '') ?>">
-                                </label>
-
-                                <label>Producto
-                                    <input type="text" name="producto_ped" required value="<?= htmlspecialchars($pedido['producto_ped'] ?? '') ?>">
-                                </label>
-
-                                <label>Detalles
-                                    <textarea name="detalles_ped" rows="3"><?= htmlspecialchars($pedido['detalles_ped'] ?? '') ?></textarea>
-                                </label>
-
-                                <label>Fecha entrega
-                                    <input type="datetime-local" name="fecha_entrega" required value="<?= !empty($pedido['fecha_entrega']) ? date('Y-m-d\TH:i', strtotime($pedido['fecha_entrega'])) : '' ?>">
-                                </label>
-
-                                <label>Pago adelanto
-                                    <input type="number" step="0.01" min="0" name="pago_adelanto" value="<?= number_format((float)($pedido['pago_adelanto'] ?? 0), 2, '.', '') ?>">
-                                </label>
-
-                                <label>Pago completado
-                                    <input type="number" step="0.01" min="0" name="pago_completado" value="<?= number_format((float)($pedido['pago_completado'] ?? 0), 2, '.', '') ?>">
-                                </label>
-
-                                <label>Estado
-                                    <select name="estado_ped">
-                                        <?php foreach (['pendiente', 'en_proceso', 'completado', 'cancelado'] as $est): ?>
-                                            <option value="<?= $est ?>" <?= (($pedido['estado_ped'] ?? '') === $est) ? 'selected' : '' ?>><?= ucfirst(str_replace('_', ' ', $est)) ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </label>
-
+                                <div>
+                                    <label>Cliente</label>
+                                        <input type="text" name="cliente_ped" required value="<?= htmlspecialchars($pedido['cliente_ped'] ?? '') ?>">
+                                </div>
+                                <div>
+                                    <label>Producto</label>
+                                        <input type="text" name="producto_ped" required value="<?= htmlspecialchars($pedido['producto_ped'] ?? '') ?>">
+                                </div>
+                                <div>
+                                    <label>Detalles</label>
+                                        <textarea name="detalles_ped" rows="3"><?= htmlspecialchars($pedido['detalles_ped'] ?? '') ?></textarea>
+                                </div>
+                                <div>
+                                    <label>Fecha entrega</label>
+                                        <input type="datetime-local" name="fecha_entrega" required value="<?= !empty($pedido['fecha_entrega']) ? date('Y-m-d\TH:i', strtotime($pedido['fecha_entrega'])) : '' ?>">
+                                </div>
+                                <div>
+                                    <label>Pago adelanto</label>
+                                        <input type="number" step="0.01" min="0" name="pago_adelanto" value="<?= number_format((float)($pedido['pago_adelanto'] ?? 0), 2, '.', '') ?>">
+                                </div>
+                                <div>
+                                    <label>Pago completado</label>
+                                        <input type="number" step="0.01" min="0" name="pago_completado" value="<?= number_format((float)($pedido['pago_completado'] ?? 0), 2, '.', '') ?>">
+                                </div>
+                                <div>
+                                    <label>Estado</label>
+                                        <select name="estado_ped">
+                                            <?php foreach (['pendiente', 'entregado', 'cancelado'] as $est): ?>
+                                                <option value="<?= $est ?>" <?= (($pedido['estado_ped'] ?? '') === $est) ? 'selected' : '' ?>><?= ucfirst(str_replace('_', ' ', $est)) ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                </div>
                                 <div style="display:flex;gap:8px;">
-                                    <button type="submit">Guardar cambios</button>
-                                    <a href="<?= BASE_URL ?>usuario/pedidos/listaPedidos">Cancelar</a>
+                                    <button type="submit" class="btn-editar">Guardar cambios</button>
+                                    <a href="<?= BASE_URL ?>usuario/pedidos/listaPedidos"><button>Cancelar</button></a>
                                 </div>
                             </form>
                         </div>

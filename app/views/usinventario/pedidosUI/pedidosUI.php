@@ -1,21 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historial de Pedidos</title>
     <link rel="stylesheet" href="/css/globalStyle.css">
     <link rel="stylesheet" href="/css/pedidos.css">
+    <title>Historial de Asignaciones</title>
 </head>
 
 <body>
     <!-- Interfaz Para pantallas pequeñas -->
-
     <div class="encabezado-mvl">
         <div class="cl-titulo">
-            <h3 class="titulo-mvl">ADMINISTRADOR</h3>
+            <h3 class="titulo-mvl">INVENTARIADO</h3>
         </div>
         <div class="img-menu">
             <img src="<?= BASE_URL ?>/img/file.png" alt="">
@@ -23,43 +21,19 @@
         </div>
 
     </div>
-
-    <div class="mini-content">
+    <div class="mini-content"> 
         <div class="mini-encabezado">
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/informacion">
-                    <h3>Informacion</h3>
-                </a>
+                <a href="<?= BASE_URL ?>inv/informacion"><h3>Informacion</h3></a>
             </div>
             <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/sucursales">
-                    <h3>Sucursales</h3>
-                </a>
-            </div>
-            <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/usuarios">
-                    <h3>Usuarios</h3>
-                </a>
-            </div>
-            <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/reporte_ventas">
-                    <h3>Reporte Ventas</h3>
-                </a>
-            </div>
-            <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/inventario">
-                    <h3>Inventario</h3>
-                </a>
-            </div>
-            <div class="mini-menu-a">
-                <a href="<?= BASE_URL ?>admin/pedidos">
-                    <h3>Pedidos</h3>
-                </a>
+                <a href="<?= BASE_URL ?>inv/inventario"><h3>Inventario</h3></a>
             </div>
             <div class="mini-menu-b">
-                <a href="<?= BASE_URL ?>logout">
-                    <h3>Salir</h3>
-                </a>
+                <a href="<?= BASE_URL ?>inv/pedidos"><h3>Pedidos</h3></a>
+            </div>
+            <div class="mini-menu-b">
+                <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
             </div>
         </div>
     </div>
@@ -67,35 +41,20 @@
     <div class="content">
         <div class="encabezado">
             <div class="titulo">
-                <h3>ADMINISTRADOR</h3>
+                <h3>INVENTARIADO: </h3>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/informacion">
+                <a href="<?= BASE_URL ?>inv/informacion">
                     <h3>Informacion</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/sucursales">
-                    <h3>Sucursales</h3>
-                </a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/usuarios">
-                    <h3>Usuarios</h3>
-                </a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/reporte_ventas">
-                    <h3>Reporte Ventas</h3>
-                </a>
-            </div>
-            <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/inventario">
+                <a href="<?= BASE_URL ?>inv/inventario">
                     <h3>Inventario</h3>
                 </a>
             </div>
             <div class="menu-a">
-                <a href="<?= BASE_URL ?>admin/pedidos">
+                <a href="<?= BASE_URL ?>inv/pedidos">
                     <h3>Pedidos</h3>
                 </a>
             </div>
@@ -105,12 +64,19 @@
                 </a>
             </div>
         </div>
-        <div class="cuerpo">
-            <div class="Pe-main-body">
+        <!-- Desde aqui se puede modificar para otros modulos -->
+    <div class="cuerpo">
+
+        <!-- <div class="reg-vent-body"> -->
+            <div class="main-body">
                 <div class="upper-body">
-                    <div>
-                        <button onclick="btn_HPedidos()">Historial de pedidos</button>
-                    </div>
+                    <!-- <div>
+                        <label for="orden_list">Ordenar por</label>
+                        <select name="" id="orden_list">
+                            <option value="">Hoy</option>
+                        </select>
+                    </div> -->
+                    <a href="<?= BASE_URL ?>inv/pedidos/historial"><button>Ver Historial</button></a>
                 </div>
                 <div class="lower-body">
                     <div class="cuad-pedidos">
@@ -127,7 +93,7 @@
                                             <th>Cantidad</th>
                                             <th>Detalles</th>
                                             <th>Adelanto</th>
-                                            <th>Ultimo pago</th>
+                                            <!-- <th>Ultimo pago</th> -->
                                             <th>Fecha registrada</th>
                                             <th>Fecha de entrega</th>
                                             <th>Estado</th>
@@ -145,7 +111,7 @@
                                                 <td><?= htmlspecialchars($p['cantidad_ped'] ?? '') ?></td>
                                                 <td><?= htmlspecialchars($p['detalles_ped'] ?? '') ?></td>
                                                 <td><?= number_format((float)($p['pago_adelanto'] ?? 0), 2) ?></td>
-                                                <td><?= number_format((float)($p['pago_completado'] ?? 0), 2) ?></td>
+                                                <!-- <td><?= number_format((float)($p['pago_completado'] ?? 0), 2) ?></td> -->
                                                 <td><?= htmlspecialchars($p['fecha_pedido'] ?? '') ?></td>
                                                 <td><?= htmlspecialchars($p['fecha_entrega'] ?? '') ?></td>
                                                 <td><?= htmlspecialchars(ucfirst(str_replace('_',' ',$p['estado_ped'] ?? ''))) ?></td>
@@ -161,11 +127,8 @@
                 </div>
             </div>
         </div>
+                <!-- </div> -->
     </div>
-    <!-- Desde aqui se puede modificar para otros modulos -->
-
     <script src="/js/main.js"></script>
-
 </body>
-
 </html>

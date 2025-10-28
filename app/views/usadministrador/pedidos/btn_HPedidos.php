@@ -94,43 +94,39 @@ require_once __DIR__ . '/../../../models/us_administrador/informacion/informacio
                         <table>
                             <thead>
                                 <tr>
-                                    <th>
-                                        Nombre del cliente
-                                    </th>
-                                    <th>
-                                        Nombre del producto
-                                    </th>
-                                    <th>
-                                        Cantidad
-                                    </th>
-                                    <th>
-                                        Sucursal
-                                    </th>
-                                    <th>
-                                        Nombre del personal
-                                    </th>
-                                    <th>
-                                        Fecha registrada
-                                    </th>
-                                    <th>
-                                        Fecha de entrega
-                                    </th>
-                                    <th>
-                                        entrega
-                                    </th>
+                                    <th>Nombre del cliente</th>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Detalles</th>
+                                    <th>Adelanto</th>
+                                    <th>Ultimo pago</th>
+                                    <th>Fecha registrada</th>
+                                    <th>Fecha de entrega</th>
+                                    <th>Estado</th>
+                                    <th>Sucursal</th>
+                                    <th>Nombre del personal</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Nathan</td>
-                                    <td>Torta matrimonial</td>
-                                    <td>1</td>
-                                    <td>N° 3</td>
-                                    <td>Kevin</td>
-                                    <td>8/5/2023</td>
-                                    <td>10/5/2023</td>
-                                    <td>10/5/2023</td>
-                                </tr>
+                                <?php if (empty($todosPedidos)): ?>
+                                    <tr><td colspan="11" style="text-align:center;color:#666">Sin pedidos</td></tr>
+                                <?php else: foreach ($todosPedidos as $tp): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($tp['cliente_ped'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($tp['producto_ped'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($tp['cantidad_ped'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($tp['detalles_ped'] ?? '') ?></td>
+                                        <td><?= number_format((float)($tp['pago_adelanto'] ?? 0), 2) ?></td>
+                                        <td>
+                                            <?= number_format((float)($tp['pago_completado'] ?? 0), 2) ?>
+                                        </td>
+                                        <td><?= htmlspecialchars($tp['fecha_pedido'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($tp['fecha_entrega'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars(ucfirst(str_replace('_',' ',$tp['estado_ped'] ?? ''))) ?></td>
+                                        <td><?= htmlspecialchars($tp['sucursal'] ?? '') ?></td>
+                                        <td><?= htmlspecialchars($tp['personal'] ?? '') ?></td>
+                                    </tr>
+                                <?php endforeach; endif; ?>
                             </tbody>
                         </table>
                     </div>

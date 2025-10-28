@@ -314,6 +314,7 @@ switch ($request) {
 // ======= Módulo de pedidos
     case 'admin/pedidos':
         if ($tipo === 'administrador') {
+            require_once $base_c . 'us_administrador/contPedidos/listPedidos.php';
             require_once $base . 'usadministrador/pedidos/pedidos.php';
         } else {
             http_response_code(403);
@@ -323,6 +324,7 @@ switch ($request) {
     
     case 'admin/pedidos/HistorialPedidos':
         if ($tipo === 'administrador') {
+            require_once $base_c . 'us_administrador/contPedidos/listPedidos.php';
             require_once $base . 'usadministrador/pedidos/btn_HPedidos.php';
         } else {
             http_response_code(403);
@@ -489,6 +491,26 @@ switch ($request) {
     case 'inv/inventario/historialAsignaciones':
     if ($tipo === 'inventario') {
             require_once $base . 'usinventario/inventarioUI/historialAsigUI.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
+
+    case 'inv/pedidos':
+    if ($tipo === 'inventario') {
+            require_once $base_c . 'us_inventario/contPedidos/listPedidosUI.php';
+            require_once $base . 'usinventario/pedidosUI/pedidosUI.php';
+    } else {
+        http_response_code(403);
+        echo "<h1>403 - Acceso denegado</h1>";
+    }
+    break;
+
+    case 'inv/pedidos/historial':
+    if ($tipo === 'inventario') {
+            require_once $base_c . 'us_inventario/contPedidos/listPedidosUI.php';
+            require_once $base . 'usinventario/pedidosUI/btn_historialPedidos.php';
     } else {
         http_response_code(403);
         echo "<h1>403 - Acceso denegado</h1>";

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/globalStyle.css">
-    <!-- <link rel="stylesheet" href="/css/pedidosUE.css"> -->
+    <link rel="stylesheet" href="/css/pedidosUE.css">
     <title>Lista de pedidos</title>
 </head>
 
@@ -59,7 +59,7 @@
     <div class="content">
         <div class="encabezado">
             <div class="titulo">
-                <h3>Joel</h3>
+                <h3>SUCURSAL</h3>
             </div>
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>usuario/perfil">
@@ -93,10 +93,10 @@
             <div class="main-body">
                 <div class="upper-body">
                     <div>
-                        <label for="orden_list">Ordenar por</label>
+                        <!-- <label for="orden_list">Ordenar por</label>
                         <select name="" id="orden_list">
                             <option value="">Hoy</option>
-                        </select>
+                        </select> -->
                     </div>
                 </div>
                 <div class="lower-body">
@@ -135,23 +135,13 @@
                                                 <td><?= htmlspecialchars($p['cantidad_ped'] ?? ($p['detalles_ped'] ?? '')) ?></td>
                                                 <td><?= htmlspecialchars($p['detalles_ped'] ?? '') ?></td>
                                                 <td><?= number_format((float)($p['pago_adelanto'] ?? 0), 2) ?></td>
-                                                <td><?= htmlspecialchars(((string)($p['pago_completado'] ?? '')) === '1' || strtolower((string)($p['pago_completado'] ?? '')) === 'si' ? 'Sí' : 'No') ?></td>
+                                                <td><?= number_format(((float)($p['pago_completado'] ?? 0)), 2) ?></td>
                                                 <td><?= htmlspecialchars($p['fecha_pedido'] ?? '') ?></td>
                                                 <td><?= htmlspecialchars($p['fecha_entrega'] ?? '') ?></td>
                                                 <td><?= htmlspecialchars($p['nombre_usuario'] ?? '') ?></td>
                                                 <td><?= htmlspecialchars(ucfirst(str_replace('_', ' ', $p['estado_ped'] ?? ''))) ?></td>
                                                 <td style="white-space:nowrap">
                                                     <a href="<?= BASE_URL ?>usuario/pedidos/editar?id=<?= (int)$p['id_pedido'] ?>"><button class="btn-editar">Editar</button></a>
-
-                                                    <!-- <form action="<?= BASE_URL ?>usuario/pedidos/estado" method="POST" style="display:inline-block;margin-left:8px;">
-                                                        <input type="hidden" name="id_pedido" value="<?= (int)$p['id_pedido'] ?>">
-                                                        <select name="estado_ped" style="vertical-align:middle">
-                                                            <?php foreach (['pendiente', 'en_proceso', 'completado', 'cancelado'] as $est): ?>
-                                                                <option value="<?= $est ?>" <?= (($p['estado_ped'] ?? '') === $est) ? 'selected' : '' ?>><?= ucfirst(str_replace('_', ' ', $est)) ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                        <button type="submit">OK</button>
-                                                    </form> -->
 
                                                     <form action="<?= BASE_URL ?>usuario/pedidos/eliminar" method="POST" style="display:inline-block;margin-left:8px;" onsubmit="return confirm('Eliminar pedido #<?= (int)$p['id_pedido'] ?>?')">
                                                         <input type="hidden" name="id_pedido" value="<?= (int)$p['id_pedido'] ?>">

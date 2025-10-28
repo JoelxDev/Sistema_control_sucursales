@@ -130,10 +130,10 @@
                                     <label for="">Descripción</label>
                                     <input type="text" name="txtdescripcion" placeholder="Descripción">
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <label for="">Fecha registrada</label>
                                     <input type="date" name="txtfecha_registro" placeholder="Fecha y hora de registro">
-                                </div>
+                                </div> -->
                                 <div>
                                     <label for="">Fecha y hora de entrega</label>
                                     <input type="date" name="txtfecha_entrega" placeholder="Fecha y hora de entrega">

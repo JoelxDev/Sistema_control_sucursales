@@ -32,6 +32,11 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
             <div class="mini-menu-a">
                 <a href="<?= BASE_URL ?>inv/inventario"><h3>Inventario</h3></a>
             </div>
+            <div class="mini-menu-a">
+                <a href="<?= BASE_URL ?>inv/pedidos">
+                    <h3>Pedidos</h3>
+                </a>
+            </div>
             <div class="mini-menu-b">
                 <a href="<?= BASE_URL ?>logout"><h3>Salir</h3></a>
             </div>
@@ -51,6 +56,11 @@ require_once __DIR__ . '/../../../controllers/us_inventario/inventarioUI/con_his
             <div class="menu-a">
                 <a href="<?= BASE_URL ?>inv/inventario">
                     <h3>Inventario</h3>
+                </a>
+            </div>
+            <div class="menu-a">
+                <a href="<?= BASE_URL ?>inv/pedidos">
+                    <h3>Pedidos</h3>
                 </a>
             </div>
             <div class="menu-b">
